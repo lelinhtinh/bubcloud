@@ -1,0 +1,19 @@
+{
+    "html": {
+        "end-with-newline": true,
+        "preserve-newlines": true,
+        "max-preserve-newlines": 2
+    },
+    "css": {
+        "end-with-newline": true,
+        "selector-separator-newline": true,
+        "newline-between-rules": true
+    },
+    "js": {
+        "end-with-newline": true,
+        "preserve-newlines": true,
+        "max-preserve-newlines": 2,
+        "brace-style": "collapse-preserve-inline",
+        "unescape-strings": true
+    }
+}

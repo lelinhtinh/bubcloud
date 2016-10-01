@@ -1,0 +1,323 @@
+@love: #ff4081;
+
+#boardIndex .borderwrap:after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid @wrapperColor;
+}
+
+#favouriteBox h2 {
+    color: @love;
+}
+
+.zzFavourite {
+    cursor: pointer;
+    color: @love;
+    transition: all .3s;
+    opacity: 0;
+
+    &:hover {
+        transform: scale(1.5);
+        color: @love;
+    }
+}
+
+#boxWrap tr {
+    img.icon {
+        transform: rotate(0deg) scale(.8);
+        transition: all .3s;
+    }
+
+    &:hover {
+        .zzFavourite {
+            opacity: 1;
+        }
+
+        .forumtitle,
+        .tcl strong {
+            color: @love;
+        }
+
+        img.icon {
+            transform: rotate(360deg) scale(1);
+        }
+    }
+}
+
+.contract,
+.expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    width: 1.35em;
+
+    &:hover {
+        cursor: pointer;
+        color: @darkSecondaryColor;
+    }
+
+    &:before {
+        .fa();
+        font-weight: 300;
+        font-size: 22px;
+    }
+}
+
+.contract:before {
+    content: "";
+}
+
+.expand:before {
+    content: "";
+}
+
+.ipbtable {
+    width: 100%;
+    table-layout: auto;
+}
+
+.index-box {
+    table-layout: auto;
+
+    .forum,
+    .post-info {
+        .text-left();
+    }
+
+    .statusIcon,
+    .row1.centered,
+    .lastpost-avatar,
+    .forum-desc,
+    thead {
+        .hide()
+    }
+
+    .row1.centered {
+        width: 45px;
+    }
+
+    tr {
+        border-top: 1px solid @wrapperColor;
+
+        &:first-child,
+        &:first-child[style="display: none;"] + tr,
+        &:first-child[style="display: none;"] ~ tr[style="display: none;"] + tr {
+            border-top: 0 none;
+        }
+    }
+
+    td {
+        padding: 10px 0;
+    }
+
+    .row2.icon {
+        width: 60%;
+    }
+
+    .row1 a[href=""]:after {
+        font-style: italic;
+        color: @lightSecondaryColor;
+        content: "Không có bài viết";
+    }
+}
+
+.hierarchy {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 300;
+}
+
+.stat4r {
+    .show();
+    padding-right: 10px;
+    font-size: 12px;
+    color: @lightSecondaryColor;
+
+    & > strong {
+        color: @darkSecondaryColor;
+    }
+
+    .sub4r& strong {
+        padding-right: 15px;
+        background: url("//i56.servimg.com/u/f56/18/59/49/93/arrow_10.png") no-repeat right center transparent;
+    }
+
+    .row1 & strong,
+    .row1 & .gensmall {
+        .hide();
+    }
+}
+
+.subLink {
+    list-style: outside none none;
+    padding-left: 10px;
+
+    a {
+        .show();
+        min-width: 95px;
+        margin: 4px 0;
+        padding: 4px 8px;
+    }
+}
+
+.forum-desc {
+    font-style: italic;
+    color: @lightSecondaryColor;
+
+    br {
+        .hide();
+    }
+}
+
+.last-post-icon {
+    .show();
+    .circle();
+    .centered();
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin: 10px 0;
+    border: 1px solid @wrapperColor;
+    line-height: 30px;
+    background-color: @primaryBg;
+
+    &:hover,
+    &:focus {
+        background-color: @secondaryBg;
+    }
+}
+
+.linklist {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li a {
+            .inline-block();
+            margin: 4px 0;
+            padding: 4px 0;
+        }
+    }
+
+    i {
+        width: 1.3em;
+    }
+}
+
+#fo_stat {
+    .row1 {
+        .hide();
+    }
+
+    .row2 {
+        width: 100%;
+        padding: 7px 0;
+    }
+
+    th {
+        .text-left();
+        padding-top: 20px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid @wrapperColor;
+    }
+
+    td p {
+        margin: 0;
+    }
+}
+
+.ul-icons-home {
+    .no-list();
+    padding-left: 0;
+
+    li {
+        img {
+            vertical-align: middle;
+        }
+    }
+}
+
+.lastpost-avatar {
+    .circle();
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 20px;
+    background: url("//i56.servimg.com/u/f56/18/59/49/93/noavat10.jpg") no-repeat left top/100% auto @secondaryBg;
+
+    img {
+        width: 100%;
+        background: @wrapperColor;
+    }
+}
+
+@media @mobile {
+    .stat4r {
+        &.sub4r {
+            .floated();
+
+            &:hover .subLink {
+                top: 15px;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .index-box p > &,
+        .row1 & strong,
+        .row1 & .gensmall {
+            .inline-block();
+        }
+    }
+
+    .subLink {
+        .dropdown();
+        .triangle-up(right, 14px, 8px);
+        top: 5px;
+        right: 10px;
+        z-index: 30;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 200ms ease-in-out;
+    }
+
+    .ul-icons-home {
+        li {
+            .centered();
+            width: 33.33%;
+            float: left;
+        }
+    }
+}
+
+@media @tablet {
+    .index-box {
+        .forum-desc,
+        .lastpost-avatar {
+            .show();
+        }
+
+        .row1.centered,
+        .statusIcon {
+            display: table-cell;
+        }
+    }
+
+    #fo_stat {
+        .row1 {
+            .show();
+            width: 58px;
+
+            img {
+                width: 48px;
+                margin: 8px 10px 0 0;
+            }
+        }
+    }
+}

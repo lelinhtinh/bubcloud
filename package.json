@@ -1,0 +1,58 @@
+{
+    "name": "bubcloud",
+    "version": "0.4.1",
+    "description": "A responsive theme for Forumotion",
+    "keywords": [
+        "forumotion",
+        "forum",
+        "invision",
+        "theme",
+        "bubcloud"
+    ],
+    "scripts": {
+        "gulp": "gulp",
+        "zip": "gulp zip",
+        "test": "gulp lint",
+        "build": "gulp build",
+        "start": "gulp serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/baivong/bubcloud"
+    },
+    "bugs": {
+        "url": "https://github.com/baivong/bubcloud/issues",
+        "email": "Zzbaivong@gmail.com"
+    },
+    "homepage": "http://devs.forumvi.com",
+    "author": {
+        "name": "Zzbaivong",
+        "email": "Zzbaivong@gmail.com",
+        "url": "http://baivong.github.io"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "browser-sync": "^2.14.3",
+        "eslint": "^3.6.1",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-clean-css": "^2.0.12",
+        "gulp-concat": "^2.6.0",
+        "gulp-cssmin": "^0.1.7",
+        "gulp-eslint": "^3.0.1",
+        "gulp-header": "^1.8.8",
+        "gulp-less": "^3.1.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-stylelint": "^3.3.0",
+        "gulp-uglify": "^2.0.0",
+        "gulp-util": "^3.0.7",
+        "gulp-zip": "^3.2.0",
+        "merge-stream": "^1.0.0"
+    },
+    "dependencies": {
+        "font-awesome": "^4.6.3",
+        "jquery": "^3.1.0",
+        "normalize.css": "^4.2.0",
+        "roboto-fontface": "^0.6.0"
+    }
+}

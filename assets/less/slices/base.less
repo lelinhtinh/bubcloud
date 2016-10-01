@@ -1,0 +1,219 @@
+/* stylelint-disable selector-no-universal */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+/* stylelint-enable selector-no-universal */
+html {
+    height: 100%;
+    min-height: 100%;
+    background: @secondaryColor;
+}
+
+body {
+    line-height: @lineHeight;
+    font: @weightBase @sizeBase/@lineHeight @fontBase;
+    color: @secondaryColor;
+    background: @wrapperColor;
+}
+
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section {
+    .floated();
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: @primaryColor;
+    transition: all 225ms ease;
+
+    &:focus,
+    &:hover {
+        color: @darkPrimaryColor;
+    }
+}
+
+input {
+    line-height: inherit;
+
+    &[type="checkbox"],
+    &[type="radio"] {
+        margin-top: -.22em;
+        margin-right: .5em;
+        vertical-align: middle;
+    }
+
+    &[type="password"],
+    &[type="search"],
+    &[type="text"] {
+        .input();
+        max-width: 100%;
+    }
+}
+
+textarea {
+    &:extend(input[type="text"]);
+}
+
+select {
+    .select();
+    max-width: 275px;
+    cursor: pointer;
+
+    option {
+        padding: 6px 8px;
+        cursor: pointer;
+    }
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+legend {
+    font-weight: 500;
+}
+
+table {
+    table-layout: fixed;
+    empty-cells: hide;
+    border-collapse: collapse;
+
+    th {
+        .text-left();
+        padding: 5px 0;
+        border-bottom: 2px solid @wrapperColor;
+        vertical-align: middle;
+        font-weight: 500;
+    }
+
+    td {
+        padding: 5px 0;
+    }
+}
+
+dl {
+    dt {
+        font-weight: 500;
+    }
+
+    dd {
+        margin: 17.633px 0;
+
+        > label {
+            margin-right: 20px;
+        }
+    }
+}
+
+label {
+    .inline-block();
+}
+
+hr {
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: @wrapperColor;
+
+    .dashed {
+        border-style: dashed;
+    }
+}
+
+.borderwrap {
+    .floated();
+    margin: 40px 0;
+
+    .maintitle {
+        .floated();
+        text-transform: uppercase;
+        color: @lightSecondaryColor;
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 100;
+            line-height: 120%;
+
+            > div {
+                .text-left() !important;
+            }
+
+            a {
+                color: @primaryColor !important;
+
+                &:focus,
+                &:hover {
+                    color: @darkPrimaryColor !important;
+                }
+            }
+        }
+    }
+
+    > .ipbform,
+    > fieldset,
+    .box-content,
+    .maincontent,
+    .maintitle ~ fieldset {
+        .floated();
+        .box();
+        .triangle-up(left, 20px, 10px);
+    }
+
+    > .ipbform > .box-content {
+        margin: -15px;
+        box-shadow: none;
+        border: 0 none;
+    }
+
+    body > & {
+        margin: 0;
+        padding: .5em;
+    }
+}
+
+.wrap {
+    min-width: 300px;
+    padding: 0 .5em;
+}
+
+[style="clear:both;"],
+html body #emptyidcc .mainmenu[style="padding:10px 0 0 0 !important;"] {
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+@media @tablet {
+    .wrap {
+        max-width: 978px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .col- {
+        &2 > dl {
+            width: 50%;
+            float: left;
+        }
+
+        &3 > dl {
+            width: 33.33%;
+            float: left;
+        }
+
+        &4 > dl {
+            width: 25%;
+            float: left;
+        }
+    }
+}

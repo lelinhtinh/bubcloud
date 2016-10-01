@@ -1,0 +1,42 @@
+.vote_zzvote {
+    > a.vote_plus {
+        .inline-block();
+        .radius();
+        margin: 2px 0;
+        padding: 2px 6px;
+        border: 1px solid @wrapperColor;
+        font-weight: 500;
+        font-size: 12px;
+        color: @secondaryColor;
+        background: none no-repeat center center @primaryBg;
+        cursor: pointer;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+        transition: background .3s;
+
+        &:hover,
+        &:focus {
+            border-color: @dividerColor;
+        }
+
+        &[href=""],
+        &[href="javascript:;"] {
+            border-color: transparent;
+            background-color: @error;
+            cursor: default;
+            color: @textPrimaryColor;
+        }
+
+        &.dis {
+            background-color: @secondaryBg;
+            color: @lightSecondaryColor;
+
+            &:hover,
+            &:focus {
+                border-color: @secondaryBg;
+                /* stylelint-disable no-unsupported-browser-features */
+                cursor: not-allowed;
+                /* stylelint-enable no-unsupported-browser-features */
+            }
+        }
+    }
+}

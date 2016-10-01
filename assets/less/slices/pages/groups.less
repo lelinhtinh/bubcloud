@@ -1,0 +1,55 @@
+.group-name {
+    font-size: 22px;
+}
+
+.module label {
+    &:extend(dl dd > label);
+}
+
+.group-users {
+    th {
+        .centered();
+    }
+
+    tr {
+        &:extend(.topic-list-box tr);
+
+        &:last-child {
+            &:extend(.topic-list-box tr:last-child);
+        }
+    }
+
+    thead {
+        .hide();
+    }
+
+    td.centered {
+        .hide();
+
+        &:last-child {
+            .centered();
+            display: table-cell;
+        }
+
+        &:nth-child(2) {
+            .text-left();
+            display: table-cell;
+        }
+    }
+}
+
+@media @tablet {
+    .group-users {
+        thead {
+            display: table-row-group;
+        }
+
+        td.centered {
+            display: table-cell;
+
+            &:nth-child(2) {
+                .centered();
+            }
+        }
+    }
+}

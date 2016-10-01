@@ -1,0 +1,77 @@
+.maintitle + .subtitle {
+    .hide();
+}
+
+.login {
+    legend,
+    .fb_or {
+        .hide();
+    }
+
+    .fb_login .left,
+    .connexion .left {
+        float: none;
+        clear: left;
+    }
+
+    .fb_login {
+        &:extend(.connexion .left);
+        .centered();
+        padding: 10px 0 0;
+    }
+}
+
+.box-content.error {
+    margin-bottom: 15px;
+    padding: 0 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.formcolumn1,
+.formcolumn2,
+.resend-pwd dl,
+.columned dl {
+    width: 100% !important;
+    margin: 10px auto !important;
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+    }
+}
+
+#cont_pwd {
+    .floated();
+}
+
+.pwd_img {
+    .hide();
+    .radius();
+    position: absolute;
+    top: 40px;
+    left: 0;
+    height: 4px;
+    text-indent: -9999px;
+}
+
+#pwd_bad {
+    width: 20%;
+    background: @error;
+}
+
+#pwd_middle {
+    width: 50%;
+    background: @warning;
+}
+
+#pwd_good {
+    width: 100%;
+    background: @success;
+}
+
+input[style="width:250px"] {
+    width: 100% !important;
+}

@@ -1,0 +1,79 @@
+#navstrip {
+    margin: 20px 0;
+    padding: 0;
+    border-left: 3px solid @primaryColor;
+
+    td:not(:first-child) > & {
+        border-left: 0 none;
+    }
+
+    > li {
+        .floated();
+        .show();
+        height: 30px;
+        float: left;
+        margin: 0;
+        padding: 0 10px 0 28px;
+        line-height: 30px;
+        background: @primaryBg;
+        color: @lightSecondaryColor;
+
+        a {
+            color: @lightSecondaryColor;
+        }
+
+        &.begin {
+            width: 37px;
+            padding-left: 4px;
+            background-color: @dividerColor;
+            background-image: none;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            > a {
+                .show();
+                width: 30px;
+                text-indent: -9999px;
+                background: url("http://i68.servimg.com/u/f68/19/38/83/61/home7810.png") no-repeat center center transparent;
+            }
+
+            &:before {
+                border-left-color: @dividerColor;
+            }
+        }
+
+        &:before,
+        &:after {
+            .show();
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: -17px;
+            z-index: 10;
+            width: 0;
+            height: 0;
+            border-width: 15px 0 15px 18px;
+            border-style: solid none solid solid;
+            border-color: transparent transparent transparent @primaryBg;
+        }
+
+        &:after {
+            right: -18px;
+            z-index: 5;
+            border-color: transparent transparent transparent @dividerColor;
+        }
+
+        &:hover {
+            background-color: @secondaryBg;
+            color: @darkSecondaryColor;
+
+            > a {
+                color: @darkSecondaryColor;
+            }
+
+            &:before {
+                border-left-color: @secondaryBg;
+            }
+        }
+    }
+}

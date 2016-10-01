@@ -1,0 +1,255 @@
+.size() {
+    .radius();
+    margin: 2px 0;
+    padding: 6px 8px;
+}
+
+.select() {
+    .size();
+    .border();
+
+    &:focus {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(245, 222, 50, .6);
+        border-color: #f8ee2b;
+        outline: 0 none;
+    }
+}
+
+.input() {
+    .select();
+    box-sizing: border-box!important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset;
+}
+
+.fa() {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.btn {
+    .size();
+    .inline-block();
+    border: 1px solid transparent;
+    background-color: @primaryColor;
+    color: @textPrimaryColor;
+    cursor: pointer;
+
+    &.large {
+        padding: 8px 15px;
+    }
+
+    &.small {
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    > .fa {
+        .centered();
+        width: 1em;
+    }
+
+    > span {
+        margin-left: 5px;
+    }
+
+    &:hover,
+    &:focus {
+        color: @textPrimaryColor;
+        background-color: @darkPrimaryColor;
+    }
+
+    &:active {
+        background-color: @secondaryColor;
+    }
+}
+
+.btnImg() {
+    &:extend(.btn);
+    margin-left: 5px;
+    padding-left: 30px;
+    background-position: 12px center;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+
+    &.fa {
+        padding-left: 12px;
+        line-height: inherit;
+        background-image: none!important;
+    }
+
+    &:hover,
+    &:focus {
+        &:extend(.btn:hover);
+    }
+
+    &:active {
+        &:extend(.btn:active);
+    }
+}
+
+.btnOk() {
+    background-image: url("//i39.servimg.com/u/f39/18/95/05/08/send10.png");
+}
+
+.btnSearch() {
+    background-image: url("//i39.servimg.com/u/f39/14/67/90/38/search10.png");
+}
+
+.btnRefresh() {
+    background-image: url("//i39.servimg.com/u/f39/18/95/05/08/refres10.png");
+}
+
+.btnRemove() {
+    background-image: url("//i39.servimg.com/u/f39/18/59/49/93/icon_e10.png");
+}
+
+.btnReview() {
+    background-image: url("//i35.servimg.com/u/f35/19/51/54/34/eye10.png");
+}
+
+.btnSave() {
+    background-image: url("//i39.servimg.com/u/f39/18/95/05/08/save10.png");
+}
+
+.btnMove() {
+    background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14085610.png");
+}
+
+.btnPlus() {
+    background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14085611.png");
+}
+
+.btnChoose() {
+    background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14085612.png");
+}
+
+.btnGrid() {
+    background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14085613.png");
+}
+
+.button,
+[type="button"],
+[type="submit"],
+a[href="javascript:window.close();"] {
+    .btnImg();
+    .btnOk();
+
+    .noIcon &,
+    &.noIcon {
+        padding-left: 12px;
+        background-image: none;
+    }
+}
+
+#find_user,
+#find_friend,
+form[action="/search"] [type="submit"],
+input[name="search"],
+input[name="searchform"] .button {
+    .btnSearch();
+}
+
+[type="reset"],
+[name="refresh"],
+[name="groupstatus"] {
+    .btnRefresh();
+}
+
+.button[href="/"],
+[name="valid"],
+#jqmHide,
+[name="remove"],
+[name="cancelavatar"],
+[name="cancel"],
+[name="delete"],
+[name="deleteall"],
+[name="delete_all"],
+[name="deny"],
+a[href="javascript:window.close();"] {
+    .btnRemove();
+}
+
+[name="prevent_modif"],
+[name="preview"] {
+    .btnReview();
+}
+
+[name="draft"],
+[name="save"] {
+    .btnSave();
+}
+
+[name="g"] + input,
+[name="fid"] + [name="go"],
+[name="moveprofile"],
+[name="active_time"] + input,
+[name="msgdays"] + input,
+[name="avatarcategory"] + [type="submit"],
+.liteoption {
+    .btnMove();
+}
+
+[name="add"],
+#friend + input,
+#foe + input {
+    .btnPlus();
+}
+
+[name="go"],
+[name="select_to"],
+#use {
+    .btnChoose();
+}
+
+[name="avatargallery"] {
+    .btnGrid();
+}
+
+.img-to-btn() {
+    &:extend(.btn);
+    .inline-block();
+
+    &:hover,
+    &:focus {
+        &:extend(.btn:hover);
+    }
+
+    &:active {
+        &:extend(.btn:active);
+    }
+
+    &:before {
+        .fa();
+    }
+
+    img {
+        .hide();
+    }
+}
+
+.formbuttonrow {
+    &:extend(#find_username .right);
+
+    p {
+        margin: 0;
+    }
+
+    #ucp > &,
+    .borderwrap > & {
+        margin: 0;
+    }
+
+    &:empty {
+        &:extend(.module:empty);
+    }
+}
+
+.buttonrow,
+.formbuttonrow {
+    a {
+        line-height: 37px;
+    }
+}

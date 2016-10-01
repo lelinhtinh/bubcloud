@@ -1,0 +1,25 @@
+{
+    "version": "0.1.0",
+    "command": "npm",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "serve",
+            "args": ["start"]
+        },
+        {
+            "taskName": "build",
+            "args": ["run", "build"]
+        },
+        {
+            "taskName": "archiver",
+            "args": ["run", "zip"]
+        },
+        {
+            "taskName": "test",
+            "args": ["test"]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+.color-list {
+    float: left;
+    margin: .5em;
+}
+
+.color-choose {
+    cursor: pointer;
+}
+
+.fa-stack-1x {
+    opacity: 0;
+    transition: opacity 300ms;
+    color: @textPrimaryColor;
+
+    .color-choose:hover &,
+    .color-choose.active & {
+        opacity: 1;
+    }
+}
+
+@media @tablet {
+    .has-sub > ul.color-panel {
+        width: 10.2em;
+        padding: .5em;
+    }
+
+    .fa-stack-1x {
+        color: @lightSecondaryColor;
+    }
+}

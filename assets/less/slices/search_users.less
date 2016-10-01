@@ -1,0 +1,29 @@
+.jqmOverlay {
+    background: #f9f9f9;
+    opacity: 1!important;
+}
+
+#find_username {
+    position: fixed;
+    left: 50%;
+    overflow: auto;
+    width: 300px;
+    height: 100%;
+    margin-left: -150px;
+    opacity: 1!important;
+
+    #search {
+        padding-right: 6px;
+        text-indent: -9999px;
+    }
+
+    .right {
+        overflow: hidden;
+        float: none;
+        margin: 15px -15px -20px;
+        padding: 15px;
+        border-radius: 0 0 @borderRadius @borderRadius;
+        background: @dividerColor;
+        box-shadow: 0 3px 4px rgba(0, 0, 0, .075) inset;
+    }
+}

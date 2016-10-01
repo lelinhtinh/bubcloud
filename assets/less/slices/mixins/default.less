@@ -1,0 +1,180 @@
+.empty-clear {
+    height: 30px;
+}
+
+.separator {
+    border-bottom: 1px dashed @wrapperColor;
+
+    &:last-child {
+        border-bottom: 0 none;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.invisible {
+    .hide();
+    visibility: hidden;
+}
+
+.visible {
+    .show();
+    visibility: visible;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.centered {
+    text-align: center;
+}
+
+.left {
+    .text-left();
+    float: left;
+}
+
+.right {
+    .text-right();
+    float: right;
+}
+
+.center {
+    .centered();
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.floated {
+    position: relative;
+}
+
+.no-list {
+    list-style-type: none;
+}
+
+.radius {
+    border-radius: @borderRadius;
+}
+
+.circle {
+    border-radius: @borderCircle;
+}
+
+.clearfix {
+    &:after {
+        .clear();
+        content: "";
+        display: table;
+    }
+}
+
+.subtitle {
+    .border();
+    .radius();
+    .centered();
+    margin: 5px 0;
+    padding: 5px;
+    font-weight: 500;
+    background: @primaryBg;
+
+    &.cleared {
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+
+    &:empty {
+        &:extend(.module:empty);
+    }
+}
+
+.module {
+    .radius();
+    overflow: hidden;
+    width: 100%;
+    padding: 15px;
+    background: @secondaryBg;
+
+    &.inner {
+        margin-top: -3px;
+        background: @dividerColor;
+    }
+
+    &:empty {
+        .hide();
+    }
+}
+
+.details-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    .details-row {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.errorwrap {
+    .radius();
+    padding: 1px 15px;
+    background: @error;
+    color: @textPrimaryColor;
+
+    h4 {
+        text-transform: uppercase;
+    }
+
+    a {
+        font-weight: 500;
+        color: lighten(@error, 38%);
+
+        &:focus,
+        &:hover {
+            color: @darkSecondaryColor;
+        }
+    }
+}
+
+.infowrap {
+    &:extend(.errorwrap);
+    background: @info;
+
+    h4 {
+        &:extend(.errorwrap h4);
+    }
+
+    a {
+        font-weight: 500;
+        color: lighten(@info, 38%);
+
+        &:focus,
+        &:hover {
+            &:extend(.errorwrap a:hover);
+        }
+    }
+}

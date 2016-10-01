@@ -1,0 +1,29 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules": true,
+        "**/bower_components": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true,
+        "**/templates/style.css": true
+    },
+    "files.associations": {
+        "*.tpl": "html",
+        ".jsbeautifyrc": "json",
+        ".stylelintrc": "json"
+    },
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "explorer.openEditors.visible": 0,
+    "editor.wordWrap": true,
+    "editor.renderIndentGuides": true,
+    "files.autoSave": "onWindowChange",
+    "javascript.validate.enable": false,
+    "less.validate": false,
+    "css.validate": false,
+    "sfmt.insize": 4
+}

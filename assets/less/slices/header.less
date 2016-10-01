@@ -1,0 +1,50 @@
+#header {
+    background-color: @darkPrimaryColor;
+}
+
+#logo {
+    float: left;
+    margin: 10px 0;
+
+    img {
+        .show();
+        height: 30px;
+    }
+}
+
+#main-title {
+    height: 50px;
+    margin-left: 40px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: @textPrimaryColor;
+
+    h1 {
+        margin: 0;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+}
+
+#site-desc {
+    margin: 0;
+    .hide();
+}
+
+@media @tablet {
+    #logo img {
+        height: 64px;
+    }
+
+    #main-title {
+        margin-left: 90px;
+    }
+
+    #site-desc {
+        &:extend(#main-title);
+        .show();
+        color: @lightPrimaryColor;
+    }
+}

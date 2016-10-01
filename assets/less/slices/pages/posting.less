@@ -1,0 +1,66 @@
+.posting-subject,
+textarea,
+[name="poll_title"],
+.report-abuse-textarea {
+    width: 100%;
+}
+
+.tiny {
+    width: 113px;
+}
+
+.review-details {
+    .floated();
+    margin: 15px 0 30px;
+    border-bottom: 1px solid @wrapperColor;
+    color: @lightSecondaryColor;
+
+    .date-review {
+        position: absolute;
+        right: 0;
+        bottom: -25px;
+    }
+
+    .author-review {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        margin-bottom: -25px;
+    }
+}
+
+.messaging-box {
+    margin-top: 20px;
+}
+
+.post-type-icons {
+    margin-bottom: 15px;
+
+    input {
+        .hide();
+
+        &:checked + span {
+            border-color: @primaryColor;
+        }
+    }
+
+    span {
+        .inline-block();
+        .circle();
+        .centered();
+        width: 30px;
+        height: 30px;
+        border: 1px solid transparent;
+        line-height: 30px;
+
+        &:hover {
+            border-color: @primaryColor;
+            cursor: pointer;
+        }
+    }
+
+    img {
+        vertical-align: middle;
+        margin-top: -5px;
+    }
+}

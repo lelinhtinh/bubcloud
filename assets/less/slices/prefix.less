@@ -1,0 +1,99 @@
+.prefix {
+    .hide();
+    .radius();
+    height: 17px;
+    padding: 0 4px;
+    line-height: 17px;
+    font-size: 12px;
+    color: @textPrimaryColor;
+    background: #666;
+
+    #recent_topics & {
+        .hide();
+    }
+
+    &.wiki {
+        background: #0aa0a0;
+    }
+
+    &.tips {
+        background: #0069da;
+    }
+
+    &.y-tuong {
+        background: #ffa500;
+    }
+
+    &.dong-gop {
+        background: #9c9832;
+    }
+
+    &.thao-luan {
+        background: #3bb48d;
+    }
+
+    &.hoi-dap {
+        background: #349fd3;
+    }
+
+    &.tuts {
+        background: #cc0a6e;
+    }
+
+    &.gist {
+        background: #fb4f2a;
+    }
+
+    &.ly-thuyet {
+        background: #60a917;
+    }
+
+    &.thong-bao {
+        background: #ff0000;
+    }
+
+    &.jquery-plugin {
+        background: #a708cf;
+    }
+
+    &.binh-chon,
+    &.event {
+        background: #ff5200;
+    }
+
+    &.quan-bar {
+        background: #3d49d5;
+    }
+
+    &.phong-hop {
+        background: #ff0066;
+    }
+
+    &.du-an,
+    &.thu-nghiem,
+    &.luu-tru {
+        background: #000000;
+    }
+
+    &.thung-rac {
+        background: #929292;
+    }
+
+    &.add-ons {
+        background: #6702ff;
+    }
+
+    &.tools {
+        background: #c97529;
+    }
+
+    &.userscript {
+        background: #8e44ad;
+    }
+}
+
+@media @desktop {
+    #recent_topics .prefix {
+        .inline-block();
+    }
+}

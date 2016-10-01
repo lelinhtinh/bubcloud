@@ -1,0 +1,98 @@
+.topic-list-box {
+    thead {
+        .hide();
+    }
+
+    tr {
+        border-bottom: 1px solid @wrapperColor;
+
+        td {
+            padding-top: 14px;
+        }
+
+        &:last-child {
+            border-bottom: 0 none;
+        }
+    }
+
+    .topic-title[data-type*="Quan trọng:"] .topictitle {
+        color: @error;
+    }
+
+    .topic-title[data-type*="Thông báo:"] .topictitle {
+        color: @error;
+    }
+
+    .topic-title[data-type*="Chú ý:"] .topictitle {
+        color: @warning;
+    }
+
+    .row2.centered,
+    .lastpost-avatar,
+    .row2.topic-title > img {
+        .hide();
+    }
+}
+
+.sticky-separator {
+    border-top: 3px double @wrapperColor;
+}
+
+.lastaction .stat4r > a:last-child {
+    &:extend(.last-post-icon);
+
+    &:hover,
+    &:focus {
+        &:extend(.last-post-icon:hover);
+    }
+}
+
+.ul-icons {
+    list-style: none;
+}
+
+.topic-desc {
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+}
+
+.topicthumbnail {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+@media @tablet {
+    .ul-icons {
+        width: 33.33%;
+        float: left;
+    }
+
+    p > .stat4r {
+        .inline();
+    }
+
+    .topic-list-box {
+        .row2.topic-title > img {
+            .inline();
+        }
+
+        .row2.centered {
+            display: table-cell;
+        }
+
+        .row1.lastaction {
+            width: 30%;
+        }
+
+        .lastpost-avatar {
+            .show();
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,137 @@
+.member {
+    &:extend(.topic-list-box tr);
+    margin-bottom: 15px;
+    padding-bottom: 16px;
+
+    &:last-child {
+        &:extend(.topic-list-box tr:last-child);
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+.member-avatar {
+    &:extend(.author-avatar);
+
+    img {
+        &:extend(.lastpost-avatar img);
+    }
+}
+
+.member-links > a {
+    &:extend(.author-links a);
+    margin-right: 8px;
+
+    img {
+        &:extend(.author-links img);
+
+        &:hover {
+            &:extend(.author-links img:hover);
+        }
+    }
+}
+
+.member-name,
+.member-links,
+.member-post {
+    margin-top: 4px;
+    margin-left: 85px;
+}
+
+.member-name {
+    font-size: 16px;
+}
+
+.member-post {
+    font-size: 22px;
+
+    small {
+        visibility: hidden;
+        color: @lightSecondaryColor;
+        opacity: 0;
+        transition: opacity 300ms;
+
+        .touch &,
+        .member:hover & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.member-status {
+    .wrapper();
+    .triangle-left(top, 5px, 10px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 70px;
+    z-index: 20;
+    visibility: hidden;
+    padding: 5px;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+
+    &:empty {
+        &:extend(.module:empty);
+    }
+
+    .member-avatar:hover + & {
+        left: 85px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.popupmember {
+    .wrapper();
+    .triangle-up(left, 23px, 10px);
+    position: absolute;
+    top: 85px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    padding: 10px;
+
+    .label {
+        .inline-block();
+        .text-right();
+        width: 103px;
+        padding-right: 10px;
+    }
+}
+
+@media @tablet {
+    .popupmember {
+        .show()!important;
+        top: 0;
+        bottom: 15px;
+        left: auto;
+        z-index: 0;
+        box-shadow: none;
+        border: 0 none;
+
+        .member:last-child & {
+            bottom: 0;
+        }
+
+        &:after,
+        &:before {
+            content: none;
+        }
+
+        .member-details {
+            line-height: 175%;
+        }
+    }
+
+    .member-name {
+        a {
+            cursor: default;
+        }
+
+        .fa {
+            .hide();
+        }
+    }
+}
