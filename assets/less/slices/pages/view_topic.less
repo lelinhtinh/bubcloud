@@ -1,5 +1,7 @@
 .postprofile {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed @wrapperColor;
 }
 
 .author-avatar {
@@ -9,11 +11,11 @@
     img {
         &:extend(.lastpost-avatar img);
         /* stylelint-disable no-unsupported-browser-features */
-        filter: grayscale(100%);
+        filter:grayscale(100%);
 
         .online&,
         &:hover {
-            filter: none;
+            filter:none;
         }
         /* stylelint-enable no-unsupported-browser-features */
     }
@@ -21,6 +23,7 @@
 
 .author-name {
     font-size: 16px;
+
     + .author-links {
         margin-top: 22px;
     }
@@ -53,7 +56,8 @@
     .border();
     .radius();
     margin-top: 15px;
-    padding: 7px 10px;
+    padding: 4px 10px;
+    font-size: 13px;
 }
 
 .field-label {
@@ -72,10 +76,20 @@
     padding: 4px 15px;
     font-family: monospace;
     font-size: 12px;
-    color: @lightSecondaryColor;
-    background: @wrapperColor;
+    color: @lightPrimaryColor;
+    background: @primaryColor;
+
     .postdetails + & {
         margin: 15px -15px 40px;
+    }
+
+    a {
+        color: @lightPrimaryColor;
+
+        &:hover,
+        &:focus {
+            color: @textPrimaryColor;
+        }
     }
 }
 
@@ -363,6 +377,7 @@ a.anchor {
         border: 1px solid @lightSecondaryColor;
         color: @secondaryColor;
     }
+
     &:active {
         color: @textPrimaryColor;
         background-color: @secondaryColor;
