@@ -25,7 +25,7 @@
             <strong>{ADMIN_LINK}</strong>
         </p>
     </footer>
-    <script src="/bubcloud.bottom.js" type="text/javascript"></script>
+    <script src="public/latest/bubcloud.bottom.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         //<![CDATA[
