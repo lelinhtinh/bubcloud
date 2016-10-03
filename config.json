@@ -1,0 +1,5 @@
+{
+    "proxy": "http://devs.forumvi.com",
+    "port": 7777,
+    "cdn": "//cdn.rawgit.com"
+}
