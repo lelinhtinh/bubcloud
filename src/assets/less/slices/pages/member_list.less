@@ -3,7 +3,7 @@
     margin-bottom: 15px;
     padding-bottom: 16px;
 
-    &:last-child {
+    &:last-of-type {
         &:extend(.topic-list-box tr:last-child);
         margin-bottom: 0;
         padding-bottom: 0;
@@ -132,6 +132,26 @@
 
         .fa {
             .hide();
+        }
+    }
+}
+
+@media @desktop {
+    .member {
+        .radius();
+        width: 50%;
+        float: left;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid transparent;
+
+        .popupmember {
+            background: none;
+        }
+
+        &:hover {
+            border-color: @wrapperColor;
+            background: @primaryBg;
         }
     }
 }

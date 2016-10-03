@@ -81,6 +81,7 @@
         <!-- BEGIN switch_no_user -->
         {switch_no_user.L_NO_USER}
         <!-- END switch_no_user -->
+        <div class="clear"></div>
     </div>
 </div>
 <!-- BEGIN switch_pagination -->
