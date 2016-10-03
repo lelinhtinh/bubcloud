@@ -196,15 +196,17 @@
                         </td>
                     </tr>
                     <!-- END switch_birthday -->
-                    <!-- <tr>
-                        <th colspan="2" class="formsubtitle">Các sự kiện trong 5 ngày tới</th>
+                    <tr>
+                        <th colspan="2" class="formsubtitle">
+                            <a href="/calendar" rel="nofollow">Sự kiện sắp diễn ra</a>
+                        </th>
                     </tr>
                     <tr>
                         <td class="row1"><img src="{L_CALENDAR_IMG}" alt="{L_CALENDAR}" /></td>
                         <td class="row2">
                                 {CALENDAR_EVENTS_5DAYS}
                         </td>
-                    </tr> -->
+                    </tr>
                     <tr>
                         <th colspan="2" class="formsubtitle">
                             <!-- BEGIN switch_statistics_link -->

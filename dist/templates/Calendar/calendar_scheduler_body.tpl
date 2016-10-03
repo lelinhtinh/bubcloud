@@ -27,9 +27,7 @@
                 </table>
             </div>
             <div class="module inner center">
-                <p>
-                    <a href="{U_CALENDAR}" title="{L_CALENDAR}">{L_CALENDAR}&nbsp;<img src="{IMG_CALENDAR}" alt="{L_CALENDAR}" title="{L_CALENDAR}" /></a>
-                </p>
+                <a href="{U_CALENDAR}" title="{L_CALENDAR}">{L_CALENDAR}&nbsp;<img src="{IMG_CALENDAR}" alt="{L_CALENDAR}" title="{L_CALENDAR}" /></a>
             </div>
         </div>
         <div class="borderwrap module center">
