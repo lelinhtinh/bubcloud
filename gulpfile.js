@@ -58,7 +58,10 @@ gulp.task('stylelint', function() {
 // npm run gulp less
 gulp.task('less', function() {
     return gulp.src('src/assets/less/style.less')
-        .pipe(changed('dist', {extension: '.css'}))
+        .pipe(changed('dist', {
+            hasChanged: changed.compareSha1Digest,
+            extension: '.css'
+        }))
         .pipe(plumber())
         .pipe(less())
         .pipe(autoprefixer({
