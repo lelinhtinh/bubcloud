@@ -5,7 +5,6 @@ ehthumbs.db
 # Folder config file
 bower_components
 node_modules
-dist
 Desktop.ini
 
 # Recycle Bin used on file shares
