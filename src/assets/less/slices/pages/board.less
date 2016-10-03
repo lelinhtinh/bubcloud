@@ -1,12 +1,18 @@
 @love: #ff4081;
 
-#boardIndex .borderwrap:after {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid @wrapperColor;
+#boardIndex .borderwrap {
+    .maincontent {
+        z-index: 1;
+    }
+
+    &:after {
+        content: " ";
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid @dividerColor;
+    }
 }
 
 #favouriteBox h2 {
@@ -21,7 +27,7 @@
 
     &:hover {
         transform: scale(1.5);
-        color: @love;
+        color: darken(@love, 10%);
     }
 }
 
@@ -62,7 +68,7 @@
 
     &:before {
         .fa();
-        font-weight: 300;
+        font-weight: @weightNormal;
         font-size: 22px;
     }
 }
@@ -128,7 +134,7 @@
 .hierarchy {
     margin: 0;
     font-size: 21px;
-    font-weight: 300;
+    font-weight: @weightNormal;
 }
 
 .stat4r {

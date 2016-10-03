@@ -7,12 +7,6 @@
 .select() {
     .size();
     .border();
-
-    &:focus {
-        box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(245, 222, 50, .6);
-        border-color: #f8ee2b;
-        outline: 0 none;
-    }
 }
 
 .input() {
@@ -22,7 +16,7 @@
 }
 
 .fa() {
-    font: normal normal normal 14px/1 FontAwesome;
+    font: @weightNormal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -moz-osx-font-smoothing: grayscale;
@@ -75,7 +69,7 @@
     background-size: 14px 14px;
 
     &.fa {
-        padding-left: 12px;
+        padding-left: 12px !important;
         line-height: inherit;
         background-image: none !important;
     }

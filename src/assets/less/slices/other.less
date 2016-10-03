@@ -20,16 +20,18 @@
     margin: 30px 0;
 
     .avatar-box {
+        .radius();
         .centered();
         overflow: hidden;
         width: 50%;
         height: 150px;
         float: left;
         padding: 5px 0;
-        border: 1px dashed transparent;
+        border: 1px solid transparent;
 
         &:hover {
             border-color: @wrapperColor;
+            background: @primaryBg;
         }
 
         img {
@@ -51,12 +53,28 @@
     }
 }
 
-.celldate ul {
-    &:extend(.ul-icons-home);
+.celldate {
+    ul {
+        &:extend(.ul-icons-home);
+
+        img {
+            margin-right: .5em;
+        }
+    }
 }
 
-.friends-foes-list img {
-    vertical-align: middle;
+.friends-foes-list {
+    .inline-block();
+    margin-right: 1em;
+
+    img {
+        vertical-align: middle;
+        opacity: .7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 .captcha-img {
@@ -83,6 +101,10 @@
     }
 }
 
+#search_username {
+    width: 220px;
+}
+
 #add_username {
     vertical-align: middle;
     margin-left: 5px;
@@ -101,12 +123,13 @@
         .radius();
         margin: 0;
         padding: 4px 10px;
-        font-weight: 100;
-        text-transform: uppercase;
+        font-size: 1.2em;
+        font-weight: @weightNormal;
         background: @wrapperColor;
     }
 
-    .center-overview {
+    .center-overview,
+    [align="center"] {
         .centered();
         margin-bottom: 0;
 
@@ -140,6 +163,10 @@
     bottom: 0;
 }
 
+[name="_calendar_scheduler"] {
+    overflow: hidden;
+}
+
 @media @tablet {
     [name="addtag_form"] {
         position: absolute;
@@ -150,12 +177,12 @@
 
 @media @desktop {
     #mini-calendar {
-        width: 280px;
+        width: 300px;
         float: left;
     }
 
     #calendar-result {
-        margin-left: 295px;
+        margin-left: 315px;
     }
 }
 

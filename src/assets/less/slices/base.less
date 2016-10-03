@@ -13,7 +13,7 @@ html {
 
 body {
     line-height: @lineHeight;
-    font: @weightBase @sizeBase/@lineHeight @fontBase;
+    font: @weightNormal @sizeBase/@lineHeight @fontBase;
     color: @secondaryColor;
     background: @wrapperColor;
 }
@@ -80,7 +80,7 @@ fieldset {
 }
 
 legend {
-    font-weight: 500;
+    font-weight: @weightBold;
 }
 
 table {
@@ -93,7 +93,7 @@ table {
         padding: 5px 0;
         border-bottom: 2px solid @wrapperColor;
         vertical-align: middle;
-        font-weight: 500;
+        font-weight: @weightBold;
     }
 
     td {
@@ -103,7 +103,7 @@ table {
 
 dl {
     dt {
-        font-weight: 500;
+        font-weight: @weightBold;
     }
 
     dd {
@@ -141,7 +141,7 @@ hr {
         h1,
         h2,
         h3 {
-            font-weight: 100;
+            font-weight: @weightLight;
             line-height: 120%;
 
             > div {

@@ -74,7 +74,7 @@
 .post-header {
     margin: 0 -15px 15px;
     padding: 4px 15px;
-    font-family: monospace;
+    font-family: @fontCode;
     font-size: 12px;
     color: @lightPrimaryColor;
     background: @primaryColor;
@@ -102,8 +102,11 @@
 }
 
 .post-entry {
-    a:hover {
-        text-decoration: underline;
+    a {
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
     }
 
     img,
@@ -125,16 +128,15 @@
     }
 
     blockquote {
-        .box();
-        .floated();
-        box-shadow: none;
-        margin: 0 0 0 10px;
-        .triangle-left(top, 15px, 10px);
+        margin: 0 0 16px;
+        padding: 0 13px;
+        border-left: 3px solid @dividerColor;
+        color: @lightSecondaryColor;
 
         cite {
             .show();
             margin-bottom: 10px;
-            font-weight: 500;
+            font-weight: @weightBold;
         }
     }
 
@@ -146,7 +148,7 @@
         background: @secondaryBg;
 
         .thead {
-            font-weight: 500;
+            font-weight: @weightBold;
             text-transform: uppercase;
             color: @darkSecondaryColor;
             background: @primaryBg;
@@ -174,7 +176,10 @@
     h2,
     h3,
     h4 {
-        font-weight: 500;
+        margin-top: 1em;
+        margin-bottom: 0;
+        font-weight: 600;
+        line-height: 1.25;
     }
 
     font[face="Courier New"],
@@ -189,21 +194,25 @@
 
 .post-content {
     h2& {
-        font-size: 1.6em;
+        padding-bottom: .3em;
+        border-bottom: 1px solid @wrapperColor;
+        font-size: 2em;
     }
 
     h3& {
-        font-size: 1.4em;
+        padding-bottom: .3em;
+        border-bottom: 1px solid @wrapperColor;
+        font-size: 1.5em;
     }
 
     h4& {
-        font-size: 1.2em;
+        font-size: 1.25em;
     }
 }
 
 .spoiler_content {
     .hide();
-    margin: 8px;
+    margin: 15px;
 
     &.hidden {
         .show();
@@ -212,15 +221,16 @@
 
 .spoiler {
     .radius();
-    border: 1px outset @wrapperColor;
+    border: 1px solid @dividerColor;
 
     dt {
         padding: 5px 5px 5px 30px;
+        font-weight: @weightNormal;
+        color: @lightSecondaryColor;
         background: url("//i83.servimg.com/u/f83/16/58/89/73/icon-a10.gif") no-repeat 10px center @wrapperColor;
 
         &:hover {
-            background-color: #777;
-            color: @textPrimaryColor;
+            color: @darkSecondaryColor;
         }
     }
 
@@ -231,11 +241,12 @@
 
 .codebox {
     .radius();
-    padding: .5em;
-    border: 1px inset @primaryBg;
+    margin-bottom: 16px;
+    background: @primaryBg;
 
     &.hidecode {
-        background: @primaryBg;
+        padding: 15px;
+        border: 1px inset @dividerColor;
     }
 
     dt {
@@ -243,82 +254,19 @@
     }
 
     dd {
-        overflow: auto;
-        max-height: 250px;
         margin: 0;
-    }
-}
 
-.anchorControl {
-    position: absolute;
-    top: 0;
-    right: -29px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid @wrapperColor;
-    background: url("//i39.servimg.com/u/f39/18/83/32/63/14105311.png") no-repeat center center transparent;
-    cursor: pointer;
-}
-
-.anchorInner {
-    .hide();
-    padding: 5px;
-    border: 1px solid @wrapperColor;
-}
-
-a.anchor {
-    position: absolute;
-    left: 0;
-    transform: scale(.8);
-    color: @lightSecondaryColor;
-
-    &:hover,
-    &:focus {
-        transform: scale(1.2);
-        color: @darkSecondaryColor;
-    }
-}
-
-.anchorList {
-    user-select: none;
-    position: absolute;
-    top: 15px;
-    right: 39px;
-    z-index: 50;
-    border: 0;
-    background: @secondaryBg;
-
-    &.acView {
-        color: @darkSecondaryColor;
-    }
-
-    &.acShow {
-        .anchorInner {
+        code {
             .show();
-        }
-
-        .anchorControl {
-            border-left: 0 none;
-            background-color: @secondaryBg;
-            background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14105312.png");
-        }
-    }
-
-    a {
-        .show();
-        height: 24px;
-        padding: 0 10px;
-        line-height: 24px;
-        font-size: 12px;
-        text-transform: uppercase;
-        white-space: pre;
-        color: @lightSecondaryColor;
-        transition: background .2s ease, color .2s ease;
-
-        &:hover,
-        &:focus {
-            background: @wrapperColor;
-            color: @darkSecondaryColor;
+            overflow: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 16px;
+            line-height: 1.45;
+            font: .9em @fontCode;
+            word-break: normal;
+            word-wrap: normal;
+            white-space: pre;
         }
     }
 }

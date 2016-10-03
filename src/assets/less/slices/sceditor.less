@@ -6,7 +6,7 @@
 
     .maintitle {
         h3 {
-            font-weight: 100;
+            font-weight: @weightLight;
         }
         &:extend(.borderwrap .maintitle);
     }
@@ -53,8 +53,11 @@
     iframe,
     textarea {
         min-height: 150px;
-        font-weight: 300;
-        color: @secondaryColor;
+        font-weight: @weightNormal;
+        line-height: @lineHeight !important;
+        font-family: @fontBase !important;
+        font-size: @sizeBase !important;
+        color: @secondaryColor !important;
     }
 }
 
@@ -116,8 +119,6 @@ a.sceditor-color-option {
 // Custom
 .sceditor-container textarea {
     padding: .5em !important;
-    line-height: @lineHeight;
-    font-family: Roboto, arial, sans-serif, FontAwesome !important;
 }
 
 .sceditor-button-fontawesome div {

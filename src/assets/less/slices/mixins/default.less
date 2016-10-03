@@ -97,8 +97,13 @@
     .centered();
     margin: 5px 0;
     padding: 5px;
-    font-weight: 500;
+    font-weight: @weightBold;
     background: @primaryBg;
+
+    h3 {
+        margin: 0;
+        font-size: @sizeBase;
+    }
 
     &.cleared {
         margin: 0;
@@ -150,31 +155,17 @@
     }
 
     a {
-        font-weight: 500;
-        color: lighten(@error, 38%);
+        font-weight: @weightBold;
+        color: #ffeb3b !important;
 
         &:focus,
         &:hover {
-            color: @darkSecondaryColor;
+            color: @textPrimaryColor !important;
         }
     }
 }
 
 .infowrap {
-    &:extend(.errorwrap);
+    &:extend(.errorwrap all);
     background: @info;
-
-    h4 {
-        &:extend(.errorwrap h4);
-    }
-
-    a {
-        font-weight: 500;
-        color: lighten(@info, 38%);
-
-        &:focus,
-        &:hover {
-            &:extend(.errorwrap a:hover);
-        }
-    }
 }

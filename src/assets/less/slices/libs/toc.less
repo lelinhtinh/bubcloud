@@ -1,0 +1,73 @@
+.anchorControl {
+    position: absolute;
+    top: 0;
+    right: -29px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid @wrapperColor;
+    background: url("//i39.servimg.com/u/f39/18/83/32/63/14105311.png") no-repeat center center transparent;
+    cursor: pointer;
+}
+
+.anchorInner {
+    .hide();
+    padding: 5px;
+    border: 1px solid @wrapperColor;
+}
+
+a.anchor {
+    position: absolute;
+    left: 0;
+    transform: scale(.8);
+    color: @lightSecondaryColor;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+        color: @darkSecondaryColor;
+    }
+}
+
+.anchorList {
+    user-select: none;
+    position: absolute;
+    top: 15px;
+    right: 39px;
+    z-index: 50;
+    border: 0;
+    background: @secondaryBg;
+
+    &.acView {
+        color: @darkSecondaryColor;
+    }
+
+    &.acShow {
+        .anchorInner {
+            .show();
+        }
+
+        .anchorControl {
+            border-left: 0 none;
+            background-color: @secondaryBg;
+            background-image: url("//i39.servimg.com/u/f39/18/83/32/63/14105312.png");
+        }
+    }
+
+    a {
+        .show();
+        height: 24px;
+        padding: 0 10px;
+        line-height: 24px;
+        font-size: 12px;
+        text-transform: uppercase;
+        white-space: pre;
+        color: @lightSecondaryColor;
+        transition: background .2s ease, color .2s ease;
+
+        &:hover,
+        &:focus {
+            background: @wrapperColor;
+            color: @darkSecondaryColor;
+        }
+    }
+}
