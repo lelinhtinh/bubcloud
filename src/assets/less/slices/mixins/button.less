@@ -57,19 +57,19 @@
 
     &:hover,
     &:focus {
-        color: @textPrimaryColor;
-        background-color: @darkPrimaryColor;
+        color: @textPrimaryColor !important;
+        background-color: @darkPrimaryColor !important;
     }
 
     &:active {
-        background-color: @secondaryColor;
+        background-color: @secondaryColor !important;
     }
 }
 
 .btnImg() {
     &:extend(.btn);
-    margin-left: 5px;
-    padding-left: 30px;
+    margin-left: 5px !important;
+    padding-left: 30px !important;
     background-position: 12px center;
     background-repeat: no-repeat;
     background-size: 14px 14px;
@@ -77,7 +77,7 @@
     &.fa {
         padding-left: 12px;
         line-height: inherit;
-        background-image: none!important;
+        background-image: none !important;
     }
 
     &:hover,
@@ -139,7 +139,7 @@ a[href="javascript:window.close();"] {
 
     .noIcon &,
     &.noIcon {
-        padding-left: 12px;
+        padding-left: 12px !important;
         background-image: none;
     }
 }
