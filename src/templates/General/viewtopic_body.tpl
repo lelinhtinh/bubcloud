@@ -106,7 +106,7 @@
         <!-- END first_post_br -->
         <!-- BEGIN displayed -->
         <section id="p{postrow.displayed.U_POST_ID}" class="post post--{postrow.displayed.U_POST_ID}" style="{postrow.displayed.DISPLAYABLE_STATE}">
-            <a class="post-anchor" name="{postrow.displayed.U_POST_ID}"></a>
+            <div style="width: 1px;" id="{postrow.displayed.U_POST_ID}"></div>
             <div class="post-header clearfix">
                 <span class="post-date">
                     <i class="fa fa-clock-o"></i>&nbsp;{postrow.displayed.POST_DATE_NEW}
