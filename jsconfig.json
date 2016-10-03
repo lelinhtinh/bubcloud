@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"noLib": true
+	},
+	"exclude": [
+		"node_modules",
+		"dist",
+		"public"
+	]
+}
