@@ -160,7 +160,7 @@ gulp.task('lint', ['eslint', 'stylelint']);
 
 // npm run build
 // npm run gulp build
-gulp.task('build', ['less', 'js', 'zip'], function() {
+gulp.task('build', ['lint', 'less', 'js', 'zip'], function() {
     return gulp.src('bin/*.bbtheme')
         .pipe(changed(path.public))
         .pipe(gulp.dest(path.public));
