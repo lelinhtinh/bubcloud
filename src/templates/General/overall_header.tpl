@@ -13,7 +13,7 @@
     {META} {META_FB_LIKE}
     <meta name="title" content="{SITENAME_TITLE}{PAGE_TITLE}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,500,500i,900&amp;subset=latin-ext,vietnamese" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     {T_HEAD_STYLESHEET}
     {CSS}
