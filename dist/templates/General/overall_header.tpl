@@ -13,11 +13,11 @@
     {META} {META_FB_LIKE}
     <meta name="title" content="{SITENAME_TITLE}{PAGE_TITLE}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,500,500i,900&amp;subset=latin-ext,vietnamese" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     {T_HEAD_STYLESHEET}
     {CSS}
-    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.5.1/style.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.5.2/style.css" rel="stylesheet" type="text/css">
     <link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}">
     <link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}">
     <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
     <script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
     <!-- END switch_fb_login -->
     <script src="{JS_DIR}invision.js" type="text/javascript"></script>
-    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.5.1/bubcloud.top.js" type="text/javascript"></script>
+    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.5.2/bubcloud.top.js" type="text/javascript"></script>
     {HOSTING_JS}
     <!-- BEGIN google_analytics_code -->
     <script type="text/javascript">
