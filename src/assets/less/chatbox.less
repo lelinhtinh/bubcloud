@@ -1,6 +1,47 @@
+@import "slices/variables.less";
+@import (reference) "slices/mixins.less";
+
+/* stylelint-disable selector-no-universal */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+/* stylelint-enable selector-no-universal */
+html {
+    height: 100%;
+    min-height: 100%;
+    background: @secondaryColor;
+}
+
+body {
+    line-height: @lineHeight;
+    font: @weightNormal @sizeBase/@lineHeight @fontBase;
+    color: @secondaryColor;
+    background: @wrapperColor;
+}
+
+.right {
+    float: right;
+    clear: right;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: @primaryColor;
+    transition: all 225ms ease;
+
+    &:focus,
+    &:hover {
+        color: @darkPrimaryColor;
+    }
+}
+
 .chatbox {
     overflow: hidden;
     height: 100%;
+    margin: 0;
     background: @secondaryBg;
 }
 
@@ -62,9 +103,8 @@
 }
 
 .chatbox-options {
-    &:extend(.ul-icons-home);
+    &:extend(#chatbox_members > ul);
     float: right;
-    margin: 0;
 
     li {
         float: left;
@@ -86,8 +126,9 @@
     transition: all 300ms ease-in-out;
 
     > ul {
-        &:extend(.ul-icons-home);
+        .no-list();
         margin: 0;
+        padding-left: 0;
     }
 
     &:hover {
@@ -141,7 +182,7 @@
     .date-and-time {
         .radius();
         position: absolute;
-        top: 3px;
+        top: 5px;
         right: 0;
         z-index: 10;
         padding: 0 6px;
@@ -196,6 +237,13 @@
     .msg {
         margin-top: 0 !important;
         padding: 13px 0;
+
+        a {
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
 
         img {
             vertical-align: middle;
@@ -329,6 +377,7 @@
 }
 
 #message {
+    .input();
     width: 225px !important;
     height: 30px !important;
     margin-right: 7px;
@@ -538,11 +587,10 @@ body > p.center:first-child {
     .triangle-down(right, 12px, 6px);
 
     ul {
-        &:extend(.ul-icons-home);
+        &:extend(#chatbox_members > ul);
         overflow: auto;
         width: 260px;
         height: 160px;
-        margin: 0;
         padding: 0 5px 0 0;
 
         li {

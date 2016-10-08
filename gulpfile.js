@@ -57,24 +57,31 @@ gulp.task('stylelint', function() {
 
 // npm run gulp less
 gulp.task('less', function() {
-    return gulp.src('src/assets/less/style.less')
-        .pipe(changed('dist', {
-            hasChanged: changed.compareSha1Digest,
-            extension: '.css'
-        }))
-        .pipe(plumber())
-        .pipe(less())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(cleanCSS())
-        .pipe(header(banner, {
-            pkg: pkg
-        }))
-        .pipe(gulp.dest(path.public))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+    function buildLess(input) {
+        return gulp.src(input)
+            .pipe(changed('dist', {
+                hasChanged: changed.compareSha1Digest,
+                extension: '.css'
+            }))
+            .pipe(plumber())
+            .pipe(less())
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
+            .pipe(cleanCSS())
+            .pipe(header(banner, {
+                pkg: pkg
+            }))
+            .pipe(gulp.dest(path.public))
+            .pipe(gulp.dest('dist'))
+            .pipe(browserSync.stream());
+    }
+
+    var forum = buildLess('src/assets/less/style.less'),
+        chatbox = buildLess('src/assets/less/chatbox.less');
+
+    return merge(forum, chatbox);
 });
 
 
