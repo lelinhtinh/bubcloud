@@ -172,7 +172,7 @@
 
         var $buzz = createBtn('buzz', '1f4a5'),
             buzzDisable = false,
-            cdn = '//cdn.rawgit.com/baivong/bubcloud/master/bin/',
+            cdn = '//baivong.github.io/cdn/zzchat/sound/',
             $buzzAudio = $('<audio>', {
                 id: 'chatbox-buzz-audio',
                 html: '<source src="' + cdn + 'buzz.ogg" type="audio/ogg"><source src="' + cdn + 'buzz.mp3" type="audio/mpeg">'
