@@ -1,5 +1,9 @@
 # Bubcloud
 
+[![Build Status](https://travis-ci.org/baivong/bubcloud.svg?branch=master)](https://travis-ci.org/baivong/bubcloud)
+[![Dependency Status](https://david-dm.org/baivong/bubcloud.svg)](https://david-dm.org/baivong/bubcloud)
+[![devDependency Status](https://david-dm.org/baivong/bubcloud/dev-status.svg)](https://david-dm.org/baivong/bubcloud?type=dev)
+
 > A responsive theme for [Forumotion](http://www.forumotion.com/).
 
 ## Usage
