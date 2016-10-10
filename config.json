@@ -1,5 +1,5 @@
 {
-    "proxy": "http://devs.forumvi.com",
+    "proxy": "http://baivong.thedevboard.com",
     "port": 7777,
     "cdn": "//cdn.rawgit.com"
 }
