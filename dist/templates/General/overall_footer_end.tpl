@@ -25,7 +25,7 @@
             <strong>{ADMIN_LINK}</strong>
         </p>
     </footer>
-    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.5.2/bubcloud.bottom.js" type="text/javascript"></script>
+    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.6.0/bubcloud.bottom.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         //<![CDATA[
