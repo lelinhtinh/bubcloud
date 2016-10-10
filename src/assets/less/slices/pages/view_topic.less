@@ -29,6 +29,10 @@
     }
 }
 
+.author-rank:empty + .author-links {
+    margin-top: 22px;
+}
+
 .author-details {
     margin-left: 85px;
 }
@@ -110,7 +114,8 @@
     }
 
     img,
-    embed {
+    embed,
+    iframe {
         max-width: 100%;
     }
 
@@ -242,6 +247,7 @@
 .codebox {
     .radius();
     margin-bottom: 16px;
+    border: 1px solid @dividerColor;
     background: @primaryBg;
 
     &.hidecode {
@@ -273,16 +279,10 @@
 
 .thanks-post {
     background: transparent!important;
-    color: @success;
+    color: #fff;
 
-    &[style="background-color:#f6f4d0;"]:before {
-        .fa();
-        content: "\f005";
-        transform: translate(0, 0);
-    }
-
-    &[style="background-color:#f6f4d0;"]:after {
-        content: " Bình luận hay nhất";
+    &[style="background-color:#ffffff;"] {
+        .inline-block();
     }
 }
 
@@ -363,8 +363,10 @@
 .p-hidden {
     &:extend(.errorwrap);
     .centered();
-    margin: 15px 0;
-    padding: 5px;
+    margin: 15px -15px 0;
+    padding: 4px;
+    border-radius: 0;
+    font-size: 12px;
 
     a {
         &:extend(.errorwrap a);

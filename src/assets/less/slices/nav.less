@@ -89,12 +89,14 @@
     width: 30px;
     height: 30px;
     line-height: 30px;
-    color: @lightSecondaryColor;
+    color: @textPrimaryColor;
 
-    &:hover,
-    &.active {
-        color: @textPrimaryColor;
+    &:hover {
         cursor: pointer;
+    }
+
+    &.active .fa:before {
+        content: "\f00d";
     }
 
     &#togglesearch {

@@ -1,17 +1,13 @@
 @love: #ff4081;
 
 #boardIndex .borderwrap {
-    .maincontent {
-        z-index: 1;
-    }
-
     &:after {
         content: " ";
         position: absolute;
-        bottom: 1px;
+        bottom: 0;
         left: 0;
         width: 100%;
-        border-bottom: 1px solid @dividerColor;
+        border-bottom: 1px solid rgba(160, 160, 160, .2);
     }
 }
 
@@ -238,7 +234,7 @@
 }
 
 .ul-icons-home {
-    .no-list();
+    .noList();
     padding-left: 0;
 
     li {
