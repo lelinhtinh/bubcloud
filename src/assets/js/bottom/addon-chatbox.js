@@ -1,4 +1,4 @@
-/* global my_getcookie, my_setcookie, _userdata */
+/* global _userdata */
 (function($) {
 
     'use strict';
@@ -21,25 +21,37 @@
         index = 0,
         disable = false,
 
-        color_list = '#262626 #61BD6D #1ABC9C #54ACD2 #2C82C9 #9365B8 #475577 #CCCCCC #41A85F #00A885 #3D8EB9 #2969B0 #553982 #28324E #000000 #F7DA64 #FBA026 #EB6B56 #E25041 #A38F84 #EFEFEF #FFFFFF #FAC51C #F37934 #D14841 #B8312F #7C706B #D1D5D8'.split(' '),
-
         $chatbox = $('#frame_chatbox'),
         toggle = {};
 
+
+    function createBtn(id, icon) {
+        var $btn = $('<div>', {
+            id: id + '-wrap',
+            class: 'cb-bubcloud-options'
+        }).append($('<img>', {
+            src: '//twemoji.maxcdn.com/36x36/' + icon + '.png',
+            alt: id,
+            height: 20,
+            width: 20,
+            class: 'cb-bubcloud-btn'
+        }));
+        $chatbox.contents().find('#chatbox_footer').append($btn);
+
+        return $btn;
+    }
 
     function createList($ul) {
         disable = true;
 
         var stop = index + 70;
 
-        if (stop > listLength) {
-            stop = listLength;
-        }
+        if (stop > listLength) stop = listLength;
 
         for (index; index < stop; index++) {
             var element = emoji_list[index],
                 $item = $('<img>', {
-                    'class': 'emoji',
+                    class: 'emoji',
                     alt: element,
                     src: 'http://twemoji.maxcdn.com/' + emoji_size + 'x' + emoji_size + '/' + element + '.png'
                 }),
@@ -54,20 +66,20 @@
     function animateToggle($element) {
 
         var id = $element.attr('id'),
-            $optionsList = $element.find('.chatbox-options-list');
+            $optionsList = $element.find('.cb-bubcloud-options-list');
 
         toggle[id] = toggle[id] ? false : true;
         if (toggle[id]) {
             $optionsList.css('visibility', 'visible').stop(true, false).animate({
                 opacity: 1,
-                bottom: 35
+                bottom: 24
             }, 'fast', function() {
                 $element.addClass('active');
             });
         } else {
             $optionsList.stop(true, false).animate({
                 opacity: 0,
-                bottom: 16
+                bottom: 12
             }, 'fast', function() {
                 $element.removeClass('active');
                 $optionsList.css('visibility', 'hidden');
@@ -76,287 +88,299 @@
 
     }
 
+    function getScrollbarWidth() {
+        var outer = document.createElement('div');
+        outer.style.visibility = 'hidden';
+        outer.style.width = '100px';
+        document.body.appendChild(outer);
 
-    if ($chatbox.length) {
+        var widthNoScroll = outer.offsetWidth;
+        outer.style.overflow = 'scroll';
 
-        $chatbox.on('load', function() {
+        var inner = document.createElement('div');
+        inner.style.width = '100%';
+        outer.appendChild(inner);
 
-            var zzChatbox = $chatbox[0].contentWindow.chatbox,
-                $head = $chatbox.contents().find('head');
+        var widthWithScroll = inner.offsetWidth;
+        outer.parentNode.removeChild(outer);
 
-            var $roboto = $('<link>', {
-                href: '//fonts.googleapis.com/css?family=Roboto:100,300,300i,500,500i,900&amp;subset=latin-ext,vietnamese',
+        return widthNoScroll - widthWithScroll;
+    }
+
+
+    if (!$chatbox.length) return;
+
+    $chatbox.on('load', function() {
+
+        var zzChatbox = $chatbox[0].contentWindow.chatbox;
+        if (!zzChatbox) return;
+
+        var $head = $chatbox.contents().find('head'),
+            $body = $chatbox.contents().find('body'),
+            $chatbox_header = $body.find('#chatbox_header'),
+            $contents = $body.find('#chatbox'),
+            $chatbox_footer = $body.find('#chatbox_footer'),
+            $mess = $body.find('#message'),
+
+            $title = $body.find('.chat-title'),
+            $users = $body.find('#chatbox_members'),
+            toggleUsers = false,
+
+            $roboto = $('<link>', {
+                href: '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese',
                 rel: 'stylesheet',
                 type: 'text/css'
-            });
-            $head.append($roboto);
+            }),
 
-            var $mess = $chatbox.contents().find('#message');
+            firstLoad = true;
 
+        $head.append($roboto);
+        $chatbox_header.add($contents).add($chatbox_footer).addClass('cb-bubcloud');
 
-            var $divsmilies = $('<div>', {
-                    id: 'divsmilies',
-                    'class': 'custom-option fontbutton'
-                }).append($('<img>', {
-                    src: '//twemoji.maxcdn.com/36x36/1f600.png',
-                    alt: 'Emoji',
-                    height: 20,
-                    width: 20
-                })),
-                $emoji_wrap = $('<div>', {
-                    'class': 'chatbox-options-list'
-                }),
-                $emoji_ul = $('<ul>', {
-                    id: 'emoji-list'
-                });
-
-            $chatbox.contents().find('#divsmilies').replaceWith($divsmilies);
-
-
-            var $divcolor = $('<div>', {
-                    id: 'divcolor',
-                    'class': 'custom-option fontbutton'
-                }),
-                $scolor = $('<input>', {
-                    name: 'scolor',
-                    id: 'scolor',
-                    type: 'hidden',
-                    value: $chatbox.contents().find('#scolor').val()
-                }),
-                $color_review = $('<div>', {
-                    id: 'divcolor-preview',
-                    style: $chatbox.contents().find('#divcolor-preview').attr('style')
-                }),
-                $color_wrap = $('<div>', {
-                    'class': 'chatbox-options-list'
-                }),
-                $color_ul = $('<ul>', {
-                    id: 'color-list'
-                }),
-                $color_items;
-            $divcolor.append($scolor).append($color_review);
-
-            $.each(color_list, function(i, v) {
-                var $li = $('<li>'),
-                    $item = $('<span>', {
-                        'class': 'color',
-                        css: {
-                            'background-color': v
-                        },
-                        text: v
-                    });
-                $item.appendTo($li);
-                $li.appendTo($color_ul);
-                if (!$color_items) {
-                    $color_items = $item;
-                } else {
-                    $color_items = $color_items.add($item);
-                }
-            });
-            $divcolor.append($color_wrap.append($color_ul));
-
-            $chatbox.contents().find('#divcolor').replaceWith($divcolor);
-
-            var colorCookie = my_getcookie('CB_color'),
-                setColor = function(color) {
-                    $scolor.val(color);
-                    $color_review.css('backgroundColor', color);
-                    $mess.css('color', color);
-                };
-
-            if (colorCookie !== null) {
-
-                var $beColor = $color_items.filter(function() {
-                    return this.textContent === colorCookie;
-                });
-                if ($beColor.length) {
-                    $beColor.addClass('active');
-                    setColor(colorCookie);
-                }
-
-            } else {
-
-                $color_items.first().addClass('active');
-
-            }
-
-            $color_items.click(function() {
-
-                var $this = $(this),
-                    colorPick = $this.text();
-
-                setColor(colorPick);
-                my_setcookie('CB_color', colorPick, true);
-
-                $color_items.filter('.active').removeClass('active');
-                $this.addClass('active');
-
+        var $divsmilies = createBtn('emoji', '1f636'),
+            $emoji_wrap = $('<div>', {
+                class: 'cb-bubcloud-options-list'
+            }),
+            $emoji_ul = $('<div>', {
+                id: 'emoji-list'
             });
 
-            toggle.divcolor = false;
-            $divcolor.click(function() {
-                animateToggle($(this));
-            });
+        toggle.divsmilies = false;
+        $divsmilies.one('click', function() {
 
+            $divsmilies.append($emoji_wrap.append($emoji_ul));
+            $emoji_ul.width(224 + getScrollbarWidth());
 
-            toggle.divsmilies = false;
-            $divsmilies.one('click', function() {
+            createList($emoji_ul);
+            $emoji_ul.scrollTop(0);
 
-                $divsmilies.append($emoji_wrap.append($emoji_ul));
+            $emoji_ul.on('scroll', function() {
+                if (disable || (index >= emoji_list.length) || ($emoji_ul.scrollTop() + 160 + 350 < $emoji_ul[0].scrollHeight)) return;
+
                 createList($emoji_ul);
-                $emoji_ul.scrollTop(0);
-
-                $emoji_ul.scroll(function() {
-                    if (disable) {
-                        return false;
-                    }
-                    if (index >= emoji_list.length) {
-                        return false;
-                    }
-                    if ($emoji_ul.scrollTop() + 160 + 350 < $emoji_ul[0].scrollHeight) {
-                        return false;
-                    }
-                    createList($emoji_ul);
-                });
-
-            }).on('click', '.emoji', function() {
-
-                $mess.val($mess.val() + ' [img]' + this.src + '[/img]');
-                zzChatbox.format();
-                zzChatbox.send();
-
-            }).click(function() {
-                animateToggle($(this));
             });
 
+        }).on('click', '.emoji', function() {
 
-            var $title = $chatbox.contents().find('.chat-title'),
-                $users = $chatbox.contents().find('#chatbox_members'),
-                toggleUsers = false;
-            $title.click(function(e) {
-                e.preventDefault();
-                toggleUsers = toggleUsers ? false : true;
-                if (toggleUsers) {
-                    $users.stop(true, false).animate({
-                        opacity: 1,
-                        left: 0
-                    }, 'fast', function() {
-                        $title.addClass('active');
-                    });
-                } else {
-                    $users.stop(true, false).animate({
-                        opacity: 0,
-                        left: -200
-                    }, 'fast', function() {
-                        $title.removeClass('active');
-                    });
-                }
-            });
+            $mess.val($mess.val() + ' [img]' + this.src + '[/img]');
+            zzChatbox.send();
 
-
-            zzChatbox.refresh = function(data) {
-                var $body = $chatbox.contents().find('body'),
-                    $contents = $body.find('#chatbox'),
-                    $chatbox_footer = $body.find('#chatbox_footer'),
-                    $chatbox_messenger_form = $body.find('#chatbox_messenger_form'),
-                    $chatbox_display_archive = $body.find('#chatbox_display_archives'),
-                    $chatbox_option_co = $body.find('#chatbox_option_co'),
-                    $chatbox_option_disco = $body.find('#chatbox_option_disco'),
-                    $online_users = $body.find('.online-users'),
-                    $away_users = $body.find('.away-users'),
-                    $member_title = $body.find('.member-title'),
-                    $format_message = $body.find('.format-message');
-                if (data.error) {
-                    $body.html(data.error);
-                } else {
-                    if (this.connected) {
-                        $chatbox_messenger_form.css({
-                            display: 'block',
-                            visibility: 'visible'
-                        });
-                        $chatbox_display_archive.show();
-                        $chatbox_option_co.hide();
-                        $chatbox_option_disco.add($chatbox_footer).show();
-                        $format_message.each(function() {
-                            var name = $(this).attr('name');
-                            var value = my_getcookie('CB_' + name);
-                            $(this).prop('checked', parseInt(value) ? true : false);
-                        });
-                        this.format();
-                        if (data.lastModified) {
-                            this.listenParams.lastModified = data.lastModified;
-                        }
-                    } else {
-                        $chatbox_messenger_form.css({
-                            display: 'none',
-                            visibility: 'hidden'
-                        });
-                        $chatbox_option_co.show();
-                        $chatbox_option_disco.add($chatbox_footer).hide();
-                        $chatbox_display_archive.hide();
-                    }
-                    if (data.users) {
-                        this.users = [];
-                        $online_users.add($away_users).empty();
-                        $member_title.hide();
-                        for (var i in data.users) {
-                            var user = data.users[i];
-                            this.users[user.id] = user;
-                            var username = '<span style="color:' + user.color + '">' + (user.admin ? '@ ' : '') + '<span class="chatbox-username chatbox-user-username" data-user="' + user.id + '">' + user.username + '</span>' + '</span>';
-                            var list = user.online ? '.online-users' : '.away-users';
-                            $body.find(list).append('<li>' + username + '</li>');
-                        }
-                        if (!$online_users.is(':empty')) {
-                            $body.find('.member-title.online').show();
-                        }
-                        if (!$away_users.is(':empty')) {
-                            $body.find('.member-title.away').show();
-                        }
-                    }
-                    if (data.messages) {
-                        var scroll = !this.messages || this.messages.length !== data.messages.length;
-                        this.messages = data.messages;
-                        $contents.empty();
-                        if (this.messages) {
-                            var content = '',
-                                messSize = this.messages.length,
-                                j;
-                            for (j = 0; j < messSize; j++) {
-                                var message = this.messages[j],
-                                    myMess = '',
-                                    html = '',
-                                    datetime = '<span class="date-and-time" title="' + message.date + '">[' + message.datetime + ']</span>';
-
-                                if (_userdata.user_id + '' === message.userId + '') myMess = 'my_message ';
-                                html = '<p class="' + myMess + 'chatbox_row_' + (j % 2 === 1 ? 2 : 1) + ' clearfix">';
-
-                                if (message.userId + '' === '-10') {
-                                    if (message.msg.indexOf('<script>') !== -1) {
-                                        message.msg = message.msg.replace(/<script>.+<\/script>/, '');
-                                        zzChatbox.disconnect();
-                                    }
-                                    html += '<span class="msg">' + '<span style="color:' + message.msgColor + '">' + '<strong> ' + message.msg + '</strong>' + '</span>' + '</span>';
-                                } else {
-                                    html += datetime;
-                                    html += '<span class="user-msg">';
-                                    if (message.user.avatar) {
-                                        html += '<span class="cb-avatar"><img src="' + message.user.avatar + '" /></span>';
-                                    }
-                                    html += '<span class="user" style="color:' + message.user.color + '">' + '<strong> ' + (message.user.admin ? '@ ' : '') + '<span class="chatbox-username chatbox-message-username"  data-user="' + message.userId + '">' + message.username + '</span>&nbsp;:&nbsp;' + '</strong>' + '</span>' + '<span class="msg">' + message.msg + '</span>' + '</span>';
-                                }
-
-                                html += '</p>';
-                                content += html;
-                            }
-
-                            $contents.append(content);
-                            if (scroll) $contents[0].scrollTop = $contents.prop('scrollHeight') * 2;
-                        }
-                    }
-                }
-            };
+        }).on('click', function() {
+            animateToggle($(this));
         });
 
-    }
+
+        var $buzz = createBtn('buzz', '1f4a5'),
+            buzzDisable = false,
+            cdn = '//cdn.rawgit.com/baivong/bubcloud/master/bin/',
+            $buzzAudio = $('<audio>', {
+                id: 'chatbox-buzz-audio',
+                html: '<source src="' + cdn + 'buzz.ogg" type="audio/ogg"><source src="' + cdn + 'buzz.mp3" type="audio/mpeg">'
+            });
+
+        $body.append($buzzAudio);
+
+        $buzz.on('click', function(e) {
+            e.preventDefault();
+
+            if (buzzDisable) return;
+            buzzDisable = true;
+            $buzz.addClass('disable');
+
+            if ($contents.find('img[alt="BUZZ"]:last').closest('.msg-me').length) return;
+
+            $mess.val('/buzz');
+            zzChatbox.send();
+        });
+
+        $mess.on('input', function() {
+            if ($mess.val().trim() === '/buzz') $mess.val('');
+        });
+
+
+        $title.on('click', function(e) {
+            e.preventDefault();
+            toggleUsers = toggleUsers ? false : true;
+
+            if (toggleUsers) {
+                $users.stop(true, false).animate({
+                    opacity: 1,
+                    left: 0
+                }, 'fast', function() {
+                    $title.addClass('active');
+                });
+            } else {
+                $users.stop(true, false).animate({
+                    opacity: 0,
+                    left: -200
+                }, 'fast', function() {
+                    $title.removeClass('active');
+                });
+            }
+        });
+
+
+        zzChatbox.refresh = function(data) {
+            var $chatbox_messenger_form = $body.find('#chatbox_messenger_form'),
+                $chatbox_display_archive = $body.find('#chatbox_display_archives'),
+                $chatbox_option_co = $body.find('#chatbox_option_co'),
+                $chatbox_option_disco = $body.find('#chatbox_option_disco'),
+                $online_users = $body.find('.online-users'),
+                $away_users = $body.find('.away-users'),
+                $member_title = $body.find('.member-title');
+
+            if (data.error) {
+                $body.html(data.error);
+            } else {
+                if (this.connected) {
+                    $chatbox_messenger_form.css({
+                        display: 'block',
+                        visibility: 'visible'
+                    });
+                    $chatbox_display_archive.show();
+                    $chatbox_option_co.hide();
+                    $chatbox_option_disco.add($chatbox_footer).show();
+
+                    if (data.lastModified) this.listenParams.lastModified = data.lastModified;
+                } else {
+                    $chatbox_messenger_form.css({
+                        display: 'none',
+                        visibility: 'hidden'
+                    });
+                    $chatbox_option_co.show();
+                    $chatbox_option_disco.add($chatbox_footer).hide();
+                    $chatbox_display_archive.hide();
+                }
+
+                if (data.users) {
+                    this.users = [];
+                    $online_users.add($away_users).empty();
+                    $member_title.hide();
+
+                    for (var i in data.users) {
+                        var user = data.users[i];
+                        this.users[user.id] = user;
+                        var username = '<span style="color:' + user.color + '">' + (user.admin ? '@ ' : '') + '<span class="chatbox-username chatbox-user-username" data-user="' + user.id + '">' + user.username + '</span>' + '</span>';
+                        var list = user.online ? '.online-users' : '.away-users';
+                        $body.find(list).append('<li>' + username + '</li>');
+                    }
+
+                    if (!$online_users.is(':empty')) $body.find('.member-title.online').show();
+                    if (!$away_users.is(':empty')) $body.find('.member-title.away').show();
+                }
+
+                if (data.messages) {
+                    var scroll = !this.messages || this.messages.length !== data.messages.length;
+                    this.messages = data.messages;
+                    $contents.empty();
+
+                    if (!this.messages) return;
+
+                    var recentUser = 0,
+                        recentDay = '',
+                        recentTime = 0,
+                        $recentMsg,
+                        max = this.messages.length - 1;
+
+                    $.each(this.messages, function(i, val) {
+                        var message = val,
+                            currentUser = message.userId + '',
+                            datetime = message.datetime.split(' '),
+
+                            checkDay = function() {
+                                return (datetime.length === 2 && recentDay !== datetime[1]);
+                            },
+                            checkTime = function() {
+                                var time = datetime[0].split(':');
+                                time = parseInt(time[0], 10) * 60 + parseInt(time[1], 10);
+
+                                var delay = (recentTime === 0) ? 0 : time - recentTime;
+                                recentTime = time;
+
+                                return checkDay() ? true : (delay > 5);
+                            },
+
+                            $item = $('<div>', {
+                                class: 'msg-row clearfix'
+                            }),
+                            $msg = $('<div>', {
+                                class: (message.action || 'other') + '-act clearfix',
+                                'data-time': datetime[0]
+                            });
+
+                        if (checkDay()) $contents.append($('<div>', {
+                            class: 'msg-row msg-day clearfix',
+                            html: '<span>' + datetime[1] + '</span>'
+                        }));
+
+                        if (currentUser === '-10') {
+                            if (message.msg.indexOf('<script>') !== -1) {
+                                message.msg = message.msg.replace(/<script>.+<\/script>/, '');
+                                zzChatbox.disconnect();
+                            }
+
+                            $item.addClass('alert');
+                            $contents.append($item.append($msg.html(message.msg)));
+                            recentUser = 0;
+                        } else {
+                            var $avatar = $('<div>', {
+                                    class: 'msg-avatar',
+                                    'data-user': currentUser,
+                                    'data-name': message.username,
+                                    html: '<img src="' + message.user.avatar + '" />'
+                                }),
+                                $wrap = $('<div>', {
+                                    class: 'msg-wrap'
+                                });
+
+                            if (_userdata.user_id + '' === currentUser) $item.addClass('msg-me');
+
+                            if (recentUser === currentUser && !checkTime()) {
+                                $wrap = $recentMsg;
+                            } else {
+                                $contents.append($item);
+                                $item.append($avatar).append($wrap);
+                                $recentMsg = $wrap;
+                            }
+
+                            if (/<span style="[^"]+">\/buzz<\/span>/.test(message.msg)) {
+                                message.msg = '<img src="//twemoji.maxcdn.com/72x72/1f4a5.png" alt="BUZZ">';
+
+                                if (!firstLoad && i === max) {
+                                    if (!$contents.hasClass('chatbox-buzz')) {
+                                        $contents.addClass('chatbox-buzz');
+                                        if ($buzzAudio.length) $buzzAudio[0].play();
+                                    }
+
+                                    setTimeout(function() {
+                                        if ($contents.hasClass('chatbox-buzz')) $contents.removeClass('chatbox-buzz');
+                                    }, 1000);
+                                }
+                            }
+
+                            $wrap.append($msg.html(message.msg));
+                            recentUser = currentUser;
+                        }
+
+                        if (checkDay()) recentDay = datetime[1];
+                    });
+
+
+                    var $lastBuzz = $contents.find('img[alt="BUZZ"]:last');
+                    if ($lastBuzz.length && $lastBuzz.closest('.msg-me').length) {
+                        if (!$buzz.hasClass('disable')) $buzz.addClass('disable');
+                    } else {
+                        if ($buzz.hasClass('disable')) {
+                            $buzz.removeClass('disable');
+                            buzzDisable = false;
+                        }
+                    }
+
+                    if (scroll) $contents[0].scrollTop = $contents.prop('scrollHeight') * 2;
+                    firstLoad = false;
+                }
+            }
+        };
+    });
 
 })(jQuery);
