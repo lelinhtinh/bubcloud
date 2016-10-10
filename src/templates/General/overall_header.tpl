@@ -114,55 +114,73 @@
                     <strong class="color-button"><span>Chọn màu </span><i class="fa fa-circle"></i></strong>
                     <ul class="color-panel">
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="16a085" data-colory="1abc9c">
+                            <div class="fa-stack color-choose" data-colorx="D32F2F" data-colory="F44336" data-colorz="FFCDD2">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #16a085;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #D32F2F;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="27ae60" data-colory="2ecc71">
+                            <div class="fa-stack color-choose" data-colorx="C2185B" data-colory="E91E63" data-colorz="F8BBD0">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #27ae60;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #C2185B;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="2980b9" data-colory="3498db">
+                            <div class="fa-stack color-choose" data-colorx="7B1FA2" data-colory="9C27B0" data-colorz="E1BEE7">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #2980b9;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #7B1FA2;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="8e44ad" data-colory="9b59b6">
+                            <div class="fa-stack color-choose" data-colorx="512DA8" data-colory="673AB7" data-colorz="D1C4E9">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #8e44ad;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #512DA8;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="2c3e50" data-colory="34495e">
+                            <div class="fa-stack color-choose" data-colorx="303F9F" data-colory="3F51B5" data-colorz="C5CAE9">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #2c3e50;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #303F9F;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="f39c12" data-colory="f1c40f">
+                            <div class="fa-stack color-choose" data-colorx="0097A7" data-colory="00BCD4" data-colorz="B2EBF2">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #f39c12;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #0097A7;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="d35400" data-colory="e67e22">
+                            <div class="fa-stack color-choose" data-colorx="00796B" data-colory="009688" data-colorz="B2DFDB">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #d35400;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #00796B;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="c0392b" data-colory="e74c3c">
+                            <div class="fa-stack color-choose" data-colorx="388E3C" data-colory="4CAF50" data-colorz="C8E6C9">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #c0392b;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #388E3C;"></i>
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="" data-colory="">
+                            <div class="fa-stack color-choose" data-colorx="E64A19" data-colory="FF5722" data-colorz="FFCCBC">
+                                <i class="fa fa-check fa-stack-1x"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #E64A19;"></i>
+                            </div>
+                        </li>
+                        <li class="color-list">
+                            <div class="fa-stack color-choose" data-colorx="5D4037" data-colory="795548" data-colorz="D7CCC8">
+                                <i class="fa fa-check fa-stack-1x"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #5D4037;"></i>
+                            </div>
+                        </li>
+                        <li class="color-list">
+                            <div class="fa-stack color-choose" data-colorx="455A64" data-colory="607D8B" data-colorz="CFD8DC">
+                                <i class="fa fa-check fa-stack-1x"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #455A64;"></i>
+                            </div>
+                        </li>
+                        <li class="color-list">
+                            <div class="fa-stack color-choose" data-colorx="" data-colory="" data-colorz="">
                                 <i class="fa fa-times fa-stack-1x" style="color: #FF5C5C;"></i>
                                 <i class="fa fa-circle-o fa-stack-2x" style="color: #e7e7e7;"></i>
                             </div>
