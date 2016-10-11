@@ -1,6 +1,5 @@
 @import "slices/variables.less";
 @import (reference) "slices/mixins.less";
-@import "slices/pagination.less";
 /* stylelint-disable selector-no-universal */
 *,
 *:after,
@@ -37,38 +36,38 @@ body {
             text-align: center;
         }
     }
-}
 
-.borderwrap {
-    .floated();
-    padding: 1em;
-
-    .maintitle {
+    > .borderwrap {
         .floated();
-        text-transform: uppercase;
-        color: @lightSecondaryColor;
+        padding: 1em;
 
-        h3 {
-            margin: 0;
-            padding: 1em 0;
-            font-weight: @weightLight;
-            line-height: 120%;
-        }
-    }
+        .maintitle {
+            .floated();
+            text-transform: uppercase;
+            color: @lightSecondaryColor;
 
-    .box-content {
-        .floated();
-        .box();
-        .triangle-up(left, 20px, 10px);
-
-        > div:hover p.left a {
-            margin-left: 1em;
-            color: @progress;
+            h3 {
+                margin: 0;
+                padding: 1em 0;
+                font-weight: @weightLight;
+                line-height: 120%;
+            }
         }
 
-        .right a {
-            &:extend(.btn all);
-            margin-top: -6px;
+        .box-content {
+            .floated();
+            .box();
+            .triangle-up(left, 20px, 10px);
+
+            > div:hover p.left a {
+                margin-left: 1em;
+                color: @progress;
+            }
+
+            .right a {
+                &:extend(.btn all);
+                margin-top: -6px;
+            }
         }
     }
 }
