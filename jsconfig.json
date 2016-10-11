@@ -5,8 +5,8 @@
 		"noLib": true
 	},
 	"exclude": [
-		"node_modules",
-		"dist",
-		"public"
+		"/node_modules/",
+		"/dist/",
+		"/public/"
 	]
 }
