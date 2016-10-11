@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "shinnn.stylelint",
+        "HookyQR.beautify",
+        "dweber019.vscode-style-formatter"
+	]
+}
