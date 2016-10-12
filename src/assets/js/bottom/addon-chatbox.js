@@ -115,16 +115,26 @@
         var zzChatbox = $chatbox[0].contentWindow.chatbox;
         if (!zzChatbox) return;
 
+        function genYoutubeLink(video_id) {
+            return '<a class="cb-bubcloud-media" data-video="https://www.youtube.com/embed/' + video_id + '?rel=0&autoplay=1" href="http://youtu.be/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(http://img.youtube.com/vi/' + video_id + '/mqdefault.jpg);"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+        }
+
+        function genDailymotionLink(video_id) {
+            $.getJSON('https://api.dailymotion.com/video/' + video_id, {
+                fields: 'thumbnail_medium_url'
+            }).done(function(data) {
+                $contents.find('.cb-bubcloud-media.daily-icon-' + video_id).css('background-image', 'url(' + data.thumbnail_medium_url + ')');
+            });
+
+            return '<a class="cb-bubcloud-media daily-icon-' + video_id + '" data-video="https://www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&endscreen-enable=0" href="http://dai.ly/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(//i97.servimg.com/u/f97/19/51/54/34/dailym10.png);"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+        }
+
+
         var $head = $chatbox.contents().find('head'),
             $body = $chatbox.contents().find('body'),
-            $chatbox_header = $body.find('#chatbox_header'),
             $contents = $body.find('#chatbox'),
             $chatbox_footer = $body.find('#chatbox_footer'),
             $mess = $body.find('#message'),
-
-            $title = $body.find('.chat-title'),
-            $users = $body.find('#chatbox_members'),
-            toggleUsers = false,
 
             $roboto = $('<link>', {
                 href: '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese',
@@ -135,13 +145,19 @@
             firstLoad = true,
             autoLogin = true,
 
-            themeCookie = my_getcookie('bubcloud');
+            themeCookie = my_getcookie('bubcloud'),
+
+            $media = $('<div>', {
+                id: 'media'
+            });
+
 
         if (my_getcookie('autologin') === 'off') autoLogin = false;
 
         $head.append($roboto);
+        $body.prepend($media);
 
-        // $head.find('link[href="/9-ltr.css"]').attr('href', '/chatbox.css');
+        // $head.find('link[href$="-ltr.css"]').attr('href', '/chatbox.css');
 
         if (themeCookie !== '' && themeCookie !== null) {
             themeCookie = themeCookie.split('|');
@@ -153,17 +169,34 @@
             }));
         }
 
-        $chatbox_header.add($contents).add($chatbox_footer).addClass('cb-bubcloud');
 
         $body.on('click', '.msg-avatar', function() {
             $mess[0].value += this.dataset.name;
+            $mess.focus();
         }).on('click', '#chatbox_option_disco', function() {
             my_setcookie('autologin', 'off');
             autoLogin = false;
         }).on('click', '#chatbox_option_co', function() {
             my_setcookie('autologin', 'on');
             autoLogin = true;
+        }).on('click', '.chat-title', function(e) {
+            e.preventDefault();
+
+            if ($body.hasClass('toggleMediaList')) {
+                $media.empty();
+                $body.removeClass('toggleMediaList');
+            } else {
+                $body.toggleClass('toggleUsersList');
+            }
+        }).on('click', '#chatbox', function() {
+            if ($body.hasClass('toggleUsersList')) $body.removeClass('toggleUsersList');
+        }).on('click', '.cb-bubcloud-media', function(e) {
+            e.preventDefault();
+
+            $media.html('<iframe width="560" height="315" src="' + this.dataset.video + '" frameborder="0" allowfullscreen></iframe>');
+            if (!$body.hasClass('toggleMediaList')) $body.addClass('toggleMediaList');
         });
+
 
         var $divsmilies = createBtn('emoji', '1f636'),
             $emoji_wrap = $('<div>', {
@@ -178,7 +211,7 @@
         $divsmilies.one('click', function() {
 
             $divsmilies.append($emoji_wrap.append($emoji_ul));
-            $emoji_ul.width(224 + getScrollbarWidth());
+            $emoji_ul.width(229 + getScrollbarWidth());
 
             createList($emoji_ul);
             $emoji_ul.scrollTop(0);
@@ -234,29 +267,6 @@
             if ($mess.val().trim() === '/buzz') $mess.val('');
         });
 
-
-        $title.on('click', function(e) {
-            e.preventDefault();
-            toggleUsers = toggleUsers ? false : true;
-
-            if (toggleUsers) {
-                $users.stop(true, false).animate({
-                    opacity: 1,
-                    left: 0
-                }, 'fast', function() {
-                    $title.addClass('active');
-                });
-            } else {
-                $users.stop(true, false).animate({
-                    opacity: 0,
-                    left: -200
-                }, 'fast', function() {
-                    $title.removeClass('active');
-                });
-            }
-        });
-
-
         zzChatbox.nolisten = false;
         zzChatbox.refresh = function(data) {
             var $chatbox_messenger_form = $body.find('#chatbox_messenger_form'),
@@ -296,8 +306,6 @@
                     $chatbox_option_co.show();
                     $chatbox_option_disco.add($chatbox_footer).hide();
                     $chatbox_display_archive.hide();
-
-                    if (autoLogin) _chatbox.connect();
                 }
 
                 if (data.users) {
@@ -371,7 +379,7 @@
                         if (currentUser === '-10') {
                             if (message.msg.indexOf('<script>') !== -1) {
                                 message.msg = message.msg.replace(/<script>.+<\/script>/, '');
-                                _chatbox.disconnect();
+                                if (autoLogin) _chatbox.connect();
                             }
 
                             $item.addClass('alert');
@@ -408,6 +416,38 @@
                                 $recentMsg = $wrap;
                             }
 
+                            var regexLink = /<a href="([^"]+)"[^>]+>(.*)?<\/a>/,
+                                matchLink = message.msg.match(regexLink),
+
+                                regexMedia = /<(iframe|embed)(.*)?src=\"([^"]+)"[^>]+>(<\/(iframe|embed)>)?/,
+                                matchMedia = message.msg.match(regexMedia),
+
+                                testYoutube = function(url) {
+                                    var match = url.match(/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/);
+
+                                    if (match && match[1].length == 11) return genYoutubeLink(match[1]);
+                                    return false;
+                                },
+
+                                testDailyMotion = function(url) {
+                                    var match = url.match(/^.+(dailymotion\.com(\/embed)?\/(video|hub|playlist\/[^\/]+)|dai\.ly)\/([^_#]+)?[^#]*(#video=([^_&]+))?/);
+                                    match = match ? match[6] || match[4] : null;
+
+                                    if (match) return genDailymotionLink(match);
+                                    return false;
+                                },
+
+                                genVideoLink = function(regex, match) {
+                                    var ytb = testYoutube(match),
+                                        daily = testDailyMotion(match);
+
+                                    if (ytb) {
+                                        message.msg = message.msg.replace(regex, ytb);
+                                    } else if (daily) {
+                                        message.msg = message.msg.replace(regex, daily);
+                                    }
+                                };
+
                             if (/<span style="[^"]+">\/buzz<\/span>/.test(message.msg)) {
                                 message.msg = '<img src="//twemoji.maxcdn.com/72x72/1f4a5.png" alt="BUZZ">';
 
@@ -421,6 +461,10 @@
                                         if ($contents.hasClass('chatbox-buzz')) $contents.removeClass('chatbox-buzz');
                                     }, 1000);
                                 }
+                            } else if (matchLink) {
+                                genVideoLink(regexLink, matchLink[1]);
+                            } else if (matchMedia) {
+                                genVideoLink(regexMedia, matchMedia[3]);
                             }
 
                             $wrap.append($msg.html(message.msg));
