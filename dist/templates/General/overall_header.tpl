@@ -17,7 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     {T_HEAD_STYLESHEET}
     {CSS}
-    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.6.1/style.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.7.0/style.css" rel="stylesheet" type="text/css">
     <style id="bubcloud"></style>
     <link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}">
     <link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}">
@@ -38,7 +38,7 @@
     <script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
     <!-- END switch_fb_login -->
     <script src="{JS_DIR}invision.js" type="text/javascript"></script>
-    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.6.1/bubcloud.top.js" type="text/javascript"></script>
+    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.7.0/bubcloud.top.js" type="text/javascript"></script>
     <script>
     function themeChoose(colorX, colorY, colorZ) {
         var $theme = $('#bubcloud');
@@ -146,9 +146,9 @@
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="E24158" data-colory="DF7282" data-colorz="FFD8DD">
+                            <div class="fa-stack color-choose" data-colorx="F35369" data-colory="F38F9A" data-colorz="F3D9DB">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #E24158;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #F35369;"></i>
                             </div>
                         </li>
                         <li class="color-list">

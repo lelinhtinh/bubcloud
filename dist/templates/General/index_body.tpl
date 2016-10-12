@@ -124,7 +124,7 @@
         </div>
         <div id="cb" class="maincontent">
             <div id="chatbox_top" style="height: 420px;">
-                <iframe src="/chatbox" id="frame_chatbox" scrolling="auto" frameborder="0" height="100%" width="100%"></iframe>
+                <iframe src="/chatbox" id="frame_chatbox" scrolling="auto" frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
             </div>
             <div style="resize">
                 <img src="http://illiweb.com/fa/resize.gif" onmousedown="javascript:resizeElement(event, 'chatbox_top');" alt="" style="cursor:se-resize; float: right;" />
