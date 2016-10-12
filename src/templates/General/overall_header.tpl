@@ -146,9 +146,9 @@
                             </div>
                         </li>
                         <li class="color-list">
-                            <div class="fa-stack color-choose" data-colorx="E24158" data-colory="DF7282" data-colorz="FFD8DD">
+                            <div class="fa-stack color-choose" data-colorx="F35369" data-colory="F38F9A" data-colorz="F3D9DB">
                                 <i class="fa fa-check fa-stack-1x"></i>
-                                <i class="fa fa-circle-o fa-stack-2x" style="color: #E24158;"></i>
+                                <i class="fa fa-circle-o fa-stack-2x" style="color: #F35369;"></i>
                             </div>
                         </li>
                         <li class="color-list">
