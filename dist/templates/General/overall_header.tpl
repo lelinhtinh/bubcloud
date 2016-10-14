@@ -17,7 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     {T_HEAD_STYLESHEET}
     {CSS}
-    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.7.0/style.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.rawgit.com/baivong/bubcloud/master/public/0.8.0/style.css" rel="stylesheet" type="text/css">
     <style id="bubcloud"></style>
     <link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}">
     <link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}">
@@ -38,7 +38,7 @@
     <script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
     <!-- END switch_fb_login -->
     <script src="{JS_DIR}invision.js" type="text/javascript"></script>
-    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.7.0/bubcloud.top.js" type="text/javascript"></script>
+    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/0.8.0/bubcloud.top.js" type="text/javascript"></script>
     <script>
     function themeChoose(colorX, colorY, colorZ) {
         var $theme = $('#bubcloud');
