@@ -4,9 +4,13 @@
 
     $.fn.touchAnimate = function(options) {
 
-        var settings = $.extend({
-            even: {},
-            odd: {},
+        var settings = $.extend(true, {
+            even: {
+                opacity: 1
+            },
+            odd: {
+                opacity: 0
+            },
             animateElement: function($this) {
                 return $this.find('ul');
             }
@@ -40,61 +44,75 @@
 
     'use strict';
 
-    if ($('html').hasClass('no-touch')) {
-        return;
+    if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) return;
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+
+        return function() {
+            var context = this,
+                args = arguments,
+
+                later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                },
+
+                callNow = immediate && !timeout;
+
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+
+            if (callNow) func.apply(context, args);
+        };
     }
 
     var $navSub = $('.has-sub'),
         $childForum = $('.sub4r'),
         $memAvatar = $('.member-avatar'),
-        $win = $(window);
+        $win = $(window),
 
-    $win.on('load resize', function() {
+        displayresponsive = debounce(function() {
 
-        if ($win.width() < 768) {
+            if ($win.width() < 768) {
 
-            $navSub.add($childForum).add($memAvatar).off('click').find('ul').removeAttr('style');
+                $navSub.add($childForum).add($memAvatar).off('click').find('ul').removeAttr('style');
 
-        } else {
+            } else {
 
-            $navSub.touchAnimate({
-                even: {
-                    opacity: 1,
-                    top: 37
-                },
-                odd: {
-                    opacity: 0,
-                    top: 20
-                }
-            });
+                $navSub.touchAnimate({
+                    even: {
+                        top: 37
+                    },
+                    odd: {
+                        top: 20
+                    }
+                });
 
-            $childForum.touchAnimate({
-                even: {
-                    opacity: 1,
-                    top: 15
-                },
-                odd: {
-                    opacity: 0,
-                    top: 5
-                }
-            });
+                $childForum.touchAnimate({
+                    even: {
+                        top: 15
+                    },
+                    odd: {
+                        top: 5
+                    }
+                });
 
-            $memAvatar.touchAnimate({
-                even: {
-                    opacity: 1,
-                    left: 115
-                },
-                odd: {
-                    opacity: 0,
-                    left: 95
-                },
-                animateElement: function($this) {
-                    return $this.next('.member-status');
-                }
-            });
+                $memAvatar.touchAnimate({
+                    even: {
+                        left: 85
+                    },
+                    odd: {
+                        left: 70
+                    },
+                    animateElement: function($this) {
+                        return $this.next('.member-status');
+                    }
+                });
 
-        }
+            }
+        });
 
-    });
+    $win.on('load resize', displayresponsive);
 
 })(jQuery);
