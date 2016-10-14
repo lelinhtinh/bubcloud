@@ -83,11 +83,16 @@
     border-radius: @borderCircle;
 }
 
-.clearfix {
-    &:after {
-        .clear();
-        content: "";
-        display: table;
+.clearfix:after {
+    .show();
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    content: " ";
+
+    .box-content& {
+        visibility: visible;
     }
 }
 
