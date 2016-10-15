@@ -19,8 +19,8 @@
                 a {
                     &:extend(.privmsg-menu li .tabitem a);
 
-                    &:hover,
-                    &:focus {
+                    &:focus,
+                    &:hover {
                         &:extend(.privmsg-menu li .tabitem a:hover);
                     }
                 }
@@ -39,7 +39,7 @@
             }
 
             &:nth-child(5) .tabitem {
-                background-image: url("//i68.servimg.com/u/f68/19/38/83/61/busine11.png");
+                background-image: url("//i97.servimg.com/u/f97/14/64/86/06/person10.png");
             }
         }
     }
@@ -66,8 +66,8 @@
 }
 
 .module {
-    #profile-advanced-right &,
-    #profile-advanced-layout & {
+    #profile-advanced-layout &,
+    #profile-advanced-right & {
         padding: 0;
         background: transparent;
     }
@@ -80,6 +80,7 @@
     z-index: 10;
 
     a {
+        position: relative;
         float: right;
         margin-left: 15px;
         font-size: 0;
@@ -90,30 +91,62 @@
             font-size: initial;
         }
 
+        &:after {
+            content: "Xóa khỏi danh sách";
+            position: absolute;
+            top: -25px;
+            right: 0;
+            visibility: hidden;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: pre;
+            background: @secondaryColor;
+            color: @secondaryBg;
+            opacity: 0;
+            transition: all 200ms ease-in-out;
+        }
+
         &[href*="friend="] {
+            color: @success;
+
             &:before {
                 content: "\f234";
             }
-            color: @success;
+
+            &:after {
+                content: "Thêm danh sách bạn";
+            }
         }
 
         &[href*="foe="] {
+            color: @error;
+
             &:before {
                 content: "\f235";
             }
-            color: @error;
+
+            &:after {
+                content: "Thêm danh sách đen";
+            }
         }
 
         &[href*="remove="] {
+            color: @progress;
+
             &:before {
                 content: "\f007";
             }
-            color: @warning;
         }
 
-        &:hover,
-        &:focus {
+        &:focus,
+        &:hover {
             color: @darkSecondaryColor;
+
+            &:after {
+                visibility: visible;
+                opacity: 1;
+            }
         }
     }
 
@@ -265,21 +298,27 @@
             text-indent: -9999px;
             opacity: 0;
             transition: opacity 300ms;
-            background: url("//i68.servimg.com/u/f68/19/38/83/61/profil10.png") no-repeat center center #fff;
+            background: url("//i97.servimg.com/u/f97/14/64/86/06/black-10.png") no-repeat center center #fff;
 
-            &[href*="?d="],
-            &[href*="&remove="] {
-                background-image: url("//i68.servimg.com/u/f68/19/38/83/61/delete10.png");
+            &[href*="&remove="],
+            &[href*="?d="] {
+                background-image: url("//i97.servimg.com/u/f97/14/64/86/06/interf12.png");
             }
 
-            &[href*="?s="],
-            &[href*="?friend="],
+            &[href*="?s="] {
+                background-image: url("//i97.servimg.com/u/f97/14/64/86/06/arrows12.png");
+            }
+
+            &[href*="?friend="] {
+                background-image: url("//i97.servimg.com/u/f97/14/64/86/06/plus-b11.png");
+            }
+
             &[href*="?foe="] {
-                background-image: url("//i68.servimg.com/u/f68/19/38/83/61/move10.png");
+                background-image: url("//i97.servimg.com/u/f97/14/64/86/06/minus-10.png");
             }
 
-            &:hover,
-            &:focus {
+            &:focus,
+            &:hover {
                 &:extend(.mod-controls a:hover);
             }
         }
@@ -310,13 +349,11 @@
         margin: 0 auto;
     }
 }
-
 @media @mobile {
     .friend-block {
         width: 33.33%;
     }
 }
-
 @media @tablet {
     #new-message-link {
         position: absolute;
