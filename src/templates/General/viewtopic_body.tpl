@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated" style="display:none;">
+                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated hide">
                     <!-- BEGIN profile_field -->
                     <div class="field-label">{postrow.displayed.profile_field.LABEL}<span class="field-content">{postrow.displayed.profile_field.CONTENT}</span></div>
                     <!-- END profile_field -->
@@ -216,7 +216,7 @@
         <div class="search-footer-box left">
             <form method="get" action="{S_SEARCHBOX_ACTION}">
                 <fieldset>
-                    <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
+                    <input type="search" name="search_keywords" id="search_keywords" class="hide" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
                     <input class="button fa" type="submit" value="" />
                     <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
                     <input type="hidden" value="{SEARCH_TOPIC}" name="search_topic" />

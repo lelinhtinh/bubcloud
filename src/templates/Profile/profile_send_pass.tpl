@@ -34,7 +34,7 @@
         </div>
         <div class="module inner center noIcon">
             {S_HIDDEN_FIELDS}
-            <button type="submit" name="submit" class="button" value="{L_SUBMIT}"><i class="fa fa-check-circle" aria-hidden="true"></i> {L_SUBMIT}</button>&nbsp;&nbsp;
+            <button type="submit" name="submit" class="button" value="{L_SUBMIT}"><i class="fa fa-check" aria-hidden="true"></i> {L_SUBMIT}</button>&nbsp;&nbsp;
             <button type="reset" name="reset" class="button" value="{L_RESET}"><i class="fa fa-refresh" aria-hidden="true"></i> {L_RESET}</button>
         </div>
     </section>

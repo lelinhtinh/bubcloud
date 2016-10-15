@@ -23,7 +23,7 @@
          <!-- BEGIN recent_topic_row -->
          <li>
             <a href="{classical_row.recent_topic_row.U_TITLE}">{classical_row.recent_topic_row.L_TITLE}</a>
-            <div class="tooltip_data" style="display:none">
+            <div class="tooltip_data hide">
                <div>
                   <span class="tooltip-title">Tiêu đề</span>: {classical_row.recent_topic_row.L_TITLE}
                </div>

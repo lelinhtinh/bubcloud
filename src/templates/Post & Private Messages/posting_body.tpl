@@ -163,7 +163,7 @@
             <button type="submit" name="publish" tabindex="8" accesskey="p" class="button" value="{L_PUBLISH}"><i class="fa fa-paper-plane" aria-hidden="true"></i> {L_PUBLISH}</button>&nbsp;
             <!-- END switch_publish -->
             &nbsp;
-            <button type="submit" name="post" tabindex="6" accesskey="s" class="button" value="{L_SUBMIT}"><i class="fa fa-check-circle" aria-hidden="true"></i> {L_SUBMIT}</button>
+            <button type="submit" name="post" tabindex="6" accesskey="s" class="button" value="{L_SUBMIT}"><i class="fa fa-check" aria-hidden="true"></i> {L_SUBMIT}</button>
         </div>
     </section>
     <section class="borderwrap">
@@ -329,7 +329,7 @@
                         <input type="text" name="modif_topic_title" id="modif_topic_title" value="{MODIF_TOPIC_TITLE}" maxlength="{TOPIC_TITLE_MAXLENGTH}" onkeypress="if (event.keyCode==13){return false}" class="posting-subject" />
                         <!-- BEGIN switch_topic_button -->
                         &nbsp;
-                        <input type="button" value="{L_SOLVED_WITHOUT_BRAKETS}" onclick="set_solved(this.form.elements['modif_topic_title'],'{L_SOLVED}')" style="display:none" id="button_solved" class="button" />
+                        <input type="button" value="{L_SOLVED_WITHOUT_BRAKETS}" onclick="set_solved(this.form.elements['modif_topic_title'],'{L_SOLVED}')" id="button_solved" class="button hide" />
                         <script type="text/javascript">
                         //<![CDATA[
                         document.getElementById('button_solved').style.display = 'inline';

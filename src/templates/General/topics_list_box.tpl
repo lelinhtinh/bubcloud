@@ -30,7 +30,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
     <div id="forummenu-options" class="popmenubutton">
         <a href="javascript:void(0);" onclick="togglePopUpMenu('forummenu-options_menu');"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
     </div>
-    <ul id="forummenu-options_menu" class="popupmenu" style="display: none;">
+    <ul id="forummenu-options_menu" class="popupmenu hide">
         <li class="popupmenu-category">
             {L_FORUM_OPTIONS}
         </li>
