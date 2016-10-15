@@ -31,9 +31,9 @@
             </div>
         </div>
         <div class="borderwrap module center">
-            <strong><a href="{U_PREC}" class="titletext btn"><i class="fa fa-angle-double-left"></i></a></strong>
+            <strong><a href="{U_PREC}" class="titletext btn"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></strong>
             &nbsp; {S_MONTH} {S_YEAR} &nbsp;
-            <strong><a href="{U_NEXT}" class="titletext btn"><i class="fa fa-angle-double-right"></i></a></strong>
+            <strong><a href="{U_NEXT}" class="titletext btn"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></strong>
         </div>
     </section>
     <section id="calendar-result" class="borderwrap clearfix">

@@ -1,9 +1,9 @@
 <div class="module borderwrap">
     <div class="maintitle">
         <h3>
-            <i class="fa fa-globe fa-1"></i>
+            <i class="fa fa-globe fa-1" aria-hidden="true"></i>
             Đang truy cập
-            <a href="{U_VIEWONLINE}" rel="nofollow" class="titleIcon"><i class="fa fa-external-link fa-1"></i></a>
+            <a href="{U_VIEWONLINE}" rel="nofollow" class="titleIcon"><i class="fa fa-external-link fa-1" aria-hidden="true"></i></a>
         </h3>
     </div>
     <div class="box-content">

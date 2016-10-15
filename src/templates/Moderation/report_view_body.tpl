@@ -36,7 +36,7 @@
                             {row.TEXT}
                         </div>
                         <!-- BEGIN switch_edit -->
-                        <a href="{row.U_EDIT}" class="btn report-edit"><i class="fa fa-pencil"></i> Sửa</a>
+                        <a href="{row.U_EDIT}" class="btn report-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
                         <!-- END switch_edit -->
                     </td>
                 </tr>

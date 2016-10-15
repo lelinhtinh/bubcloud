@@ -152,18 +152,18 @@
             {S_HIDDEN_FORM_FIELDS}
             <input type="hidden" name="lt" value="{LAST_TOPIC_ID}" />
             <!-- BEGIN switch_preview -->
-            <button type="submit" name="preview" tabindex="5" class="button" value="{L_PREVIEW"><i class="fa fa-eye"></i> {L_PREVIEW}</button>&nbsp;
+            <button type="submit" name="preview" tabindex="5" class="button" value="{L_PREVIEW"><i class="fa fa-eye" aria-hidden="true"></i> {L_PREVIEW}</button>&nbsp;
             <!-- END switch_preview -->
             <!-- BEGIN switch_draft -->
             &nbsp;
-            <button type="submit" name="draft" tabindex="7" accesskey="d" class="button" value="{L_DRAFT}"><i class="fa fa-floppy-o"></i> {L_DRAFT}</button>&nbsp;
+            <button type="submit" name="draft" tabindex="7" accesskey="d" class="button" value="{L_DRAFT}"><i class="fa fa-floppy-o" aria-hidden="true"></i> {L_DRAFT}</button>&nbsp;
             <!-- END switch_draft -->
             <!-- BEGIN switch_publish -->
             &nbsp;
-            <button type="submit" name="publish" tabindex="8" accesskey="p" class="button" value="{L_PUBLISH}"><i class="fa fa-paper-plane"></i> {L_PUBLISH}</button>&nbsp;
+            <button type="submit" name="publish" tabindex="8" accesskey="p" class="button" value="{L_PUBLISH}"><i class="fa fa-paper-plane" aria-hidden="true"></i> {L_PUBLISH}</button>&nbsp;
             <!-- END switch_publish -->
             &nbsp;
-            <button type="submit" name="post" tabindex="6" accesskey="s" class="button" value="{L_SUBMIT}"><i class="fa fa-check-circle"></i> {L_SUBMIT}</button>
+            <button type="submit" name="post" tabindex="6" accesskey="s" class="button" value="{L_SUBMIT}"><i class="fa fa-check-circle" aria-hidden="true"></i> {L_SUBMIT}</button>
         </div>
     </section>
     <section class="borderwrap">

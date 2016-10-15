@@ -14,7 +14,7 @@
                     <div class="poll-option">
                         <input class="poll-vote" id="poll{poll_option.POLL_OPTION_ID}" type="{poll_option.POLL_TYPE_BUTTON}" name="vote_id[]" value="{poll_option.POLL_OPTION_ID}" />
                         <label class="poll-label" for="poll{poll_option.POLL_OPTION_ID}">
-                            <i class="fa fa-square fa-fw"></i>&nbsp; {poll_option.POLL_OPTION_CAPTION}
+                            <i class="fa fa-square fa-fw" aria-hidden="true"></i>&nbsp; {poll_option.POLL_OPTION_CAPTION}
                         </label>
                     </div>
                 </li>
@@ -23,8 +23,8 @@
         </div>
         <div class="frm-buttons module inner centered">
             {S_HIDDEN_FIELDS}
-            <button type="submit" name="submit" class="noIcon"><i class="fa fa-bar-chart-o"></i> Bầu chọn</button>&nbsp;&nbsp;
-            <a href="{U_VIEW_RESULTS}" class="btn" id="viewvote"><i class="fa fa-eye"></i> Xem kết quả</a>
+            <button type="submit" name="submit" class="noIcon"><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Bầu chọn</button>&nbsp;&nbsp;
+            <a href="{U_VIEW_RESULTS}" class="btn" id="viewvote"><i class="fa fa-eye" aria-hidden="true"></i> Xem kết quả</a>
         </div>
     </form>
 </section>
@@ -37,7 +37,7 @@
         if(disable) return;
         disable = true;
 
-        $totalvote.html('<i class="fa fa-spinner fa-pulse"></i>');
+        $totalvote.html('<i class="fa fa-spinner fa-pulse" aria-hidden="true"></i>');
         $ballot.addClass("poll-wailt");
     }
 
@@ -79,7 +79,7 @@
         $.get(this.href).done(function(data) {
             history.replaceState(null, null, "?vote=viewresult");
             showResult(data);
-            $result.append('<div class="frm-buttons module inner centered"><a href="javascript:;" class="btn" id="backvote"><i class="fa fa-chevron-left"></i> Quay lại</a></div>');
+            $result.append('<div class="frm-buttons module inner centered"><a href="javascript:;" class="btn" id="backvote"><i class="fa fa-chevron-left" aria-hidden="true"></i> Quay lại</a></div>');
         });
     });
 

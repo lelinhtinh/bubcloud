@@ -25,10 +25,10 @@
                             {searchresults.POSTER_AVATAR}
                         </div>
                         <div class="user-review">
-                            <small><i class="fa fa-user"></i>&nbsp;{searchresults.POSTER_NAME}</small>
+                            <small><i class="fa fa-user" aria-hidden="true"></i>&nbsp;{searchresults.POSTER_NAME}</small>
                         </div>
                         <div class="date-review">
-                            <small><i class="fa fa-clock-o"></i>&nbsp;{searchresults.POST_DATE}</small>
+                            <small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{searchresults.POST_DATE}</small>
                         </div>
                     </div>
                     <div class="post-entry">

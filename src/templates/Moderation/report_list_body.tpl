@@ -13,7 +13,7 @@
 <form method="post" action="{S_ACTION}" name="list_form" class="ipbform">
     <div class="borderwrap module">
         <!-- BEGIN switch_list -->
-        <div class="left"><a class="btn" href="{U_REPORT_ARCHIVE}"><i class="fa fa-floppy-o"></i> {L_REPORT_ARCHIVE}</a></div>
+        <div class="left"><a class="btn" href="{U_REPORT_ARCHIVE}"><i class="fa fa-floppy-o" aria-hidden="true"></i> {L_REPORT_ARCHIVE}</a></div>
         <!-- END switch_list -->
         <div class="right">{ORDER_SELECT}</div>
     </div>
@@ -53,16 +53,16 @@
             <div class="left noIcon">
                 {S_HIDDEN_FIELDS}
                 <!-- BEGIN switch_view -->
-                <button type="submit" onclick="return checkreport();" name="mode[view]" class="button"><i class="fa fa-eye"></i> {L_VIEW}</button>&nbsp;
+                <button type="submit" onclick="return checkreport();" name="mode[view]" class="button"><i class="fa fa-eye" aria-hidden="true"></i> {L_VIEW}</button>&nbsp;
                 <!-- END switch_view -->
                 <!-- BEGIN switch_edit -->
-                <button type="submit" onclick="return checkreport();" name="mode[edit]" class="button"><i class="fa fa-pencil"></i> {L_EDIT}</button>&nbsp;
+                <button type="submit" onclick="return checkreport();" name="mode[edit]" class="button"><i class="fa fa-pencil" aria-hidden="true"></i> {L_EDIT}</button>&nbsp;
                 <!-- END switch_edit -->
                 <!-- BEGIN switch_status -->
-                <button type="submit" onclick="return checkreport();" name="mode[status]" class="button"><i class="fa fa-info"></i> {L_STATUS}</button>&nbsp;
+                <button type="submit" onclick="return checkreport();" name="mode[status]" class="button"><i class="fa fa-info" aria-hidden="true"></i> {L_STATUS}</button>&nbsp;
                 <!-- END switch_status -->
                 <!-- BEGIN switch_delete -->
-                <button type="submit" onclick="delete_mode = true; return checkreport();" name="mode[delete]" class="button"><i class="fa fa-times"></i> {L_DELETE}</button>&nbsp;
+                <button type="submit" onclick="delete_mode = true; return checkreport();" name="mode[delete]" class="button"><i class="fa fa-times" aria-hidden="true"></i> {L_DELETE}</button>&nbsp;
                 <input type="hidden" name="confirm" value="0" class="button" />
                 <!-- END switch_delete -->
             </div>
