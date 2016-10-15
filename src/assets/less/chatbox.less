@@ -140,15 +140,17 @@ a {
 }
 
 #sound_control,
+#fullscreen,
 #chatbox_option_co,
 #chatbox_option_disco,
 #chatbox_option_with_archives a,
 #chatbox_option_without_archives a,
 .chat-title {
-    .inline-block();
+    .show();
     .radius();
     width: 30px;
     height: 30px;
+    float: left;
     margin: 5px;
     text-indent: -9999px;
     background: url("//i68.servimg.com/u/f68/19/38/83/61/chat6110.png") no-repeat center center @wrapperColor;
@@ -177,10 +179,18 @@ a {
 }
 
 #sound_control {
-    background-image: url("http://i97.servimg.com/u/f97/19/51/54/34/volume10.png");
+    background-image: url("//i97.servimg.com/u/f97/19/51/54/34/volume12.png");
 
     &.disable {
-        background-image: url("http://i97.servimg.com/u/f97/19/51/54/34/volume11.png");
+        background-image: url("//i97.servimg.com/u/f97/19/51/54/34/volume11.png");
+    }
+}
+
+#fullscreen {
+    background-image: url("//i97.servimg.com/u/f97/19/51/54/34/expand10.png");
+
+    &.active {
+        background-image: url("//i97.servimg.com/u/f97/19/51/54/34/center10.png");
     }
 }
 

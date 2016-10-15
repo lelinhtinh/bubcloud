@@ -14,12 +14,22 @@
 
     // 872 emoji
 
-    var $chatbox = $('#frame_chatbox');
+    var $chatbox = $('#frame_chatbox'),
+        injectCount = 0;
     if (!$chatbox.length) return;
 
-    $chatbox.on('load', function() {
+    function cbBubcloud() {
         var zzChatbox = $chatbox[0].contentWindow.chatbox;
-        if (!zzChatbox) return;
+        if (!zzChatbox) {
+            if (injectCount < 5) setTimeout(function() {
+                cbBubcloud();
+                zzChatbox.init();
+
+                injectCount++;
+            }, 1000);
+
+            return;
+        }
 
         function animateToggle($element) {
             var $optionsList = $element.find('.cb-bubcloud-options-list');
@@ -77,7 +87,15 @@
         }
 
 
-        var $head = $chatbox.contents().find('head'),
+        var docTop = document,
+            titTop = docTop.title,
+
+            $winTop = $(window),
+            windowTopBlur = false,
+
+            $htmlTop = $('html'),
+
+            $head = $chatbox.contents().find('head'),
             $body = $chatbox.contents().find('body'),
 
             $contents = $body.find('#chatbox'),
@@ -90,6 +108,12 @@
             $online_users = $body.find('.online-users'),
             $away_users = $body.find('.away-users'),
             $member_title = $body.find('.member-title'),
+
+            createDiv = function(id) {
+                return $('<div>', {
+                    id: id
+                });
+            },
 
             createBtn = function(id, icon) {
                 var $btn = $('<div>', {
@@ -117,9 +141,7 @@
             $emoji_wrap = $('<div>', {
                 class: 'cb-bubcloud-options-list'
             }),
-            $emoji_ul = $('<div>', {
-                id: 'emoji_list'
-            }),
+            $emoji_ul = createDiv('emoji_list'),
             createEmojiList = function() {
                 emojiDisable = true;
 
@@ -142,17 +164,13 @@
                 emojiDisable = false;
             },
 
-            $media = $('<div>', {
-                id: 'media'
-            }),
+            $media = createDiv('media'),
 
-            $hasNewMess = $('<div>', {
-                id: 'has_new_message'
-            }),
-
-            $soundControl = $('<div>', {
-                id: 'sound_control'
-            }),
+            $hasNewMess = createDiv('has_new_message'),
+            resetMessNoty = function() {
+                if (/^\(\d+\)\s/.test(docTop.title)) docTop.title = titTop;
+                if ($hasNewMess.hasClass('active')) $hasNewMess.removeClass('active');
+            },
 
             createAudio = function(id) {
                 var cdn = '//baivong.github.io/cdn/bubcloud/';
@@ -171,12 +189,16 @@
                 offline: createAudio('offline')
             },
             mute = false,
+            $soundControl = createDiv('sound_control'),
             playAudio = function(id) {
                 if (!mute) $audio[id][0].play();
             },
 
             $buzz = createBtn('buzz', '1f4a5'),
             buzzDisable = false,
+
+            isFullscreen = false,
+            $fullscreen = createDiv('fullscreen'),
 
             $roboto = $('<link>', {
                 href: '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese',
@@ -224,13 +246,31 @@
             }, 200);
         });
 
-        $body.find('.chatbox-title').after($soundControl);
+
+        $body.find('.chatbox-title').after($fullscreen).after($soundControl);
+
         $soundControl.on('click', function() {
-            if (!mute) {
+            mute = mute ? false : true;
+
+            if (mute) {
                 $soundControl.addClass('disable');
                 mute = true;
             } else {
                 $soundControl.removeClass('disable');
+                mute = false;
+            }
+        });
+
+        $fullscreen.on('click', function() {
+            isFullscreen = isFullscreen ? false : true;
+
+            if (isFullscreen) {
+                $fullscreen.addClass('active');
+                $htmlTop.addClass('cb-bubcloud-fullscreen');
+                mute = true;
+            } else {
+                $fullscreen.removeClass('active');
+                $htmlTop.removeClass('cb-bubcloud-fullscreen');
                 mute = false;
             }
         });
@@ -312,7 +352,6 @@
         $mess.on('input', function() {
             if ($mess.val().trim() === '/buzz') $mess.val('');
         });
-
 
         zzChatbox.nolisten = false;
         zzChatbox.refresh = function(data) {
@@ -554,19 +593,29 @@
 
                         if (scroll) {
                             if ($contents.find('.msg-row:first').hasClass('msg-me')) {
-                                if ($hasNewMess.hasClass('active')) $hasNewMess.removeClass('active');
+                                resetMessNoty();
                                 $contents.scrollTop(0);
                             } else {
                                 var newMessSize = currentMessSize - lastMessSize;
+                                if (currentMessSize === 0) {
+                                    lastMessSize = 0;
+                                    recentMessSize = 0;
+                                    newMessSize = 0;
 
-                                if ($contents.scrollTop() > 0 && newMessSize > 0 && recentMessSize !== newMessSize) {
-                                    $hasNewMess.text('Có ' + newMessSize + ' tin nhắn mới').addClass('active');
+                                    resetMessNoty();
+                                }
+
+                                if (newMessSize > 0 && recentMessSize !== newMessSize) {
+                                    if ($contents.scrollTop() > 0) $hasNewMess.text('Có ' + newMessSize + ' tin nhắn mới').addClass('active');
+
+                                    if (windowTopBlur) docTop.title = '(' + newMessSize + ') Tin nhắn chưa đọc | ' + titTop;
+
                                     playAudio('message');
                                 }
                                 recentMessSize = newMessSize;
                             }
 
-                            if ($contents.scrollTop() == 0) lastMessSize = currentMessSize;
+                            if ($contents.scrollTop() == 0 && !windowTopBlur) lastMessSize = currentMessSize;
                         }
 
                     }
@@ -578,6 +627,26 @@
 
         $body.addClass('active');
         $mess.focus();
-    });
+
+        $winTop.on('focus focusin', function() {
+            windowTopBlur = false;
+        }).on('blur focusout', function() {
+            windowTopBlur = true;
+        });
+
+        $chatbox.contents().find('html').add($winTop).on('click dblclick focus focusin keydown keypress keyup mousedown mouseenter mouseleave mousemove mouseover mouseout mouseup mousemove touchstart touchend touchcancel touchleave touchmove', function() {
+            if (/^\(\d+\)\s/.test(docTop.title)) docTop.title = titTop;
+
+            var winScrollTop = $winTop.scrollTop(),
+                chatOffsetTop = $chatbox.offset().top;
+
+            if ($contents.scrollTop() === 0 && winScrollTop + $winTop.height() > chatOffsetTop && winScrollTop < chatOffsetTop + $chatbox.height()) {
+                recentMessSize = 0;
+                lastMessSize = currentMessSize;
+            }
+        });
+    }
+
+    $chatbox.on('load', cbBubcloud);
 
 })(jQuery);
