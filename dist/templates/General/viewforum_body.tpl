@@ -12,7 +12,7 @@
 
     <div class="posting-options right topic-options">
         <!-- BEGIN switch_user_authpost -->
-        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg"></i><span>Gửi bài mới</span></a>
+        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg" aria-hidden="true"></i><span>Gửi bài mới</span></a>
         <!-- END switch_user_authpost -->
     </div>
 </div>
@@ -28,7 +28,7 @@
 
     <div class="posting-options right topic-options">
         <!-- BEGIN switch_user_authpost -->
-        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg"></i><span>Gửi bài mới</span></a>
+        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg" aria-hidden="true"></i><span>Gửi bài mới</span></a>
         <!-- END switch_user_authpost -->
     </div>
 </div>

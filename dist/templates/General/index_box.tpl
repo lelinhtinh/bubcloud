@@ -117,17 +117,17 @@ $(".status > img").attr("src", function() {
 <div class="quickStat clearfix">
     <div class="linklist statlinks left">
         <ul>
-            <li><a href="{U_TODAY_ACTIVE}"><i class="fa fa-user"></i> Bài đăng trong ngày</a></li>
-            <li class="last"><a href="{U_OVERALL_POSTERS}"><i class="fa fa-bar-chart-o"></i> Thành viên tích cực</a></li>
+            <li><a href="{U_TODAY_ACTIVE}"><i class="fa fa-user" aria-hidden="true"></i> Bài đăng trong ngày</a></li>
+            <li class="last"><a href="{U_OVERALL_POSTERS}"><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Thành viên tích cực</a></li>
         </ul>
     </div>
     <div class="toplinks linklist right">
         <ul>
             <!-- BEGIN switch_delete_cookies -->
-            <li><a href="{switch_on_index.switch_delete_cookies.U_DELETE_COOKIES}">Xóa toàn bộ cookie <i class="fa fa-trash"></i></a></li>
+            <li><a href="{switch_on_index.switch_delete_cookies.U_DELETE_COOKIES}">Xóa toàn bộ cookie <i class="fa fa-trash" aria-hidden="true"></i></a></li>
             <!-- END switch_delete_cookies -->
             <!-- BEGIN switch_user_logged_in -->
-            <li class="last"><a href="{U_MARK_READ}">Đánh dấu là đã đọc <i class="fa fa-calendar-check-o"></i></a></li>
+            <li class="last"><a href="{U_MARK_READ}">Đánh dấu là đã đọc <i class="fa fa-calendar-check-o" aria-hidden="true"></i></a></li>
             <!-- END switch_user_logged_in -->
         </ul>
     </div>

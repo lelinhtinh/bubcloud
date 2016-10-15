@@ -49,12 +49,12 @@
                             </div>
                             <div class="user-review">
                                 <small>
-                                    <i class="fa fa-user"></i>&nbsp;{postrow.POSTER_NAME}
+                                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{postrow.POSTER_NAME}
                                     <label class="right">{postrow.POST_SUBJECT}&nbsp;{postrow.S_SPLIT_CHECKBOX}</label>
                                 </small>
                             </div>
                             <div class="date-review">
-                                <small><i class="fa fa-clock-o"></i>&nbsp;{postrow.POST_DATE}</small>
+                                <small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{postrow.POST_DATE}</small>
                             </div>
                         </div>
                         <div class="post-entry">

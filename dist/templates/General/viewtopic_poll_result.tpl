@@ -27,7 +27,7 @@
             {L_POLL_HIDE_RESULT}&nbsp;&nbsp;
             <!-- END switch_hide_result -->
             <!-- BEGIN cancel_vote -->
-            <a id="cancelvote" class="btn" href="{U_CANCEL_VOTE}"><i class="fa fa-ban"></i> Bỏ bầu chọn</a>
+            <a id="cancelvote" class="btn" href="{U_CANCEL_VOTE}"><i class="fa fa-ban" aria-hidden="true"></i> Bỏ bầu chọn</a>
             <!-- END cancel_vote -->
             <!-- BEGIN switch_user_logged_out -->
             <p class="desc">{L_NOT_CONNECTED} {L_LOGIN_REGISTER}</p>

@@ -61,7 +61,7 @@
                             {POST_SUBJECT}
                         </span>
                         <span class="post-date right">
-                            <i class="fa fa-clock-o"></i>&nbsp;{POST_DATE}
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{POST_DATE}
                         </span>
                     </div>
                     <div class="post-entry">

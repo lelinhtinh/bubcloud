@@ -1,14 +1,14 @@
 <!-- BEGIN _calendar_box -->
 <div class="borderwrap calmonths module center">
     <!-- BEGIN switch_not_anonymous -->
-    <a href="{_calendar_box.U_PREC}" class="calarrow btn" rel="nofollow"><i class="fa fa-angle-double-left"></i></a>
+    <a href="{_calendar_box.U_PREC}" class="calarrow btn" rel="nofollow"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
     <!-- END switch_not_anonymous -->
     &nbsp;
     <form name="_calendar" method="post" action="{_calendar_box.S_ACTION}" style="display:inline;">{_calendar_box.S_MONTH} {_calendar_box.S_YEAR} {_calendar_box.S_FORUM_LIST}
         <input type="submit" value="{_calendar_box.L_GO}" class="button" />
     </form>&nbsp;
     <!-- BEGIN switch_not_anonymous -->
-    <a href="{_calendar_box.U_NEXT}" class="calarrow btn" rel="nofollow"><i class="fa fa-angle-double-right"></i></a>
+    <a href="{_calendar_box.U_NEXT}" class="calarrow btn" rel="nofollow"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
     <!-- END switch_not_anonymous -->
 </div>
 <section class="borderwrap">

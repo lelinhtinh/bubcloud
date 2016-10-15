@@ -1,7 +1,7 @@
 <div class="module borderwrap">
     <div class="maintitle">
         <h3>
-            <i class="fa fa-search fa-1"></i>
+            <i class="fa fa-search fa-1" aria-hidden="true"></i>
             Từ khóa
         </h3>
     </div>

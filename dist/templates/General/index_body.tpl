@@ -101,7 +101,7 @@
         show_tooltip(this, $(this).next().html());
     });
     $(".sub-title").replaceWith(function() {
-        return this.textContent.replace(/^(.+)\s-\s(\d+)\s[^-]+$/, '<span style="display:none">$1</span><span class="lastRight">$2</span>');
+        return this.textContent.replace(/^(.+)\s-\s(\d+)\s[^-]+$/, '<span class="hide">$1</span><span class="lastRight">$2</span>');
     });
     $(".group_post .lastRight, .group_time .lastRight").text(function() {
         return this.textContent.match(/\d+/)[0];

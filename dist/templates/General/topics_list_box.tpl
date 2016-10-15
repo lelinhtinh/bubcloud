@@ -28,9 +28,9 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
     <h1>{FORUM_NAME}</h1>
     <!-- BEGIN switch_forum_options -->
     <div id="forummenu-options" class="popmenubutton">
-        <a href="javascript:void(0);" onclick="togglePopUpMenu('forummenu-options_menu');"><i class="fa fa-ellipsis-h"></i></a>
+        <a href="javascript:void(0);" onclick="togglePopUpMenu('forummenu-options_menu');"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
     </div>
-    <ul id="forummenu-options_menu" class="popupmenu" style="display: none;">
+    <ul id="forummenu-options_menu" class="popupmenu hide">
         <li class="popupmenu-category">
             {L_FORUM_OPTIONS}
         </li>

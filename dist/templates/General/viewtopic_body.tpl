@@ -3,8 +3,8 @@
     var multiquote_img_off = '{JS_MULTIQUOTE_IMG_OFF}',
         multiquote_img_on = '{JS_MULTIQUOTE_IMG_ON}';
 
-    var multiquote_off = '<i class="fa fa-plus-circle"></i><span class="hide">Thêm đoạn trích</span>',
-        multiquote_on = '<i class="fa fa-minus-circle"></i><span class="hide">Bỏ đoạn trích</span>';
+    var multiquote_off = '<i class="fa fa-plus-circle" aria-hidden="true"></i><span class="hide">Thêm đoạn trích</span>',
+        multiquote_on = '<i class="fa fa-minus-circle" aria-hidden="true"></i><span class="hide">Bỏ đoạn trích</span>';
 
     var hiddenMsgLabel = {
         visible: '{JS_HIDE_HIDDEN_MESSAGE}',
@@ -19,24 +19,20 @@
     };
 
     var showHiddenMessage = function(id) {
-        try {
-            var regId = parseInt(id, 10);
-            if (isNaN(regId)) {
-                regId = 0;
-            }
+        var regId = parseInt(id, 10);
+        if (isNaN(regId)) {
+            regId = 0;
+        }
 
-            if (regId > 0) {
-                $('.post--' + id).toggle(0, function() {
-                    if ($(this).is(":visible")) {
-                        $('#hidden-title--' + id).html(hiddenMsgLabel.visible);
-                    } else {
-                        $('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
-                    }
-                });
-            }
-        } catch (e) {}
-
-        return false;
+        if (regId > 0) {
+            $('.post--' + id).toggle(0, function() {
+                if ($(this).is(":visible")) {
+                    $('#hidden-title--' + id).html(hiddenMsgLabel.visible);
+                } else {
+                    $('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
+                }
+            });
+        }
     };
 
     $(function() {
@@ -69,10 +65,10 @@
     </nav>
     <div class="posting-options topic-options right">
         <!-- BEGIN switch_user_authpost -->
-        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg"></i><span>Gửi bài mới</span></a>
+        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg" aria-hidden="true"></i><span>Gửi bài mới</span></a>
         <!-- END switch_user_authpost -->
         <!-- BEGIN switch_user_authreply -->
-        <a class="btn large" href="{U_POST_REPLY_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-reply-all fa-lg"></i><span>Trả lời</span></a>
+        <a class="btn large" href="{U_POST_REPLY_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-reply-all fa-lg" aria-hidden="true"></i><span>Trả lời</span></a>
         <!-- END switch_user_authreply -->
     </div>
 </div>
@@ -109,12 +105,12 @@
             <div style="width: 1px;" id="{postrow.displayed.U_POST_ID}"></div>
             <div class="post-header clearfix">
                 <span class="post-date">
-                    <i class="fa fa-clock-o"></i>&nbsp;{postrow.displayed.POST_DATE_NEW}
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{postrow.displayed.POST_DATE_NEW}
                 </span>
                 <span class="thanks-post hide" {postrow.displayed.THANK_BGCOLOR}>
-                    &nbsp;<i class="fa fa-star"></i>&nbsp;Bài viết hay nhất
+                    &nbsp;<i class="fa fa-star" aria-hidden="true"></i>&nbsp;Bài viết hay nhất
                 </span>
-                <a class="post-count right" data-id="p{postrow.displayed.U_POST_ID}" href="#{postrow.displayed.U_POST_ID}"><i class="fa fa-hashtag"></i>{postrow.displayed.COUNT_POSTS}</a>
+                <a class="post-count right" data-id="p{postrow.displayed.U_POST_ID}" href="#{postrow.displayed.U_POST_ID}"><i class="fa fa-hashtag" aria-hidden="true"></i>{postrow.displayed.COUNT_POSTS}</a>
             </div>
             <div class="postprofile floated" id="profile{postrow.displayed.U_POST_ID}">
                 <div class="postdetails clearfix">
@@ -122,7 +118,7 @@
                         {postrow.displayed.POSTER_AVATAR}
                     </div>
                     <div class="author-details">
-                        <div class="author-name"><a href="javascript:void(0);" {postrow.displayed.ONCLICK}>{postrow.displayed.POSTER_NAME_INV}&nbsp;<i class="fa fa-angle-down"></i></a></div>
+                        <div class="author-name"><a href="javascript:void(0);" {postrow.displayed.ONCLICK}>{postrow.displayed.POSTER_NAME_INV}&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></a></div>
                         <div class="author-rank">{postrow.displayed.RANK_IMAGE}</div>
                         <div class="author-links">
                             {postrow.displayed.PROFILE_IMG}
@@ -145,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated" style="display:none;">
+                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated hide">
                     <!-- BEGIN profile_field -->
                     <div class="field-label">{postrow.displayed.profile_field.LABEL}<span class="field-content">{postrow.displayed.profile_field.CONTENT}</span></div>
                     <!-- END profile_field -->
@@ -198,13 +194,13 @@
                 </div>
                 <div class="post-action right">
                     {postrow.displayed.THANK_IMG}
-                    <a href="?thank={postrow.displayed.U_POST_ID}" class="thanks post-btn"><i class="fa fa-thumbs-up"></i><span class="hide">Cảm ơn</span></a> {postrow.displayed.MULTIQUOTE_IMG}
-                    <a id="zzpost_mq{TOPIC_ID}_{postrow.displayed.U_POST_ID}" onclick="toggleMultiQuote(this);" href="javascript:void(0);" class="multiquote post-btn"><i class="fa fa-plus-circle"></i><span class="hide">Thêm đoạn trích</span></a> {postrow.displayed.QUOTE_IMG}
-                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=quote" class="quote post-btn"><i class="fa fa-quote-right"></i><span class="hide">Trích dẫn</span></a> {postrow.displayed.EDIT_IMG}
-                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=editpost" class="edit post-btn"><i class="fa fa-pencil"></i><span class="hide">Sửa</span></a> {postrow.displayed.DELETE_IMG}
-                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=delete" class="delete post-btn"><i class="fa fa-times"></i><span class="hide">Xóa</span></a>
-                    <a href="/report?p={postrow.displayed.U_POST_ID}&amp;mode=report" class="report post-btn"><i class="fa fa-flag"></i><span class="hide">Báo lỗi</span></a> {postrow.displayed.IP_IMG}
-                    <a href="/modcp?t={TOPIC_ID}&amp;p={postrow.displayed.U_POST_ID}&amp;mode=ip" class="findip post-btn"><i class="fa fa-map-marker"></i><span class="hide">Xem IP</span></a>
+                    <a href="?thank={postrow.displayed.U_POST_ID}" class="thanks post-btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="hide">Cảm ơn</span></a> {postrow.displayed.MULTIQUOTE_IMG}
+                    <a id="zzpost_mq{TOPIC_ID}_{postrow.displayed.U_POST_ID}" onclick="toggleMultiQuote(this);" href="javascript:void(0);" class="multiquote post-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i><span class="hide">Thêm đoạn trích</span></a> {postrow.displayed.QUOTE_IMG}
+                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=quote" class="quote post-btn"><i class="fa fa-quote-right" aria-hidden="true"></i><span class="hide">Trích dẫn</span></a> {postrow.displayed.EDIT_IMG}
+                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=editpost" class="edit post-btn"><i class="fa fa-pencil" aria-hidden="true"></i><span class="hide">Sửa</span></a> {postrow.displayed.DELETE_IMG}
+                    <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=delete" class="delete post-btn"><i class="fa fa-times" aria-hidden="true"></i><span class="hide">Xóa</span></a>
+                    <a href="/report?p={postrow.displayed.U_POST_ID}&amp;mode=report" class="report post-btn"><i class="fa fa-flag" aria-hidden="true"></i><span class="hide">Báo lỗi</span></a> {postrow.displayed.IP_IMG}
+                    <a href="/modcp?t={TOPIC_ID}&amp;p={postrow.displayed.U_POST_ID}&amp;mode=ip" class="findip post-btn"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="hide">Xem IP</span></a>
                 </div>
             </div>
         </section>
@@ -216,7 +212,7 @@
         <div class="search-footer-box left">
             <form method="get" action="{S_SEARCHBOX_ACTION}">
                 <fieldset>
-                    <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
+                    <input type="search" name="search_keywords" id="search_keywords" class="hide" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
                     <input class="button fa" type="submit" value="" />
                     <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
                     <input type="hidden" value="{SEARCH_TOPIC}" name="search_topic" />
@@ -225,8 +221,8 @@
             </form>
         </div>
         <nav class="next-prev right">
-            <a href="{U_VIEW_OLDER_TOPIC}" class="btn"><i class="fa fa-hand-o-left"></i><span class="hide">Bài trước</span></a>
-            <a href="{U_VIEW_NEWER_TOPIC}" class="btn"><span class="hide">Bài sau</span><i class="fa fa-hand-o-right"></i></a>
+            <a href="{U_VIEW_OLDER_TOPIC}" class="btn"><i class="fa fa-hand-o-left" aria-hidden="true"></i><span class="hide">Bài trước</span></a>
+            <a href="{U_VIEW_NEWER_TOPIC}" class="btn"><span class="hide">Bài sau</span><i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
         </nav>
     </div>
 </article>
@@ -238,10 +234,10 @@
     </nav>
     <div class="posting-options topic-options right">
         <!-- BEGIN switch_user_authpost -->
-        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg"></i><span>Gửi bài mới</span></a>
+        <a class="btn large" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-plus fa-lg" aria-hidden="true"></i><span>Gửi bài mới</span></a>
         <!-- END switch_user_authpost -->
         <!-- BEGIN switch_user_authreply -->
-        <a class="btn large" href="{U_POST_REPLY_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-reply-all fa-lg"></i><span>Trả lời</span></a>
+        <a class="btn large" href="{U_POST_REPLY_TOPIC}" accesskey="n" rel="nofollow"><i class="fa fa-reply-all fa-lg" aria-hidden="true"></i><span>Trả lời</span></a>
         <!-- END switch_user_authreply -->
     </div>
 </div>
@@ -358,7 +354,7 @@
         function showpost(postid) {
             history.replaceState(null, null, "?showpost=" + postid);
             $body.addClass("showpost");
-            $("#" + postid).show().after('<a id="stopShowpost" data-id="' + postid + '" href="#' + postid + '" class="btn large"><div class="center"><i class="fa fa-angle-double-up"></i> Xem toàn bộ chủ đề <i class="fa fa-angle-double-up"></i></div></a>');
+            $("#" + postid).show().after('<a id="stopShowpost" data-id="' + postid + '" href="#' + postid + '" class="btn large"><div class="center"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Xem toàn bộ chủ đề <i class="fa fa-angle-double-up" aria-hidden="true"></i></div></a>');
             $html.animate({
                 scrollTop: 0
             });

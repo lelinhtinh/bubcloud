@@ -43,14 +43,14 @@
     <div class="maintitle">
         <h1>{PAGE_TITLE}</h1>
     </div>
-    <div class="maincontent clearfix">
+    <div class="maincontent">
         <!-- BEGIN memberrow -->
         <section class="member clearfix">
             <div class="member-avatar left">{memberrow.AVATAR_IMG}</div>
             <div class="member-status">{memberrow.INTERESTS}</div>
             <div class="member-name">
                 <a href="javascript:void(0);" onclick="return togglePopUpMenu('pm{memberrow.ROW_NUMBER}');">
-                    <span class="membername">{memberrow.USERNAME}&nbsp;<i class="fa fa-angle-down"></i></span>
+                    <span class="membername">{memberrow.USERNAME}&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span>
                 </a>
             </div>
             <div class="member-links">
@@ -65,7 +65,7 @@
                 &nbsp;{memberrow.USER_POSTS_IMG}
             </div>
             <div class="member-post">{memberrow.POSTS} <small>bài viết</small></div>
-            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember clearfix" style="display:none;">
+            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember hide">
                 <div class="member-details details-table">
                     <div class="details-row">
                     <!-- BEGIN switch_td_group -->
