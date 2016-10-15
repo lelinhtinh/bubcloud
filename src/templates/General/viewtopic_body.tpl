@@ -19,24 +19,20 @@
     };
 
     var showHiddenMessage = function(id) {
-        try {
-            var regId = parseInt(id, 10);
-            if (isNaN(regId)) {
-                regId = 0;
-            }
+        var regId = parseInt(id, 10);
+        if (isNaN(regId)) {
+            regId = 0;
+        }
 
-            if (regId > 0) {
-                $('.post--' + id).toggle(0, function() {
-                    if ($(this).is(":visible")) {
-                        $('#hidden-title--' + id).html(hiddenMsgLabel.visible);
-                    } else {
-                        $('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
-                    }
-                });
-            }
-        } catch (e) {}
-
-        return false;
+        if (regId > 0) {
+            $('.post--' + id).toggle(0, function() {
+                if ($(this).is(":visible")) {
+                    $('#hidden-title--' + id).html(hiddenMsgLabel.visible);
+                } else {
+                    $('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
+                }
+            });
+        }
     };
 
     $(function() {
