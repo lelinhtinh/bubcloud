@@ -38,15 +38,12 @@
             width: auto;
             height: 100px;
         }
-
         @media @mobile {
             width: 33.33%;
         }
-
         @media @tablet {
             width: 25%;
         }
-
         @media @desktop {
             width: 20%;
         }
@@ -173,7 +170,6 @@
 [name="_calendar_scheduler"] {
     overflow: hidden;
 }
-
 @media @tablet {
     [name="addtag_form"] {
         position: absolute;
@@ -181,7 +177,6 @@
         right: 0;
     }
 }
-
 @media @desktop {
     #mini-calendar {
         width: 300px;
@@ -204,4 +199,33 @@ a.vglnk {
     /* stylelint-disable no-unsupported-browser-features */
     pointer-events: none;
     /* stylelint-enable no-unsupported-browser-features */
+}
+
+.stat-bar img {
+    overflow: hidden;
+
+    &:first-child {
+        border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.cb-bubcloud-fullscreen {
+    overflow: hidden;
+
+    body {
+        overflow: hidden;
+    }
+
+    #frame_chatbox {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 99999;
+    }
 }

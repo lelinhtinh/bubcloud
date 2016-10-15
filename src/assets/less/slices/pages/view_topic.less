@@ -62,6 +62,14 @@
     margin-top: 15px;
     padding: 4px 10px;
     font-size: 13px;
+
+    .field-label:nth-child(3) ~ .field-label {
+        .hide();
+    }
+
+    .field-label:nth-child(2) ~ .field-label {
+        border: 0 none;
+    }
 }
 
 .field-label {
@@ -71,7 +79,7 @@
 
     .label span {
         .inline-block();
-        min-width: 50px;
+        min-width: 70px;
     }
 }
 
@@ -232,7 +240,7 @@
         padding: 5px 5px 5px 30px;
         font-weight: @weightNormal;
         color: @lightSecondaryColor;
-        background: url("//i83.servimg.com/u/f83/16/58/89/73/icon-a10.gif") no-repeat 10px center @wrapperColor;
+        background: url("//i97.servimg.com/u/f97/14/64/86/06/sort-a10.png") no-repeat 10px center @wrapperColor;
 
         &:hover {
             color: @darkSecondaryColor;
@@ -253,6 +261,7 @@
     &.hidecode {
         padding: 15px;
         border: 1px inset @dividerColor;
+        color: @lightSecondaryColor;
     }
 
     dt {
