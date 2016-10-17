@@ -35,7 +35,7 @@
         </div>
         <div class="module inner centered">
             {S_HIDDEN_SID}
-            <input type="submit" name="submit" value="Tìm kiếm" class="button" />
+            <button type="submit" name="submit" class="button noIcon" value="Tìm kiếm"><i class="fa fa-search" aria-hidden="true"></i> Tìm kiếm</button>
         </div>
     </div>
 </form>

@@ -266,6 +266,7 @@
     </form>
 </div>
 <!-- END switch_user_login_form_footer -->
+<script src="/bubcloud.index.js" type="text/javascript"></script>
 {AUTO_DST}
 <!-- BEGIN switch_fb_index_login -->
 <div id="fb-root"></div>

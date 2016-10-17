@@ -213,7 +213,7 @@
             <form method="get" action="{S_SEARCHBOX_ACTION}">
                 <fieldset>
                     <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
-                    <input class="button fa hide" type="submit" value="" />
+                    <input class="button fa" style="display: none;" type="submit" value="" />
                     <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
                     <input type="hidden" value="{SEARCH_TOPIC}" name="search_topic" />
                     <input type="hidden" value="posts" name="show_results" />
@@ -415,3 +415,4 @@
     })(jQuery);
     //]]>
 </script>
+<script src="/bubcloud.topic.js" type="text/javascript"></script>

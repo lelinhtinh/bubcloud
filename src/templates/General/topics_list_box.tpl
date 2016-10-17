@@ -146,7 +146,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
         <form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
             <fieldset>
                 <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
-                <input class="button fa" type="submit" value="" />
+                <input class="button fa" style="display: none;" type="submit" value="" />
                 <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
             </fieldset>
         </form>

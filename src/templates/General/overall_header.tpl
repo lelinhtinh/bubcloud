@@ -38,7 +38,7 @@
     <script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
     <!-- END switch_fb_login -->
     <script src="{JS_DIR}invision.js" type="text/javascript"></script>
-    <script src="/bubcloud.top.js" type="text/javascript"></script>
+    <script src="/bubcloud.header.js" type="text/javascript"></script>
     <script>
     function themeChoose(colorX, colorY, colorZ) {
         var $theme = $('#bubcloud');
