@@ -229,7 +229,7 @@
             }));
         }
 
-        // $head.find('link[href$="-ltr.css"]').attr('href', '/chatbox.css');
+        $head.find('link[href$="-ltr.css"]').attr('href', '/chatbox.css');
 
         $body.prepend($media);
         $.each($audio, function(key) {

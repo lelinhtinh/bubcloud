@@ -33,12 +33,9 @@
 
         if (colorx === '' && colory === '' && colorz === '') {
 
-            if ($theme.length) {
-                $theme.remove();
-            }
-            if ($chat.length) {
-                $chat.remove();
-            }
+            if ($theme.length) $theme.empty();
+            if ($chat.length) $chat.empty();
+
             $('.color-choose.active').removeClass('active');
             $button.removeAttr('style');
 
