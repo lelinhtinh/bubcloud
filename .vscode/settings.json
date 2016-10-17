@@ -9,7 +9,8 @@
         "**/node_modules": true,
         "**/bower_components": true,
         "**/dist": true,
-        "**/public": true
+        "**/public": true,
+        "**/src/assets/css/": true
     },
     "files.associations": {
         "*.tpl": "html",
