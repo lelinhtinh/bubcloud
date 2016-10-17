@@ -8,12 +8,18 @@
     &:extend(.lastpost-avatar);
     margin: 0;
 
+    a {
+        display: block;
+        height: 100%;
+        background: @secondaryBg;
+    }
+
     img {
         &:extend(.lastpost-avatar img);
         /* stylelint-disable no-unsupported-browser-features */
         filter:grayscale(100%);
 
-        .online&,
+        .online &,
         &:hover {
             filter:none;
         }
@@ -390,6 +396,10 @@
     + .post {
         opacity: .4;
         transition: opacity 300ms;
+
+        + .post {
+            margin-top: 15px;
+        }
 
         .touch &,
         &:hover {
