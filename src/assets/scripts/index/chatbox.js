@@ -3,17 +3,6 @@
 
     'use strict';
 
-    // https://twitter.github.io/twemoji/preview.html
-
-    // var emoji = document.getElementsByClassName('emoji'),
-    //     list = '';
-    // for (var i = 0; i < emoji.length; i++) {
-    //     list += ' ' + emoji[i].src.match(/([^\/]+)\.png$/)[1];
-    // };
-    // console.log(list);
-
-    // 872 emoji
-
     var $chatbox = $('#frame_chatbox'),
         injectCount = 0;
     if (!$chatbox.length) return;
@@ -77,13 +66,37 @@
         }
 
         function genDailymotionLink(video_id) {
-            $.getJSON('https://api.dailymotion.com/video/' + video_id, {
-                fields: 'thumbnail_medium_url'
-            }).done(function(data) {
-                $contents.find('.cb-bubcloud-media.daily-icon-' + video_id).css('background-image', 'url(' + data.thumbnail_medium_url + ')');
-            });
+            var bg = '//i97.servimg.com/u/f97/19/51/54/34/dailym10.png',
+                iconId = 'daily_' + video_id;
 
-            return '<a class="cb-bubcloud-media daily-icon-' + video_id + '" data-video="https://www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&endscreen-enable=0" href="http://dai.ly/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(//i97.servimg.com/u/f97/19/51/54/34/dailym10.png);"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+            if (sessionStorage[iconId]) {
+                bg = sessionStorage[iconId];
+            } else {
+                $.getJSON('https://api.dailymotion.com/video/' + video_id, {
+                    fields: 'thumbnail_medium_url'
+                }).done(function(data) {
+                    $contents.find('.cb-bubcloud-media.daily-icon-' + video_id).css('background-image', 'url(' + data.thumbnail_medium_url + ')');
+                    sessionStorage[iconId] = data.thumbnail_medium_url;
+                });
+            }
+
+            return '<a class="cb-bubcloud-media daily-icon-' + video_id + '" data-video="https://www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&endscreen-enable=0" href="http://dai.ly/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+        }
+
+        function genVimeoLink(video_id) {
+            var bg = '//i97.servimg.com/u/f97/19/51/54/34/vimeo-10.jpg',
+                iconId = 'vimeo_' + video_id;
+
+            if (sessionStorage[iconId]) {
+                bg = sessionStorage[iconId];
+            } else {
+                $.getJSON('https://vimeo.com/api/oembed.json?url=https://vimeo.com/' + video_id).done(function(data) {
+                    $contents.find('.cb-bubcloud-media.vimeo-icon-' + video_id).css('background-image', 'url(' + data.thumbnail_url + ')');
+                    sessionStorage[iconId] = data.thumbnail_url;
+                });
+            }
+
+            return '<a class="cb-bubcloud-media vimeo-icon-' + video_id + '" data-video="https://player.vimeo.com/video/' + video_id + '?autoplay=1" href="http://vimeo.com/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
         }
 
 
@@ -517,14 +530,24 @@
                                     return false;
                                 },
 
+                                testVimeo = function(url) {
+                                    var match = url.match(/^https?:\/\/vimeo\.com(\/.*)?(\/(\d+))$/);
+
+                                    if (match) return genVimeoLink(match[3]);
+                                    return false;
+                                },
+
                                 genVideoLink = function(regex, match) {
                                     var ytb = testYoutube(match),
-                                        daily = testDailyMotion(match);
+                                        daily = testDailyMotion(match),
+                                        vimeo = testVimeo(match);
 
                                     if (ytb) {
                                         message.msg = message.msg.replace(regex, ytb);
                                     } else if (daily) {
                                         message.msg = message.msg.replace(regex, daily);
+                                    } else if (vimeo) {
+                                        message.msg = message.msg.replace(regex, vimeo);
                                     }
                                 };
 
