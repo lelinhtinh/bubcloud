@@ -3,7 +3,9 @@
 // Load Gulp
 var fs = require('fs'),
     path = require('path'),
+    argv = require('yargs').argv,
     gulp = require('gulp'),
+    include = require('gulp-include'),
     changed = require('gulp-changed'),
     browserSync = require('browser-sync')
     .create(),
@@ -16,6 +18,7 @@ var fs = require('fs'),
     cleanCSS = require('gulp-clean-css'),
     eslint = require('gulp-eslint'),
     uglify = require('gulp-uglify'),
+    gulpif = require('gulp-if'),
     replace = require('gulp-string-replace'),
     zip = require('gulp-zip'),
     header = require('gulp-header'),
@@ -85,7 +88,7 @@ gulp.task('less', function() {
 // npm run gulp css
 gulp.task('css', function() {
     return gulp.src('src/assets/css/mobile.css')
-        .pipe(changed('css'))
+        .pipe(changed('dist'))
         .pipe(gulp.dest(pjPath.public))
         .pipe(gulp.dest('dist'));
 });
@@ -94,7 +97,6 @@ gulp.task('css', function() {
 // npm run gulp eslint
 gulp.task('eslint', function() {
     return gulp.src(pjPath.js + '**/*.js')
-        .pipe(changed('dist'))
         .pipe(eslint())
         .pipe(eslint.format());
 });
@@ -112,11 +114,15 @@ gulp.task('js', function() {
 
         tasks = folders.map(function(folder) {
             return gulp.src(pjPath.js + folder + '/*.js')
-                .pipe(uglify({
+                .pipe(changed('dist'))
+                .pipe(include({
+                    includePaths: __dirname + '/src/assets/scripts/'
+                }))
+                .pipe(gulpif(!argv.dev, uglify({
                     output: {
                         'ascii_only': true
                     }
-                }))
+                })))
                 .pipe(concat(pkg.name + '.' + folder + '.js'))
                 .pipe(header(banner, {
                     pkg: pkg
@@ -156,7 +162,9 @@ gulp.task('prezip', function() {
         .pipe(changed('dist'))
         .pipe(gulp.dest('dist')),
 
-        mobileTpl = gulp.src('src/templates/Mobile version/overall_header.tpl')
+        mobileTpl = gulp.src('src/templates/Mobile version/overall_header.tpl', {
+            base: './src/'
+        })
         .pipe(changed('dist'))
         .pipe(replace('/mobile.css', rawgitPath + '/mobile.css'))
         .pipe(gulp.dest('dist'));
@@ -199,10 +207,10 @@ gulp.task('build', ['lint', 'less', 'js', 'zip', 'css'], function() {
 
 // npm start
 // npm run gulp serve
-gulp.task('serve', ['less', 'js', 'watch'], function() {
+gulp.task('serve', ['less', 'js', 'css', 'watch'], function() {
     browserSync.init({
-        proxy: config.proxy,
-        port: config.port,
+        proxy: argv.proxy || config.proxy,
+        port: argv.port || config.port,
         serveStatic: ['./dist']
     });
 });
