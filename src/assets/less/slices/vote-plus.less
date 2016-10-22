@@ -13,25 +13,28 @@
         box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
         transition: background .3s;
 
-        &:hover,
-        &:focus {
+        &:focus,
+        &:hover {
             border-color: @dividerColor;
         }
 
-        &[href=""],
-        &[href="javascript:;"] {
+        &.waiting {
+            background-image: url("//i57.servimg.com/u/f57/17/05/17/70/preloa10.gif");
+        }
+
+        &[href=""] {
             border-color: transparent;
             background-color: @error;
             cursor: default;
             color: @textPrimaryColor;
         }
 
-        &.dis {
+        &.disable {
             background-color: @secondaryBg;
             color: @lightSecondaryColor;
 
-            &:hover,
-            &:focus {
+            &:focus,
+            &:hover {
                 border-color: @secondaryBg;
                 /* stylelint-disable no-unsupported-browser-features */
                 cursor: not-allowed;
