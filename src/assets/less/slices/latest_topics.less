@@ -112,16 +112,22 @@
 }
 
 #tooltip {
-    .wrapper();
+    .border();
+    .radius();
+    position: fixed;
+    z-index: 888;
+    min-width: 170px;
     max-width: 280px;
-    padding: 0 15px;
+    padding: 8px 15px;
+    background: @primaryBg;
+    box-shadow: @dropShadow;
+
+    span {
+        margin-right: .4em;
+    }
 
     .tooltip-title {
         color: @info;
-    }
-
-    .tooltip-date {
-        color: @progress;
     }
 }
 

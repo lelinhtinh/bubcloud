@@ -68,6 +68,11 @@
     margin-top: 15px;
     padding: 4px 10px;
     font-size: 13px;
+    background: @primaryBg;
+
+    &:after {
+        border-bottom-color: @primaryBg;
+    }
 
     .field-label:nth-child(3) ~ .field-label {
         .hide();
@@ -120,6 +125,9 @@
 }
 
 .post-entry {
+    word-wrap: break-word;
+    word-break: break-word;
+
     a {
         &:hover,
         &:focus {
@@ -444,6 +452,11 @@
     }
 }
 
+.quote-referrer {
+    margin-left: 5px;
+    text-decoration: none !important;
+}
+
 @media @tablet {
     .author-name {
         a {
@@ -456,21 +469,16 @@
     }
 
     .author-stat {
-        .show()!important;
+        .show() !important;
         position: absolute;
-        top: 1px;
-        right: 15px;
+        top: -.3em;
+        right: 0;
         margin-top: 0;
-        border: 0 none;
 
         &:before,
         &:after {
             content: none;
         }
-    }
-
-    .field-label {
-        border-color: transparent;
     }
 
     .post-action {
