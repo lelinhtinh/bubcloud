@@ -1,6 +1,6 @@
 {
     "name": "bubcloud",
-    "version": "0.9.0",
+    "version": "1.0.0",
     "description": "A responsive theme for Forumotion",
     "keywords": [
         "forumotion",
@@ -42,6 +42,8 @@
         "gulp-cssmin": "^0.1.7",
         "gulp-eslint": "^3.0.1",
         "gulp-header": "^1.8.8",
+        "gulp-if": "^2.0.1",
+        "gulp-include": "^2.3.1",
         "gulp-less": "^3.1.0",
         "gulp-plumber": "^1.1.0",
         "gulp-string-replace": "^0.2.0",
@@ -49,7 +51,8 @@
         "gulp-uglify": "^2.0.0",
         "gulp-util": "^3.0.7",
         "gulp-zip": "^3.2.0",
-        "merge-stream": "^1.0.0"
+        "merge-stream": "^1.0.0",
+        "yargs": "^6.2.0"
     },
     "dependencies": {
         "normalize.css": "^5.0.0"
