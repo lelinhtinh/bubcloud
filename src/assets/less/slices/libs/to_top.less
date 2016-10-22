@@ -1,0 +1,19 @@
+#back_to_top {
+    cursor: pointer;
+    position: fixed;
+    right: -81px;
+    bottom: 140px;
+    z-index: 1000;
+    width: 81px;
+    height: 81px;
+    background: url("//i.imgur.com/qAiD8nz.png") no-repeat top left transparent;
+    transition: right .5s ease-in, background .3s ease-in-out;
+
+    &.show-back-btn {
+        right: 0;
+    }
+
+    &:hover {
+        background-position: top right;
+    }
+}
