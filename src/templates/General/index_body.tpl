@@ -51,67 +51,6 @@
             </tbody>
         </table>
     </div>
-    <script type="text/javascript">
-    //<![CDATA[
-    var versionMinor = parseFloat(navigator.appVersion),
-        versionMajor = parseInt(versionMinor),
-        IE = document.all && !window.opera && 7 > versionMajor,
-        IE7 = document.all && !window.opera && 7 <= versionMajor,
-        OP = window.opera,
-        FF = document.getElementById,
-        NS = document.layers;
-
-    function get_item(a, c) {
-        if (IE) return c ? window.opener.document.all[a] : document.all[a];
-        if (FF) return c ? window.opener.document.getElementById(a) : document.getElementById(a);
-        if (NS) return c ? window.opener.document.layers[a] : document.layers[a]
-    }
-
-    var current_tooltip;
-
-    function show_tooltip(a, c) {
-        var b = get_item("tooltip");
-        b || (b = document.createElement("div"), b.setAttribute("id", "tooltip"), document.body.appendChild(b));
-        b.style.zIndex = 1000;
-        b.style.position = "absolute";
-        b.innerHTML = "<p>" + c + "</p>";
-        b.style.visibility = "visible";
-        a.onmousemove = move_tooltip;
-        a.onmouseout = function() {
-            b.style.visibility = "hidden"
-        };
-        a.title = ""
-    }
-    var offsetxpoint = -60,
-        offsetypoint = 20,
-        real_body = document.compatMode && "BackCompat" != document.compatMode ? document.documentElement : document.body,
-        real_body = document.documentElement ? document.documentElement : document.body;
-
-    function move_tooltip(a) {
-        var c = !IE ? a.pageX : event.clientX + real_body.scrollLeft,
-            d = !IE ? a.pageY : event.clientY + real_body.scrollTop,
-            b = IE && !window.opera ? real_body.clientWidth - event.clientX - offsetxpoint : window.innerWidth - a.clientX - offsetxpoint - 20,
-            e = IE && !window.opera ? real_body.clientHeight - event.clientY - offsetypoint : window.innerHeight - a.clientY - offsetypoint - 20,
-            f = 0 > offsetxpoint ? -1 * offsetxpoint : -1E3;
-        current_tooltip = get_item("tooltip");
-        current_tooltip.style.left = b < current_tooltip.offsetWidth ? IE ? real_body.scrollLeft + event.clientX - current_tooltip.offsetWidth + "px" : window.pageXOffset + a.clientX - current_tooltip.offsetWidth + "px" : c < f ? "5px" : c + offsetxpoint + "px";
-        current_tooltip.style.top = e < current_tooltip.offsetHeight ? IE ? real_body.scrollTop + event.clientY - current_tooltip.offsetHeight - offsetypoint + "px" : window.pageYOffset + a.clientY - current_tooltip.offsetHeight - offsetypoint + "px" : d + offsetypoint + "px"
-    }
-    $("#recent_topics a:first-child, #active_topics a, #viewed_topics a").mouseover(function() {
-        show_tooltip(this, $(this).next().html());
-    });
-    $(".sub-title").replaceWith(function() {
-        return this.textContent.replace(/^(.+)\s-\s(\d+)\s[^-]+$/, '<span class="hide">$1</span><span class="lastRight">$2</span>');
-    });
-    $(".group_post .lastRight, .group_time .lastRight").text(function() {
-        return this.textContent.match(/\d+/)[0];
-    });
-    $(".changeLast").change(function() {
-        $(".half.group_" + $(this).data("group")).hide();
-        $("#" + this.value).show();
-    });
-    //]]>
-    </script>
 </section>
 <div id="boardIndex" class="clearfix">
     <!-- BEGIN switch_user_logged_in -->
@@ -126,8 +65,8 @@
             <div id="chatbox_top" style="height: 420px;">
                 <iframe src="/chatbox" id="frame_chatbox" scrolling="auto" frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
             </div>
-            <div style="resize">
-                <img src="http://illiweb.com/fa/resize.gif" onmousedown="javascript:resizeElement(event, 'chatbox_top');" alt="" style="cursor:se-resize; float: right;" />
+            <div onmousedown="resizeElement(event, 'chatbox_top');" class="resize">
+                <i class="fa fa-sort" aria-hidden="true"></i>
             </div>
         </div>
     </section>

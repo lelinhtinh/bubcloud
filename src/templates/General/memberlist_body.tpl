@@ -65,7 +65,7 @@
                 &nbsp;{memberrow.USER_POSTS_IMG}
             </div>
             <div class="member-post">{memberrow.POSTS} <small>bài viết</small></div>
-            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember hide">
+            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember" style="display:none;">
                 <div class="member-details details-table">
                     <div class="details-row">
                     <!-- BEGIN switch_td_group -->

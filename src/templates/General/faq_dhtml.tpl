@@ -25,7 +25,7 @@
             <dd onclick="return CFAQ.display('faq_a_{faq_block.faq_row.U_FAQ_ID}', false);" class="question">
                 <a href="javascript:void(0)" onclick="return CFAQ.display('faq_a_{faq_block.faq_row.U_FAQ_ID}', true);" onfocus="this.blur();">{faq_block.faq_row.FAQ_QUESTION}</a>
             </dd>
-            <dd id="faq_a_{faq_block.faq_row.U_FAQ_ID}" class="hide">
+            <dd style="display:none;" id="faq_a_{faq_block.faq_row.U_FAQ_ID}">
                 {faq_block.faq_row.FAQ_ANSWER}
             </dd>
             <!-- END faq_row -->
