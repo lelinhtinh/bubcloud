@@ -4,7 +4,9 @@
 var fs = require('fs'),
     path = require('path'),
     argv = require('yargs').argv,
+    del = require('del'),
     gulp = require('gulp'),
+    gulpSequence = require('gulp-sequence'),
     include = require('gulp-include'),
     changed = require('gulp-changed'),
     browserSync = require('browser-sync')
@@ -74,7 +76,7 @@ gulp.task('less', function() {
             .pipe(header(banner, {
                 pkg: pkg
             }))
-            .pipe(gulp.dest(pjPath.public))
+            .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
             .pipe(gulp.dest('dist'))
             .pipe(browserSync.stream());
     }
@@ -85,12 +87,19 @@ gulp.task('less', function() {
     return merge(forum, chatbox);
 });
 
-// npm run gulp css
-gulp.task('css', function() {
+// npm run gulp mobile
+gulp.task('mobile', function() {
     return gulp.src('src/assets/css/mobile.css')
         .pipe(changed('dist'))
-        .pipe(gulp.dest(pjPath.public))
+        .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
         .pipe(gulp.dest('dist'));
+});
+
+// npm run gulp bbtheme
+gulp.task('bbtheme', function() {
+    return gulp.src('bin/*.bbtheme')
+        .pipe(changed(pjPath.public))
+        .pipe(gulp.dest(pjPath.public));
 });
 
 
@@ -127,7 +136,7 @@ gulp.task('js', function() {
                 .pipe(header(banner, {
                     pkg: pkg
                 }))
-                .pipe(gulp.dest(pjPath.public))
+                .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
                 .pipe(gulp.dest('dist'));
         });
 
@@ -137,11 +146,11 @@ gulp.task('js', function() {
 
 // npm run gulp prezip
 gulp.task('prezip', function() {
-    function changeJsPath(tplName, fileName) {
-        return gulp.src('src/templates/General/' + tplName + '.tpl')
+    function changeJsPath(tplPath, fileName) {
+        return gulp.src('src/templates/' + tplPath + '.tpl', { base: './src/' })
             .pipe(changed('dist'))
             .pipe(replace('/bubcloud.' + fileName + '.js', rawgitPath + '/bubcloud.' + fileName + '.js'))
-            .pipe(gulp.dest('dist/templates/General/'));
+            .pipe(gulp.dest('dist'));
     }
 
     var rawgitPath = config.cdn + '/baivong/bubcloud/master/' + pjPath.public,
@@ -152,24 +161,21 @@ gulp.task('prezip', function() {
         .pipe(replace('/bubcloud.header.js', rawgitPath + '/bubcloud.header.js'))
         .pipe(gulp.dest('dist/templates/General/')),
 
-        footerTpl = changeJsPath('overall_footer_end', 'footer'),
-        indexTpl = changeJsPath('index_body', 'index'),
-        topicTpl = changeJsPath('viewtopic_body', 'topic'),
+        footerTpl = changeJsPath('General/overall_footer_end', 'footer'),
+        indexTpl = changeJsPath('General/index_body', 'index'),
+        topicTpl = changeJsPath('General/viewtopic_body', 'topic'),
+        postingTpl = changeJsPath('Post & Private Messages/posting_body', 'posting'),
 
-        otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], {
-            base: './src/'
-        })
+        otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], { base: './src/' })
         .pipe(changed('dist'))
         .pipe(gulp.dest('dist')),
 
-        mobileTpl = gulp.src('src/templates/Mobile version/overall_header.tpl', {
-            base: './src/'
-        })
+        mobileTpl = gulp.src('src/templates/Mobile version/overall_header.tpl', { base: './src/' })
         .pipe(changed('dist'))
         .pipe(replace('/mobile.css', rawgitPath + '/mobile.css'))
         .pipe(gulp.dest('dist'));
 
-    return merge(headerTpl, footerTpl, indexTpl, topicTpl, otherTpl, mobileTpl);
+    return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, otherTpl, mobileTpl);
 });
 
 // npm run zip
@@ -186,7 +192,6 @@ gulp.task('zip', ['prezip'], function() {
 gulp.task('watch', function() {
     gulp.watch(pjPath.js + '**/*.js', ['js']).on('change', browserSync.reload);
     gulp.watch(pjPath.less, ['less']);
-    gulp.watch(pjPath.tpl, ['zip']);
 });
 
 // npm run gulp
@@ -196,18 +201,22 @@ gulp.task('default', ['watch']);
 // npm run gulp lint
 gulp.task('lint', ['eslint', 'stylelint']);
 
+
+// npm run gulp prebuild
+gulp.task('prebuild', function() {
+    return del('dist');
+});
+
 // npm run build
 // npm run gulp build
-gulp.task('build', ['lint', 'less', 'js', 'zip', 'css'], function() {
-    return gulp.src('bin/*.bbtheme')
-        .pipe(changed(pjPath.public))
-        .pipe(gulp.dest(pjPath.public));
-});
+// gulp build --deploy
+gulp.task('build', gulpSequence('prebuild', 'lint', ['less', 'js', 'mobile', 'bbtheme', 'zip']));
 
 
 // npm start
 // npm run gulp serve
-gulp.task('serve', ['less', 'js', 'css', 'watch'], function() {
+// gulp serve --dev
+gulp.task('serve', ['less', 'js', 'mobile', 'watch'], function() {
     browserSync.init({
         proxy: argv.proxy || config.proxy,
         port: argv.port || config.port,
