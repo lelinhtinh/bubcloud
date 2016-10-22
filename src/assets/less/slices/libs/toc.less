@@ -1,73 +1,99 @@
-.anchorControl {
-    position: absolute;
-    top: 0;
-    right: -29px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid @wrapperColor;
-    background: url("//i97.servimg.com/u/f97/14/64/86/06/reorde10.png") no-repeat center center transparent;
-    cursor: pointer;
-}
+.toc {
+    &-anchor {
+        .inline-block();
+        margin-left: .2em;
+        transform: scale(.8);
+        color: @wrapperColor;
 
-.anchorInner {
-    .hide();
-    padding: 5px;
-    border: 1px solid @wrapperColor;
-}
-
-a.anchor {
-    position: absolute;
-    left: 0;
-    transform: scale(.8);
-    color: @lightSecondaryColor;
-
-    &:hover,
-    &:focus {
-        transform: scale(1.2);
-        color: @darkSecondaryColor;
-    }
-}
-
-.anchorList {
-    user-select: none;
-    position: absolute;
-    top: 15px;
-    right: 39px;
-    z-index: 50;
-    border: 0;
-    background: @secondaryBg;
-
-    &.acView {
-        color: @darkSecondaryColor;
+        &:hover {
+            transform: scale(1.2);
+            color: @progress;
+        }
     }
 
-    &.acShow {
-        .anchorInner {
+    &-fly {
+        .border();
+        .radius();
+        user-select: none;
+        position: absolute;
+        top: 131px;
+        right: 0;
+        overflow: hidden;
+        width: 30px;
+        height: 30px;
+        background: @secondaryBg;
+        box-shadow: @dropShadow;
+        opacity: .7;
+        transition: opacity .3s, top .2s;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.active {
+            width: auto;
+            height: auto;
+
+            .toc-list {
+                position: relative;
+            }
+
+            .toc-control {
+                .fa:before {
+                    content: "\f00d";
+                }
+            }
+        }
+    }
+
+    &-control {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        padding-left: .75em;
+        line-height: 30px;
+        cursor: pointer;
+
+        &:hover {
+            color: @progress;
+        }
+    }
+
+    &-list {
+        position: absolute;
+        right: 0;
+
+        a {
             .show();
-        }
+            height: 24px;
+            padding: 0 10px;
+            line-height: 24px;
+            font-size: 12px;
+            white-space: pre;
+            color: @lightSecondaryColor;
 
-        .anchorControl {
-            border-left: 0 none;
-            background-color: @secondaryBg;
-            background-image: url("//i97.servimg.com/u/f97/14/64/86/06/interf12.png");
-        }
-    }
+            &:focus,
+            &:hover {
+                background: @wrapperColor;
+                color: @darkSecondaryColor;
+            }
 
-    a {
-        .show();
-        height: 24px;
-        padding: 0 10px;
-        line-height: 24px;
-        font-size: 12px;
-        text-transform: uppercase;
-        white-space: pre;
-        color: @lightSecondaryColor;
-        transition: background .2s ease, color .2s ease;
+            &.toc-top {
+                height: 30px;
+                border-bottom: @border;
+                line-height: 30px;
+                background: @primaryBg;
+            }
 
-        &:hover,
-        &:focus {
-            background: @wrapperColor;
-            color: @darkSecondaryColor;
+            &.toc-h3 {
+                padding-left: 20px;
+            }
+
+            &.toc-h4 {
+                padding-left: 30px;
+            }
         }
     }
 }
