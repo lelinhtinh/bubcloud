@@ -30,7 +30,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
     <div id="forummenu-options" class="popmenubutton">
         <a href="javascript:void(0);" onclick="togglePopUpMenu('forummenu-options_menu');"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
     </div>
-    <ul id="forummenu-options_menu" class="popupmenu hide">
+    <ul id="forummenu-options_menu" class="popupmenu" style="display:none;">
         <li class="popupmenu-category">
             {L_FORUM_OPTIONS}
         </li>
@@ -146,7 +146,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
         <form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
             <fieldset>
                 <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
-                <input class="button fa" type="submit" value="" />
+                <input class="button fa" style="display: none;" type="submit" value="" />
                 <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
             </fieldset>
         </form>

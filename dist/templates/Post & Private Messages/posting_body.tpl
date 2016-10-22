@@ -329,7 +329,7 @@
                         <input type="text" name="modif_topic_title" id="modif_topic_title" value="{MODIF_TOPIC_TITLE}" maxlength="{TOPIC_TITLE_MAXLENGTH}" onkeypress="if (event.keyCode==13){return false}" class="posting-subject" />
                         <!-- BEGIN switch_topic_button -->
                         &nbsp;
-                        <input type="button" value="{L_SOLVED_WITHOUT_BRAKETS}" onclick="set_solved(this.form.elements['modif_topic_title'],'{L_SOLVED}')" id="button_solved" class="button hide" />
+                        <input type="button" value="{L_SOLVED_WITHOUT_BRAKETS}" onclick="set_solved(this.form.elements['modif_topic_title'],'{L_SOLVED}')" style="display:none" id="button_solved" class="button" />
                         <script type="text/javascript">
                         //<![CDATA[
                         document.getElementById('button_solved').style.display = 'inline';
@@ -402,26 +402,6 @@ $(function() {
 </script>
 <script type="text/javascript">
 //<![CDATA[
-if (/r\=t\d+(p\d+)?/.test(location.search)) {
-    $("#text_editor_textarea").val("[url=http://" + location.host + "/" + GetParam("r") + "-quote#" + GetParam("p") + "][/url]" + $("#text_editor_textarea").val());
-}
-$(".post a[href*='/t'][href*='-quote#']").next("br").remove().end().each(function() {
-    $(this).addClass("quoteLink").appendTo($(this).next("blockquote").find("cite:first"));
-});
-(function(a) {
-    a('strong:contains("Tags: ")').hide().prev("br, hr").hide().prev("hr").hide();
-    a('a[title^="See all tagged subjects with:"]', ".post-entry").replaceWith(function() {
-        return a("<a>", {
-            href: this.href,
-            "class": "tags",
-            text: this.textContent.replace("#", "").replace(/-/g, " ")
-        })
-    });
-    a(".post-entry").each(function() {
-        a(this).find(".tags").wrapAll('<div class="tagsGroup"></div>')
-    })
-})(jQuery);
-
 function add_dice(dice_number, dice, number) {
     var content = document.getElementById('post_dice').innerHTML;
     document.getElementById('dice_to_del').innerHTML = '';
@@ -442,59 +422,8 @@ function add_dice(dice_number, dice, number) {
 }
 //]]>
 </script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" type="text/css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<script type="text/javascript">
-//<![CDATA[
-var dataTags = "windows, linux, ios, android, software, online tool, google chrome, firefox, opera, internet explorer, other browser, mod, widget, template, bbcode, html, css, javascript, jquery, jquery plugin, ajax, userscript, extension, tutorial, tip, funny, discussion, news, video, gallery, game, lightbox, highlight, poll, phpbb2, phpbb3, punbb, invision, skin, mobile, seo, domain, host, facebook";
-(function(a) {
-    var g = [],
-        h = dataTags.split(/\s?,\s?/),
-        b = a("#text_editor_textarea"),
-        d = a("#tagsInput"),
-        e = a("<select>", {
-            "class": "js-example-data-array",
-            multiple: "multiple",
-            css: {
-                width: "100%"
-            }
-        });
-    e.appendTo("#tagsSelect");
-    if (/\[hr\]\n?\[b\]Tags:\s\[\/b\]#/.test(b.val())) {
-        var f = b.val().split(/\[hr\]\n?\[b\]Tags:\s\[\/b\]/); - 1 === f[0].search(/\[quote="[^"]+"\]/) && -1 === f[1].indexOf("[/quote]") ? (b.val(f[0]), a.each(f[1].split(" "), function(c, k) {
-            a("<option>", {
-                value: k.replace("#", ""),
-                text: k.replace("#", "").replace(/-/g,
-                    " "),
-                selected: "selected"
-            }).appendTo(e)
-        }), d.val(f[1])) : b.val(b.val().replace(/\[hr\]\n?\[b\]Tags:\s\[\/b\](\#[^\[]+\s?)+/g, ""))
-    }
-    a.each(h, function(c, a) {
-        g[c] = {
-            id: a.replace(/\s/g, "-"),
-            text: a
-        }
-    });
-    e.select2({
-        data: g,
-        placeholder: "Th\u00eam nh\u00e3n cho b\u00e0i vi\u1ebft...",
-        tags: !0,
-        tokenSeparators: [","]
-    });
-    e.on("change", function() {
-        var c = e.val();
-        null !== c ? (a.each(c, function(a, b) {
-            -1 === h.indexOf(b.toLowerCase()) && (b = b.replace(/\s/g, "-").toLowerCase());
-            c[a] = "#" + b
-        }), d.val(c.join(" "))) : d.val("")
-    });
-    a('form[name="post"]').submit(function() {
-        var a =
-            b.sceditor("instance");
-        "" !== d.val() && "" !== a.val() && a.val(a.val() + "[hr][b]Tags: [/b]" + d.val())
-    })
-})(jQuery);
-//]]>
-</script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/vi.js"></script>
+<script src="/bubcloud.posting.js" type="text/javascript"></script>
 {SCEDITOR}

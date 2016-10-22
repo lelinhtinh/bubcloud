@@ -35,7 +35,7 @@
         </div>
         <div class="module inner centered">
             {S_HIDDEN_SID}
-            <input type="submit" name="submit" value="Tìm kiếm" class="button" />
+            <button type="submit" name="submit" class="button noIcon" value="Tìm kiếm"><i class="fa fa-search" aria-hidden="true"></i> Tìm kiếm</button>
         </div>
     </div>
 </form>
@@ -65,7 +65,7 @@
                 &nbsp;{memberrow.USER_POSTS_IMG}
             </div>
             <div class="member-post">{memberrow.POSTS} <small>bài viết</small></div>
-            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember hide">
+            <div id="pm{memberrow.ROW_NUMBER}" class="popupmember" style="display:none;">
                 <div class="member-details details-table">
                     <div class="details-row">
                     <!-- BEGIN switch_td_group -->

@@ -17,7 +17,7 @@
 						<label>{L_SEARCH_KEYWORDS}:</label>
 					</dt>
 					<dd class="floated">
-						<input type="button" value="Google" onclick="document.searchform.action='{U_GOOGLERESULTS}';document.searchform.q.value=document.searchform.search_keywords.value;document.searchform.submit()" class="button search-btn" />
+						<button type="button" class="button search-btn noIcon" value="Google" onclick="document.searchform.action='{U_GOOGLERESULTS}';document.searchform.q.value=document.searchform.search_keywords.value;document.searchform.submit()"><i class="fa fa-search" aria-hidden="true"></i> Google</button>
 						<div class="search-box">
 							<input type="search" class="search-input" name="search_keywords" placeholder="Nhập từ khóa" />
 						</div>
@@ -117,7 +117,7 @@
 		<div class="module inner center">
 			{S_HIDDEN_FIELDS}
 			<input type="hidden" name="google" value="" />
-			<input type="submit" value="{L_SEARCH}" onclick="document.searchform.google.value='';" class="button" />
+			<button type="submit" name="{L_SEARCH}" class="button noIcon" onclick="document.searchform.google.value='';"><i class="fa fa-search" aria-hidden="true"></i> {L_SEARCH}</button>
 		</div>
 	</section>
 </form>

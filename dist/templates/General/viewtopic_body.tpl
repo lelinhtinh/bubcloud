@@ -141,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated hide">
+                <div id="pm{postrow.displayed.U_POST_ID}" class="author-stat floated" style="display: none;">
                     <!-- BEGIN profile_field -->
                     <div class="field-label">{postrow.displayed.profile_field.LABEL}<span class="field-content">{postrow.displayed.profile_field.CONTENT}</span></div>
                     <!-- END profile_field -->
@@ -213,7 +213,7 @@
             <form method="get" action="{S_SEARCHBOX_ACTION}">
                 <fieldset>
                     <input type="search" name="search_keywords" id="search_keywords" size="20" value="" placeholder="Tìm trong mục này" /> &nbsp;
-                    <input class="button fa hide" type="submit" value="" />
+                    <input class="button fa" style="display: none;" type="submit" value="" />
                     <input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
                     <input type="hidden" value="{SEARCH_TOPIC}" name="search_topic" />
                     <input type="hidden" value="posts" name="show_results" />
@@ -301,117 +301,4 @@
     //]]>
 </script>
 <!-- END switch_image_resize -->
-
-<!-- zzVotePlus by Zzbaivong - devs.forumvi.com -->
-<script type="text/javascript">
-    //<![CDATA[
-    $(".vote_zzvote:empty").html('<a class="vote_plus dis" href="javascript:;">+<span class="vote_time" data-vote="Message not voted">1</span></a>');
-    $(".vote_time").text(function() {
-        var a = $(this).data("vote");
-        if ("Message not voted" == a) return $(this).data("vote", 0), 1;
-        a = a.split(/\W/);
-        time = parseInt(a[7], 10);
-        percent = parseInt(a[4], 10);
-        plus = Math.round(percent / 100 * time);
-        $(this).data("vote", plus);
-        if (0 !== plus) return plus;
-    });
-    $(".vote_plus").on("click", function(a) {
-        a.preventDefault();
-        var b = $(this),
-            c = $(".vote_time", b); - 1 != this.href.indexOf("eval=plus&p_vote") && (b.css("background-image", "url(http://i57.servimg.com/u/f57/17/05/17/70/preloa10.gif)"), $.post(this.href, function() {
-            c.text(parseInt(c.data("vote"), 10) + 1);
-            $post = b.closest(".post");
-            $.post("/privmsg", {
-                subject: "Bài viết hay",
-                message: "Mình thích bài viết của bạn tại [url=" + location.origin + location.pathname + "?showpost=" + $post.attr("id") + "]" + document.title + "[/url]",
-                username: $.trim($post.find(".author-name").text()),
-                u: $post.find(".author-avatar a").attr("href").replace(/(.*\/u)(\d+)(.*)/, "$2"),
-                mode: "post_profile",
-                folder: "profile",
-                post: "Send"
-            }, function() {
-                b.removeAttr("style");
-            })
-        }), this.href = "");
-    });
-
-    (function(a) {
-        a('strong:contains("Tags: ")').hide().prev("br, hr").hide().prev("hr").hide();
-        a('a[title^="See all tagged subjects with:"]', ".post-entry").replaceWith(function() {
-            return a("<a>", {
-                href: this.href,
-                "class": "tags",
-                text: this.textContent.replace("#", "").replace(/-/g, " ")
-            })
-        });
-        a(".post-entry").each(function() {
-            a(this).find(".tags").wrapAll('<div class="tagsGroup"></div>')
-        })
-    })(jQuery);
-
-    (function($) {
-        function showpost(postid) {
-            history.replaceState(null, null, "?showpost=" + postid);
-            $body.addClass("showpost");
-            $("#" + postid).show().after('<a id="stopShowpost" data-id="' + postid + '" href="#' + postid + '" class="btn large"><div class="center"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Xem toàn bộ chủ đề <i class="fa fa-angle-double-up" aria-hidden="true"></i></div></a>');
-            $html.animate({
-                scrollTop: 0
-            });
-        }
-
-        var param = GetParam("showpost"),
-            $html = $("html, body"),
-            $body = $("body");
-
-        if (param !== null) showpost(param);
-
-        $(".post-count").on("contextmenu", function(e) {
-            e.preventDefault();
-            var $t = $(this),
-                postid = $t.data("id");
-            if (GetParam("showpost") === null) showpost(postid);
-        }).on("click", function(e) {
-            e.preventDefault();
-            var $t = $(this);
-            $html.animate({
-                scrollTop: $("#" + $t.data("id")).offset().top
-            });
-        });
-
-        $("#viewtopic").on("click", "#stopShowpost", function(e) {
-            e.preventDefault();
-            var $t = $(this);
-
-            history.replaceState(null, null, location.pathname);
-            $body.removeClass("showpost");
-            $t.remove();
-            $("#" + $t.data("id")).removeAttr("style").find(".post-count").trigger("click");
-        });
-    })(jQuery);
-
-    (function($) {
-        $(".post").find("a[href*='&mode=quote']").attr("href", function() {
-            return this.href + "&r=" + location.pathname.replace(/\/(t\d+(p\d+)?)\-.*/, "$1")
-        });
-
-        $(".post").find("a[href*='/t'][href*='-quote#']").each(function() {
-            var $this = $(this),
-                $p = $this.parent();
-
-            if ($p[0].tagName === "P") {
-                $this.appendTo($p.next().find("cite:first"));
-                $p.remove();
-            } else {
-                $this.next("br").remove();
-                $this.appendTo($this.next("blockquote").find("cite:first"));
-            }
-
-            $this.addClass("quoteLink fa fa-arrow-up").css("margin-left", "5px").attr("href", function() {
-                var a = /\/(t\d+(p\d+)?)-/;
-                if (a.test(location.pathname) && this.pathname.match(a)[1] === location.pathname.match(a)[1]) return "#" + this.href.split("#")[1]
-            });
-        });
-    })(jQuery);
-    //]]>
-</script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.0/bubcloud.topic.js" type="text/javascript"></script>
