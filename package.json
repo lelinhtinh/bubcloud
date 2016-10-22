@@ -1,6 +1,6 @@
 {
     "name": "bubcloud",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A responsive theme for Forumotion",
     "keywords": [
         "forumotion",
@@ -13,8 +13,8 @@
         "gulp": "gulp",
         "zip": "gulp zip",
         "test": "gulp lint",
-        "build": "gulp build",
-        "start": "gulp serve"
+        "build": "gulp build --deploy",
+        "start": "gulp serve --dev"
     },
     "repository": {
         "type": "git",
@@ -32,8 +32,9 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "browser-sync": "^2.17.1",
-        "eslint": "^3.7.1",
+        "browser-sync": "^2.17.5",
+        "del": "^2.2.2",
+        "eslint": "^3.8.1",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^3.1.1",
         "gulp-changed": "^1.3.2",
@@ -46,13 +47,14 @@
         "gulp-include": "^2.3.1",
         "gulp-less": "^3.1.0",
         "gulp-plumber": "^1.1.0",
+        "gulp-sequence": "^0.4.6",
         "gulp-string-replace": "^0.2.0",
-        "gulp-stylelint": "^3.3.0",
+        "gulp-stylelint": "^3.4.0",
         "gulp-uglify": "^2.0.0",
         "gulp-util": "^3.0.7",
         "gulp-zip": "^3.2.0",
         "merge-stream": "^1.0.0",
-        "yargs": "^6.2.0"
+        "yargs": "^6.3.0"
     },
     "dependencies": {
         "normalize.css": "^5.0.0"
