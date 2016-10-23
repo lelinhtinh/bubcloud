@@ -6,6 +6,7 @@ var fs = require('fs'),
     argv = require('yargs').argv,
     del = require('del'),
     gulp = require('gulp'),
+    gutil = require('gulp-util'),
     gulpSequence = require('gulp-sequence'),
     include = require('gulp-include'),
     changed = require('gulp-changed'),
@@ -67,7 +68,10 @@ gulp.task('less', function() {
                 extension: '.css'
             }))
             .pipe(plumber())
-            .pipe(less())
+            .pipe(less().on('error', function(err){
+                gutil.log(err);
+                this.emit('end');
+            }))
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
@@ -146,36 +150,46 @@ gulp.task('js', function() {
 
 // npm run gulp prezip
 gulp.task('prezip', function() {
-    function changeJsPath(tplPath, fileName) {
-        return gulp.src('src/templates/' + tplPath + '.tpl', { base: './src/' })
-            .pipe(changed('dist'))
-            .pipe(replace('/bubcloud.' + fileName + '.js', rawgitPath + '/bubcloud.' + fileName + '.js'))
-            .pipe(gulp.dest('dist'));
+    function changeFilePath(tplPath, fileName) {
+        var stream = gulp.src('src/templates/' + tplPath + '.tpl', {
+                base: './src/'
+            })
+            .pipe(changed('dist')),
+            replacePipe = function(str) {
+                stream = stream.pipe(replace(str, rawgitPath + str));
+            };
+
+        if (typeof fileName === 'string') {
+            replacePipe(fileName);
+        } else {
+            fileName.forEach(function(val) {
+                replacePipe(val);
+            });
+        }
+
+        stream.pipe(gulp.dest('dist'));
+
+        return stream;
     }
 
     var rawgitPath = config.cdn + '/baivong/bubcloud/master/' + pjPath.public,
 
-        headerTpl = gulp.src('src/templates/General/overall_header.tpl')
-        .pipe(changed('dist'))
-        .pipe(replace('/style.css', rawgitPath + '/style.css'))
-        .pipe(replace('/bubcloud.header.js', rawgitPath + '/bubcloud.header.js'))
-        .pipe(gulp.dest('dist/templates/General/')),
+        headerTpl = changeFilePath('General/overall_header', ['/style.css', '/bubcloud.header.js']),
+        footerTpl = changeFilePath('General/overall_footer_end', '/bubcloud.footer.js'),
+        indexTpl = changeFilePath('General/index_body', '/bubcloud.index.js'),
+        topicTpl = changeFilePath('General/viewtopic_body', '/bubcloud.topic.js'),
 
-        footerTpl = changeJsPath('General/overall_footer_end', 'footer'),
-        indexTpl = changeJsPath('General/index_body', 'index'),
-        topicTpl = changeJsPath('General/viewtopic_body', 'topic'),
-        postingTpl = changeJsPath('Post & Private Messages/posting_body', 'posting'),
+        postingTpl = changeFilePath('Post & Private Messages/posting_body', ['/bubcloud.posting.js', '/bubcloud.sceditor.js']),
 
-        otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], { base: './src/' })
-        .pipe(changed('dist'))
-        .pipe(gulp.dest('dist')),
+        mobileTpl = changeFilePath('Mobile version/overall_header', '/mobile.css'),
 
-        mobileTpl = gulp.src('src/templates/Mobile version/overall_header.tpl', { base: './src/' })
+        otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], {
+            base: './src/'
+        })
         .pipe(changed('dist'))
-        .pipe(replace('/mobile.css', rawgitPath + '/mobile.css'))
         .pipe(gulp.dest('dist'));
 
-    return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, otherTpl, mobileTpl);
+    return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, mobileTpl, otherTpl);
 });
 
 // npm run zip
