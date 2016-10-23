@@ -4,6 +4,9 @@ var dataTags = 'windows, linux, ios, android, software, online tool, google chro
 (function($) {
     'use strict';
 
+    var $hashtag = $('#hashtags');
+    if (location.pathname !== '/post' || !$hashtag.length) return;
+
     var data = [],
         dataArr = dataTags.split(/\s?,\s?/),
         $mess = $('#text_editor_textarea'),
@@ -18,6 +21,7 @@ var dataTags = 'windows, linux, ios, android, software, online tool, google chro
 
 
     $select.appendTo('#tagsSelect');
+    $hashtag.removeClass('hide');
 
     if (/\[hr\]\n?\[b\]Tags:\s\[\/b\]#/.test($mess.val())) {
         var newMess = $mess.val().split(/\[hr\]\n?\[b\]Tags:\s\[\/b\]/);
