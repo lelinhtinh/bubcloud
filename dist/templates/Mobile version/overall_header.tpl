@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,500,700,700italic,900&subset=greek,greek-ext,latin,vietnamese,cyrillic-ext,latin-ext,cyrillic"
 	/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.2/mobile.css" />
+    <link rel="stylesheet" href="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/mobile.css" />
 	<link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}" />
 	<link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}"
 	/>

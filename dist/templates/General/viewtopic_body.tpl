@@ -301,4 +301,4 @@
     //]]>
 </script>
 <!-- END switch_image_resize -->
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.2/bubcloud.topic.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.topic.js" type="text/javascript"></script>

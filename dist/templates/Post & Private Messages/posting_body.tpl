@@ -251,7 +251,7 @@
             </fieldset>
             <!-- END switch_attachment -->
             <h3 class="subtitle">{L_OPTIONS}</h3>
-            <fieldset>
+            <fieldset id="hashtags" class="hide">
                 <dl>
                     <dt>
                         <label>Hashtags&nbsp;:</label>
@@ -425,5 +425,6 @@ function add_dice(dice_number, dice, number) {
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/vi.js"></script>
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.2/bubcloud.posting.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.posting.js" type="text/javascript"></script>
 {SCEDITOR}
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.sceditor.js" type="text/javascript"></script>
