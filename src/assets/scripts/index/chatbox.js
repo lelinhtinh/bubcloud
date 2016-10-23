@@ -1,4 +1,4 @@
-/* global my_getcookie, my_setcookie */
+/* global my_getcookie, my_setcookie, debounce */
 (function($) {
 
     'use strict';
@@ -15,7 +15,7 @@
                 zzChatbox.init();
 
                 injectCount++;
-            }, 1000);
+            }, 3000);
 
             return;
         }
@@ -657,7 +657,7 @@
             windowTopBlur = true;
         });
 
-        $chatbox.contents().find('html').add($winTop).on('click dblclick focus focusin keydown keypress keyup mousedown mouseenter mouseleave mousemove mouseover mouseout mouseup mousemove touchstart touchend touchcancel touchleave touchmove', function() {
+        $chatbox.contents().find('html').add($winTop).on('click dblclick focus focusin keydown keypress keyup mousedown mouseenter mouseleave mousemove mouseover mouseout mouseup mousemove touchstart touchend touchcancel touchleave touchmove', debounce(function() {
             if (/^\(\d+\)\s/.test(docTop.title)) docTop.title = titTop;
 
             var winScrollTop = $winTop.scrollTop(),
@@ -667,7 +667,7 @@
                 recentMessSize = 0;
                 lastMessSize = currentMessSize;
             }
-        });
+        }, 250));
     }
 
     $chatbox.on('load', cbBubcloud);
