@@ -1,1 +1,1 @@
-//=include posting/emoji.js
+//=include sceditor/emoji.js

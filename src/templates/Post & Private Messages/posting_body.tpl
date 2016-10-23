@@ -251,7 +251,7 @@
             </fieldset>
             <!-- END switch_attachment -->
             <h3 class="subtitle">{L_OPTIONS}</h3>
-            <fieldset>
+            <fieldset id="hashtags" class="hide">
                 <dl>
                     <dt>
                         <label>Hashtags&nbsp;:</label>
@@ -427,3 +427,4 @@ function add_dice(dice_number, dice, number) {
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/vi.js"></script>
 <script src="/bubcloud.posting.js" type="text/javascript"></script>
 {SCEDITOR}
+<script src="/bubcloud.sceditor.js" type="text/javascript"></script>
