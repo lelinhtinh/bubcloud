@@ -29,7 +29,7 @@
 
 .sceditor-button {
     box-sizing: content-box;
-    margin: 0 2px;
+    margin: 2px;
     border: 1px outset @wrapperColor;
     background: @secondaryBg;
 
@@ -53,38 +53,31 @@
     iframe,
     textarea {
         min-height: 150px;
+        padding: .5em !important;
         font-weight: @weightNormal;
         line-height: @lineHeight !important;
         font-family: @fontBase !important;
         font-size: @sizeBase !important;
         color: @secondaryColor !important;
+        box-shadow: none !important;
     }
 }
 
-.sceditor-container,
-.sceditor-group,
 .sceditor-button,
-div.sceditor-dropdown,
-.sceditor-dropdown .button {
-    border-radius: 0!important;
-    box-shadow: none!important;
+.sceditor-container,
+.sceditor-dropdown .button,
+.sceditor-group,
+div.sceditor-dropdown {
+    .radius() !important;
+    box-shadow: none !important;
 }
 
 .sceditor-toolbar > div.sceditor-group {
+    .inline();
     .floated();
+    margin: 0;
     border: 0 none;
-    background: transparent;
-}
-
-.sceditor-group:not(:last-child):after {
-    .show();
-    content: " ";
-    position: absolute;
-    top: 5px;
-    right: -3px;
-    width: 1px;
-    height: 20px;
-    background: #777;
+    background: none;
 }
 
 a.sceditor-color-option {
@@ -109,10 +102,6 @@ a.sceditor-color-option {
     .hide();
 }
 
-.sceditor-container textarea {
-    padding: .5em !important;
-}
-
 .sceditor-button-fontawesome div {
     background: url("//i19.servimg.com/u/f19/19/06/98/92/fa-f10.png") !important;
 }
@@ -130,8 +119,8 @@ a.sceditor-color-option {
         color: @lightSecondaryColor;
         cursor: pointer;
 
-        &:hover,
-        &:focus {
+        &:focus,
+        &:hover {
             color: @darkSecondaryColor;
         }
     }
@@ -148,4 +137,43 @@ a.sceditor-color-option {
     padding: 0 5px;
     color: @success;
     background: @wrapperColor;
+}
+
+.sceditor-header-picker {
+    padding: 10px 0 !important;
+}
+
+.sceditor-header-option {
+    padding: 7px 13px;
+}
+
+div.sceditor-dropdown {
+    box-shadow: @dropShadow !important;
+
+    input,
+    textarea {
+        .radius() !important;
+        .border() !important;
+
+        &:focus {
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+    }
+
+    .button {
+        .radius() !important;
+        margin: 0 !important;
+        padding: 6px 12px !important;
+        border: 0 none !important;
+        line-height: 1.4em !important;
+
+        &:hover,
+        &:focus {
+            background: @lightSecondaryColor !important;
+        }
+
+        &:active {
+            background: @darkSecondaryColor !important;
+        }
+    }
 }
