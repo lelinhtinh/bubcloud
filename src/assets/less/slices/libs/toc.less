@@ -34,8 +34,14 @@
             width: auto;
             height: auto;
 
+            .toc-totop,
             .toc-list {
                 position: relative;
+            }
+
+            .toc-list {
+                top: 0;
+                overflow: auto;
             }
 
             .toc-control {
@@ -44,26 +50,6 @@
                 }
             }
         }
-    }
-
-    &-control {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 30px;
-        height: 30px;
-        padding-left: .75em;
-        line-height: 30px;
-        cursor: pointer;
-
-        &:hover {
-            color: @progress;
-        }
-    }
-
-    &-list {
-        position: absolute;
-        right: 0;
 
         a {
             .show();
@@ -95,5 +81,32 @@
                 padding-left: 30px;
             }
         }
+    }
+
+    &-control {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        padding-left: .75em;
+        line-height: 30px;
+        cursor: pointer;
+
+        &:hover {
+            color: @progress;
+        }
+    }
+
+    &-totop,
+    &-list {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 160px;
+    }
+
+    &-list {
+        top: 30px;
     }
 }
