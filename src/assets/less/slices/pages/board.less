@@ -28,11 +28,6 @@
 }
 
 #boxWrap tr {
-    img.icon {
-        transform: rotate(0deg) scale(.8);
-        transition: all .3s;
-    }
-
     &:hover {
         .zzFavourite {
             opacity: 1;
@@ -41,10 +36,6 @@
         .forumtitle,
         .tcl strong {
             color: @love;
-        }
-
-        img.icon {
-            transform: rotate(360deg) scale(1);
         }
     }
 }
@@ -99,7 +90,16 @@
     }
 
     .row1.centered {
-        width: 45px;
+        width: 76px;
+        vertical-align: top;
+
+        img {
+            position: relative;
+            top: 6px;
+            right: 6px;
+            z-index: 10;
+            float: right;
+        }
     }
 
     tr {
@@ -169,6 +169,20 @@
 .forum-desc {
     font-style: italic;
     color: @lightSecondaryColor;
+
+    img[alt^="https://"][style="float:left"] {
+        position: absolute;
+        z-index: 0;
+        margin-top: -36px;
+        margin-left: -70px;
+        transform: scale(.75) rotate(0);
+        transition: all .2s ease-in-out;
+
+        .index-box tr:hover & {
+            z-index: 20;
+            transform: scale(1) rotate(360deg);
+        }
+    }
 
     br {
         .hide();
