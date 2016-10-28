@@ -199,8 +199,10 @@
                     <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=quote" class="quote post-btn"><i class="fa fa-quote-right" aria-hidden="true"></i><span class="hide">Trích dẫn</span></a> {postrow.displayed.EDIT_IMG}
                     <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=editpost" class="edit post-btn"><i class="fa fa-pencil" aria-hidden="true"></i><span class="hide">Sửa</span></a> {postrow.displayed.DELETE_IMG}
                     <a href="/post?p={postrow.displayed.U_POST_ID}&amp;mode=delete" class="delete post-btn"><i class="fa fa-times" aria-hidden="true"></i><span class="hide">Xóa</span></a>
-                    <a href="/report?p={postrow.displayed.U_POST_ID}&amp;mode=report" class="report post-btn"><i class="fa fa-flag" aria-hidden="true"></i><span class="hide">Báo lỗi</span></a> {postrow.displayed.IP_IMG}
-                    <a href="/modcp?t={TOPIC_ID}&amp;p={postrow.displayed.U_POST_ID}&amp;mode=ip" class="findip post-btn"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="hide">Xem IP</span></a>
+                    <span class="misc-icons right">
+                        {postrow.displayed.IP_IMG}
+                        {postrow.displayed.REPORT_IMG_NEW}
+                    </span>
                 </div>
             </div>
         </section>
@@ -301,4 +303,4 @@
     //]]>
 </script>
 <!-- END switch_image_resize -->
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.topic.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.4/bubcloud.topic.js" type="text/javascript"></script>

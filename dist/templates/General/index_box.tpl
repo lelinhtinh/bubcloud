@@ -69,21 +69,19 @@
 </section>
 <script type="text/javascript">
 //<![CDATA[
-$(".sub4r.stat4r").each(function() {
-    var sub = $(this);
-    if (!sub.is(":empty")) {
-        sub.contents().filter(function() {
-            return this.nodeType === 3;
-        }).remove().end().filter("a").wrap("<li></li>");
-        sub.wrapInner('<ul class="subLink"></ul>').prepend("Diễn đàn con: <strong>" + sub.find("a").length + "</strong>");
-    }
-});
-$(".status > img").attr("src", function() {
-    var $descIcon = $(this).closest("td").next().find('.forum-desc > img[alt^="http://"][style="float:left"]');
-    $descIcon.remove();
-    return $descIcon.attr("src");
-});
-(function() {
+(function($) {
+    $(".sub4r.stat4r").each(function() {
+        var sub = $(this);
+        if (!sub.is(":empty")) {
+            sub.contents().filter(function() {
+                return this.nodeType === 3;
+            }).remove().end().filter("a").wrap("<li></li>");
+            sub.wrapInner('<ul class="subLink"></ul>').prepend("Diễn đàn con: <strong>" + sub.find("a").length + "</strong>");
+        }
+    });
+})(jQuery);
+
+(function($) {
     $(".forumtitle", "#boardIndex").after(function() {
         var a = this.href.match(/\/f(\d+)-/)[1];
         $(this).closest("tr").attr({
@@ -92,7 +90,7 @@ $(".status > img").attr("src", function() {
         });
         return '&nbsp;&nbsp;<i data-id="' + a + '" class="zzFavourite zzLove_' + a + ' fa fa-heart fa-1"></i>'
     });
-    $("#boxWrap", "#boardIndex").prepend('<div id="favouriteBox" class="borderwrap hide"><div class="maintitle clearfix"><h2>\u01afa th\u00edch</h2><div class="contract" id="bfv" onclick="toggleCategory(\'fv\');">&nbsp;&nbsp;&nbsp;</div></div><div class="maincontent" id="fv"><table cellpadding="0" cellspacing="0" class="ipbtable index-box"><thead><tr><th class="statusIcon">&nbsp;</th><th class="forum">Di\u1ec5n \u0110\u00e0n</th><th class="last post-info">B\u00e0i g\u1eedi sau c\u00f9ng</th></tr></thead><tbody></tbody></table></div></div>').on("click",
+    $("#boxWrap", "#boardIndex").prepend('<div id="favouriteBox" class="borderwrap hide"><div class="maintitle clearfix"><h2>\u01afa th\u00edch</h2><div class="contract" id="bfv" onclick="toggleCategory2(\'fv\');">&nbsp;&nbsp;&nbsp;</div></div><div class="maincontent" id="fv"><table cellpadding="0" cellspacing="0" class="ipbtable index-box"><thead><tr><th class="statusIcon">&nbsp;</th><th class="forum">Di\u1ec5n \u0110\u00e0n</th><th class="last post-info">B\u00e0i g\u1eedi sau c\u00f9ng</th></tr></thead><tbody></tbody></table></div></div>').on("click",
         ".zzFavourite",
         function() {
             var a = $(this),
@@ -110,7 +108,7 @@ $(".status > img").attr("src", function() {
     c && $.each(c.split("|"), function(a, b) {
         $(".zzLove_" + b).click()
     })
-})();
+})(jQuery);
 //]]>
 </script>
 <!-- BEGIN switch_on_index -->

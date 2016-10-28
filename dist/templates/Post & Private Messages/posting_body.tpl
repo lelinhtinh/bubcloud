@@ -425,6 +425,6 @@ function add_dice(dice_number, dice, number) {
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/vi.js"></script>
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.posting.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.4/bubcloud.posting.js" type="text/javascript"></script>
 {SCEDITOR}
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.3/bubcloud.sceditor.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.4/bubcloud.sceditor.js" type="text/javascript"></script>
