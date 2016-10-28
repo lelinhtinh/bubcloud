@@ -4,9 +4,9 @@
     right: -81px;
     bottom: 140px;
     z-index: 1000;
-    width: 81px;
-    height: 81px;
-    background: url("//i.imgur.com/qAiD8nz.png") no-repeat top left transparent;
+    width: 40px;
+    height: 40px;
+    background: url("//i.imgur.com/qAiD8nz.png") no-repeat top left/auto 100% transparent;
     transition: right .5s ease-in, background .3s ease-in-out;
 
     &.show-back-btn {
@@ -15,5 +15,12 @@
 
     &:hover {
         background-position: top right;
+    }
+}
+
+@media @desktop {
+    #back_to_top {
+        width: 81px;
+        height: 81px;
     }
 }
