@@ -3,8 +3,7 @@
 
     'use strict';
 
-    /* Fixed bug jqModal by Zzbaivong */
-
+    /* Fixed bug jqModal */
     var clientPC = navigator.userAgent.toLowerCase();
     $.browser = {
         version: parseInt(navigator.appVersion),
@@ -18,8 +17,7 @@
         return $.noop();
     };
 
-    /* Fixed bug ajax-profil_edit by Zzbaivong */
-
+    /* Fixed bug ajax-profil_edit */
     function attrValue(ele) {
         var $this = $(ele);
         $this.attr('value', $this.val());

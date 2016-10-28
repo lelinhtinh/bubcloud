@@ -59,6 +59,9 @@
             });
 
             _this.href = '';
+        }).fail(function() {
+            $votePlus.removeClass('waiting').addClass('error');
+            $voteTime.text('!');
         });
     });
 
