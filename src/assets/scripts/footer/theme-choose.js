@@ -4,7 +4,7 @@
     'use strict';
 
     var chatChoose = function(colorX, colorY, $chatbox) {
-            var $chat = $chatbox.contents().find('#bubcloud');
+            var $chat = $chatbox.contents().find('#bubcloudChat');
             if (!$chat.length) {
                 $chat = $('<style>', {
                     id: 'bubcloudChat',
