@@ -10,12 +10,12 @@
     function cbBubcloud() {
         var zzChatbox = $chatbox[0].contentWindow.chatbox;
         if (!zzChatbox) {
-            if (injectCount < 5) setTimeout(function() {
+            if (injectCount < 7) setTimeout(function() {
                 cbBubcloud();
-                zzChatbox.init();
+                zzChatbox.get();
 
                 injectCount++;
-            }, 3000);
+            }, 1500);
 
             return;
         }
