@@ -33,7 +33,7 @@ var fs = require('fs'),
         ' * <%= pkg.description %>',
         ' * <%= pkg.homepage %>',
         ' *',
-        ' * Made by <%= pkg.author.name %>',
+        ' * Made by <%= pkg.author %>',
         ' * Under <%= pkg.license %> License',
         ' */',
         ''
