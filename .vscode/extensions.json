@@ -2,8 +2,10 @@
 	"recommendations": [
 		"EditorConfig.EditorConfig",
         "dbaeumer.vscode-eslint",
-        "shinnn.stylelint",
         "HookyQR.beautify",
-        "dweber019.vscode-style-formatter"
+        "shinnn.stylelint",
+        "dweber019.vscode-style-formatter",
+        "mrmlnc.vscode-postcss-sorting",
+        "mrmlnc.vscode-less"
 	]
 }

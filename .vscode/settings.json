@@ -1,4 +1,3 @@
-// Place your settings in this file to overwrite default and user settings.
 {
     "files.watcherExclude": {
         "**/.git/objects/**": true,
@@ -22,7 +21,6 @@
     "explorer.openEditors.visible": 0,
     "editor.wordWrap": true,
     "editor.renderIndentGuides": true,
-    "files.autoSave": "onWindowChange",
     "javascript.validate.enable": false,
     "less.validate": false,
     "css.validate": false,
