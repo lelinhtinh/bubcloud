@@ -91,14 +91,6 @@ gulp.task('less', function() {
     return merge(forum, chatbox);
 });
 
-// npm run gulp mobile
-gulp.task('mobile', function() {
-    return gulp.src('src/assets/css/mobile.css')
-        .pipe(changed('dist'))
-        .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
-        .pipe(gulp.dest('dist'));
-});
-
 // npm run gulp bbtheme
 gulp.task('bbtheme', function() {
     return gulp.src('bin/*.bbtheme')
@@ -181,15 +173,13 @@ gulp.task('prezip', function() {
 
         postingTpl = changeFilePath('Post & Private Messages/posting_body', ['/bubcloud.posting.js', '/bubcloud.sceditor.js']),
 
-        mobileTpl = changeFilePath('Mobile version/overall_header', '/mobile.css'),
-
         otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], {
             base: './src/'
         })
         .pipe(changed('dist'))
         .pipe(gulp.dest('dist'));
 
-    return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, mobileTpl, otherTpl);
+    return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, otherTpl);
 });
 
 // npm run zip
@@ -224,13 +214,13 @@ gulp.task('prebuild', function() {
 // npm run build
 // npm run gulp build
 // gulp build --deploy
-gulp.task('build', gulpSequence('prebuild', 'lint', ['less', 'js', 'mobile', 'bbtheme', 'zip']));
+gulp.task('build', gulpSequence('prebuild', 'lint', ['less', 'js', 'bbtheme', 'zip']));
 
 
 // npm start
 // npm run gulp serve
 // gulp serve --dev
-gulp.task('serve', ['less', 'js', 'mobile', 'watch'], function() {
+gulp.task('serve', ['less', 'js', 'watch'], function() {
     browserSync.init({
         proxy: argv.proxy || config.proxy,
         port: argv.port || config.port,
