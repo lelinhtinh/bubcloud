@@ -1,4 +1,7 @@
 {
+    "plugins": [
+        "stylelint-order"
+    ],
     "rules": {
         "indentation": 4,
         "max-empty-lines": 2,
@@ -47,7 +50,7 @@
         "value-no-vendor-prefix": true,
         "unit-case": "lower",
         "unit-no-unknown": true,
-        "time-no-imperceptible": true,
+        "time-min-milliseconds": 100,
         "length-zero-no-unit": true,
         "string-quotes": "double",
         "string-no-newline": true,
@@ -68,11 +71,9 @@
                 ]
             }
         ],
-        "declaration-block-no-ignored-properties": true,
         "declaration-block-no-redundant-longhand-properties": true,
-        "declaration-block-properties-order": [
+        "order/declaration-block-property-groups-structure": [
             {
-                "order": "strict",
                 "properties": [
                     "position",
                     "top",
@@ -83,7 +84,6 @@
                 ]
             },
             {
-                "order": "strict",
                 "properties": [
                     "display",
                     "visibility",
@@ -98,14 +98,12 @@
                 ]
             },
             {
-                "order": "strict",
                 "properties": [
                     "float",
                     "clear"
                 ]
             },
             {
-                "order": "strict",
                 "properties": [
                     "margin",
                     "margin-top",
@@ -115,7 +113,6 @@
                 ]
             },
             {
-                "order": "strict",
                 "properties": [
                     "padding",
                     "padding-top",
@@ -125,7 +122,6 @@
                 ]
             },
             {
-                "order": "strict",
                 "properties": [
                     "border",
                     "border-top",
@@ -139,7 +135,6 @@
                 ]
             },
             {
-                "order": "flexible",
                 "properties": [
                     "font-size",
                     "font-weight",
@@ -149,7 +144,6 @@
                 ]
             },
             {
-                "order": "flexible",
                 "properties": [
                     "text-align",
                     "text-transform",
@@ -158,7 +152,6 @@
                 ]
             },
             {
-                "order": "flexible",
                 "properties": [
                     "color",
                     "background",

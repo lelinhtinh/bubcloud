@@ -16,14 +16,12 @@
 
     img {
         &:extend(.lastpost-avatar img);
-        /* stylelint-disable no-unsupported-browser-features */
         filter:grayscale(100%);
 
         .online &,
         &:hover {
             filter:none;
         }
-        /* stylelint-enable no-unsupported-browser-features */
     }
 }
 
