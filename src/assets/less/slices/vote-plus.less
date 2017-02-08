@@ -5,8 +5,8 @@
         margin: 2px 0;
         padding: 2px 6px;
         border: 1px solid @wrapperColor;
-        font-weight: @weightBold;
         font-size: 12px;
+        font-weight: @weightBold;
         color: @secondaryColor;
         background: none no-repeat center center @primaryBg;
         cursor: pointer;
@@ -24,14 +24,14 @@
 
         &[href=""] {
             border-color: transparent;
+            color: @textPrimaryColor;
             background-color: @error;
             cursor: default;
-            color: @textPrimaryColor;
         }
 
         &.disable {
-            background-color: @secondaryBg;
             color: @lightSecondaryColor;
+            background-color: @secondaryBg;
 
             &:focus,
             &:hover {
