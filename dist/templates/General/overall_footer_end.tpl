@@ -24,8 +24,9 @@
         <p class="centered">
             <strong>{ADMIN_LINK}</strong>
         </p>
+        <div id="back_to_top"></div>
     </footer>
-    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.4/bubcloud.footer.js" type="text/javascript"></script>
+    <script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.5/bubcloud.footer.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         //<![CDATA[

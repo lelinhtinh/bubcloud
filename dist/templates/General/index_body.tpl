@@ -63,7 +63,7 @@
         </div>
         <div id="cb" class="maincontent">
             <div id="chatbox_top" style="height: 420px;">
-                <iframe src="/chatbox" id="frame_chatbox" scrolling="auto" frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
+                <iframe src="/chatbox/index.forum" id="frame_chatbox" scrolling="auto" frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
             </div>
             <div onmousedown="resizeElement(event, 'chatbox_top');" class="resize">
                 <i class="fa fa-sort" aria-hidden="true"></i>
@@ -205,7 +205,7 @@
     </form>
 </div>
 <!-- END switch_user_login_form_footer -->
-<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.4/bubcloud.index.js" type="text/javascript"></script>
+<script src="//cdn.rawgit.com/baivong/bubcloud/master/public/1.0.5/bubcloud.index.js" type="text/javascript"></script>
 {AUTO_DST}
 <!-- BEGIN switch_fb_index_login -->
 <div id="fb-root"></div>
