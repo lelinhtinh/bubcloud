@@ -16,20 +16,13 @@
         "build": "gulp build --deploy",
         "start": "gulp serve --dev"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/baivong/bubcloud"
-    },
+    "repository": "https://github.com/baivong/bubcloud",
     "bugs": {
         "url": "https://github.com/baivong/bubcloud/issues",
         "email": "Zzbaivong@gmail.com"
     },
     "homepage": "http://devs.forumvi.com",
-    "author": {
-        "name": "Zzbaivong",
-        "email": "Zzbaivong@gmail.com",
-        "url": "http://baivong.github.io"
-    },
+    "author": "Zzbaivong <Zzbaivong@gmail.com> (http://baivong.github.io)",
     "license": "MIT",
     "devDependencies": {
         "browser-sync": "^2.17.5",
@@ -54,6 +47,7 @@
         "gulp-util": "^3.0.7",
         "gulp-zip": "^4.0.0",
         "merge-stream": "^1.0.0",
+        "stylelint-order": "^0.2.2",
         "yargs": "^6.3.0"
     },
     "dependencies": {
