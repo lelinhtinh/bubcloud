@@ -24,6 +24,7 @@
         <p class="centered">
             <strong>{ADMIN_LINK}</strong>
         </p>
+        <div id="back_to_top"></div>
     </footer>
     <script src="/bubcloud.footer.js" type="text/javascript"></script>
 
