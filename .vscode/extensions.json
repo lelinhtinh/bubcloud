@@ -5,7 +5,6 @@
         "HookyQR.beautify",
         "shinnn.stylelint",
         "dweber019.vscode-style-formatter",
-        "mrmlnc.vscode-postcss-sorting",
         "mrmlnc.vscode-less"
 	]
 }
