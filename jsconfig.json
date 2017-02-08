@@ -4,9 +4,7 @@
 		"module": "commonjs",
 		"noLib": true
 	},
-	"exclude": [
-		"/node_modules/",
-		"/dist/",
-		"/public/"
+	"include": [
+		"/src/assets/scripts/"
 	]
 }
