@@ -37,3 +37,6 @@ Icon
 .Spotlight-V100
 .Trashes
 /npm-debug.*
+
+*.zip
+*.bbtheme
