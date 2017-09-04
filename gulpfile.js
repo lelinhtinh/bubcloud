@@ -147,7 +147,7 @@ gulp.task('prezip', function() {
                 base: './src/'
             }).pipe(changed('dist')),
             replacePipe = function(str) {
-                stream = stream.pipe(replace(str, rawgitPath + str));
+                stream = stream.pipe(replace(str, cdnPath + str));
             };
 
         if (typeof fileName === 'string') {
@@ -164,7 +164,7 @@ gulp.task('prezip', function() {
         return stream;
     }
 
-    var rawgitPath = config.cdn + pjPath.public,
+    var cdnPath = config.cdn + '@' + pkg.version + '/dist',
 
         headerTpl = changeFilePath('General/overall_header', ['/style.css', '/bubcloud.header.js']),
         footerTpl = changeFilePath('General/overall_footer_end', '/bubcloud.footer.js'),
