@@ -19,7 +19,7 @@
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "explorer.openEditors.visible": 0,
-    "editor.wordWrap": true,
+    "editor.wordWrap": "on",
     "editor.renderIndentGuides": true,
     "javascript.validate.enable": false,
     "less.validate": false,
