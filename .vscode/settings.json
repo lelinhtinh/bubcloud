@@ -1,12 +1,8 @@
 {
-    "files.watcherExclude": {
-        "**/.git/objects/**": true,
-        "**/node_modules": true,
-        "**/bower_components": true
+    "files.exclude": {
+        "**/node_modules": true
     },
     "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
         "**/dist": true,
         "**/public": true,
         "**/src/assets/css/": true
@@ -18,10 +14,10 @@
     },
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
-    "explorer.openEditors.visible": 0,
     "editor.wordWrap": "on",
     "editor.renderIndentGuides": true,
     "javascript.validate.enable": false,
+    "stylelint.enable": true,
     "less.validate": false,
     "css.validate": false,
     "sfmt.insize": 4
