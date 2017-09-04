@@ -7,7 +7,7 @@ UPGRADE
     ☐ Hiển thị hình xem trước của link ảnh, ưu tiên thumbnail
     ☐ Đảo chiều chatbox trở lại kiểu cũ, vì Chrome 56+ đã khắc phục việc cuộn trang bị nhảy
     ☐ Khi chuyên mục bị ẩn, dùng cookie, tạo style của vùng ẩn trong head
-    ☐ Cập nhật commit hash trong link từ CDN rawgit
+    ✘ Cập nhật commit hash trong link từ CDN rawgit @cancelled (21:54:02, 4/9/2017)
 
 FEATURE
 
