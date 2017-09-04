@@ -10,8 +10,7 @@ var fs = require('fs'),
     gulpSequence = require('gulp-sequence'),
     include = require('gulp-include'),
     changed = require('gulp-changed'),
-    browserSync = require('browser-sync')
-    .create(),
+    browserSync = require('browser-sync').create(),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
     merge = require('merge-stream'),
@@ -41,6 +40,7 @@ var fs = require('fs'),
 
     pjPath = {
         public: 'public/' + pkg.version,
+        bin: 'bin',
         js: 'src/assets/scripts/',
         less: 'src/assets/less/**/*.less',
         tpl: 'src/templates/**/*.tpl'
@@ -68,7 +68,7 @@ gulp.task('less', function() {
                 extension: '.css'
             }))
             .pipe(plumber())
-            .pipe(less().on('error', function(err){
+            .pipe(less().on('error', function(err) {
                 gutil.log(err);
                 this.emit('end');
             }))
@@ -145,8 +145,7 @@ gulp.task('prezip', function() {
     function changeFilePath(tplPath, fileName) {
         var stream = gulp.src('src/templates/' + tplPath + '.tpl', {
                 base: './src/'
-            })
-            .pipe(changed('dist')),
+            }).pipe(changed('dist')),
             replacePipe = function(str) {
                 stream = stream.pipe(replace(str, rawgitPath + str));
             };
@@ -160,11 +159,12 @@ gulp.task('prezip', function() {
         }
 
         stream.pipe(gulp.dest('dist'));
+        stream.pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)));
 
         return stream;
     }
 
-    var rawgitPath = config.cdn + '/baivong/bubcloud/master/' + pjPath.public,
+    var rawgitPath = config.cdn + pjPath.public,
 
         headerTpl = changeFilePath('General/overall_header', ['/style.css', '/bubcloud.header.js']),
         footerTpl = changeFilePath('General/overall_footer_end', '/bubcloud.footer.js'),
@@ -173,11 +173,20 @@ gulp.task('prezip', function() {
 
         postingTpl = changeFilePath('Post & Private Messages/posting_body', ['/bubcloud.posting.js', '/bubcloud.sceditor.js']),
 
-        otherTpl = gulp.src([pjPath.tpl, '!src/templates/General/overall_header.tpl', '!src/templates/General/overall_footer_end.tpl'], {
-            base: './src/'
-        })
-        .pipe(changed('dist'))
-        .pipe(gulp.dest('dist'));
+        otherTpl = gulp.src(
+            [
+                pjPath.tpl,
+                '!src/templates/General/overall_header.tpl',
+                '!src/templates/General/overall_footer_end.tpl',
+                '!src/templates/General/index_body.tpl',
+                '!src/templates/General/viewtopic_body.tpl',
+                '!src/templates/Post & Private Messages/posting_body.tpl'
+            ], {
+                base: './src/'
+            })
+            .pipe(changed('dist'))
+            .pipe(gulp.dest('dist'))
+            .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)));
 
     return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, otherTpl);
 });
@@ -186,9 +195,9 @@ gulp.task('prezip', function() {
 // npm run gulp zip
 gulp.task('zip', ['prezip'], function() {
     return gulp.src('dist/templates/**/*.tpl')
-        .pipe(changed(pjPath.public))
+        .pipe(changed(pjPath.bin))
         .pipe(zip('forumotion.' + pkg.name + '.zip'))
-        .pipe(gulp.dest(pjPath.public));
+        .pipe(gulp.dest(pjPath.bin));
 });
 
 
