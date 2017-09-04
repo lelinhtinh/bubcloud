@@ -17,8 +17,8 @@
 }
 
 .fa() {
-    font: @weightNormal 14px/1 FontAwesome;
     font-size: inherit;
+    font: @weightNormal 14px/1 FontAwesome;
     text-rendering: auto;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -67,9 +67,9 @@
     &:extend(.btn);
     margin-left: 5px !important;
     padding-left: 30px !important;
+    background-size: 12px 12px;
     background-position: 12px center;
     background-repeat: no-repeat;
-    background-size: 12px 12px;
 
     &.fa {
         padding-left: 12px !important;
@@ -128,9 +128,9 @@
 }
 
 .button,
-[type="button"],
-[type="submit"],
-a[href="javascript:window.close();"] {
+    [type="button"],
+    [type="submit"],
+    a[href="javascript:window.close();"] {
     .btnImg();
     .btnOk();
 
@@ -142,10 +142,10 @@ a[href="javascript:window.close();"] {
 }
 
 #find_user,
-#find_friend,
-form[action="/search"] [type="submit"],
-input[name="search"],
-input[name="searchform"] .button {
+    #find_friend,
+    form[action="/search"] [type="submit"],
+    input[name="search"],
+    input[name="searchform"] .button {
     .btnSearch();
 }
 
@@ -156,16 +156,16 @@ input[name="searchform"] .button {
 }
 
 .button[href="/"],
-[name="valid"],
-#jqmHide,
-[name="remove"],
-[name="cancelavatar"],
-[name="cancel"],
-[name="delete"],
-[name="deleteall"],
-[name="delete_all"],
-[name="deny"],
-a[href="javascript:window.close();"] {
+    [name="valid"],
+    #jqmHide,
+    [name="remove"],
+    [name="cancelavatar"],
+    [name="cancel"],
+    [name="delete"],
+    [name="deleteall"],
+    [name="delete_all"],
+    [name="deny"],
+    a[href="javascript:window.close();"] {
     .btnRemove();
 }
 
