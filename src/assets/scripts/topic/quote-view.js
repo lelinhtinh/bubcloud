@@ -8,7 +8,7 @@
 
 
     if ($btn.length) $btn.attr('href', function() {
-        return this.href + '&r=' + path.replace(/\/(t\d+(p\d+)?)\-.*/, '$1');
+        return this.href + '&r=' + path.replace(/\/(t\d+(p\d+)?)-.*/, '$1');
     });
 
     if ($quote.length) $quote.each(function() {

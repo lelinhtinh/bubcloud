@@ -512,18 +512,18 @@
                                 regexLink = /<a href="([^"]+)"[^>]+>(.*)?<\/a>/,
                                 matchLink = message.msg.match(regexLink),
 
-                                regexMedia = /<(iframe|embed)(.*)?src=\"([^"]+)"[^>]+>(<\/(iframe|embed)>)?/,
+                                regexMedia = /<(iframe|embed)(.*)?src="([^"]+)"[^>]+>(<\/(iframe|embed)>)?/,
                                 matchMedia = message.msg.match(regexMedia),
 
                                 testYoutube = function(url) {
-                                    var match = url.match(/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/);
+                                    var match = url.match(/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/);
 
                                     if (match && match[1].length == 11) return genYoutubeLink(match[1]);
                                     return false;
                                 },
 
                                 testDailyMotion = function(url) {
-                                    var match = url.match(/^.+(dailymotion\.com(\/embed)?\/(video|hub|playlist\/[^\/]+)|dai\.ly)\/([^_#]+)?[^#]*(#video=([^_&]+))?/);
+                                    var match = url.match(/^.+(dailymotion\.com(\/embed)?\/(video|hub|playlist\/[^/]+)|dai\.ly)\/([^_#]+)?[^#]*(#video=([^_&]+))?/);
                                     match = match ? match[6] || match[4] : null;
 
                                     if (match) return genDailymotionLink(match);

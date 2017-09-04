@@ -39,7 +39,7 @@ var dataTags = 'windows, linux, ios, android, software, online tool, google chro
 
             $tags.val(newMess[1]);
         } else {
-            $mess.val($mess.val().replace(/\[hr\]\n?\[b\]Tags:\s\[\/b\](\#[^\[]+\s?)+/g, ''));
+            $mess.val($mess.val().replace(/\[hr\]\n?\[b\]Tags:\s\[\/b\](#[^[]+\s?)+/g, ''));
         }
     }
 

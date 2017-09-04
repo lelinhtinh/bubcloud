@@ -92,7 +92,7 @@
             } else {
                 activeLink('search');
             }
-        } else if (/^\/g\d+\-/.test(path)) {
+        } else if (/^\/g\d+-/.test(path)) {
             activeLink('groups');
         } else if (/^\/(memberlist|groups|calendar|faq|login|register)$/.test(path)) {
             activeLink(path.slice(1));

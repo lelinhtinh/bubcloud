@@ -9,7 +9,7 @@ function bodau(str) {
     str = str.replace(/\u1ef3|\u00fd|\u1ef5|\u1ef7|\u1ef9/g, 'y');
     str = str.replace(/\u0111/g, 'd');
     str = str.replace(/\W+/g, '-');
-    str = str.replace(/\-{2}/g, '-');
-    str = str.replace(/^\-+|\-+$/g, '');
+    str = str.replace(/-{2}/g, '-');
+    str = str.replace(/^-+|-+$/g, '');
     return str;
 }
