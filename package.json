@@ -1,6 +1,6 @@
 {
     "name": "bubcloud",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A responsive theme for Forumotion",
     "keywords": [
         "forumotion",
@@ -25,32 +25,32 @@
     "author": "Zzbaivong <Zzbaivong@gmail.com> (http://baivong.github.io)",
     "license": "MIT",
     "devDependencies": {
-        "browser-sync": "^2.18.8",
-        "del": "^2.2.2",
-        "eslint": "^3.19.0",
+        "browser-sync": "^2.18.13",
+        "del": "^3.0.0",
+        "eslint": "^4.6.1",
         "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^3.1.1",
-        "gulp-changed": "^3.0.0",
-        "gulp-clean-css": "^3.0.4",
+        "gulp-autoprefixer": "^4.0.0",
+        "gulp-changed": "^3.1.0",
+        "gulp-clean-css": "^3.8.0",
         "gulp-concat": "^2.6.1",
-        "gulp-cssmin": "^0.1.7",
-        "gulp-eslint": "^3.0.1",
-        "gulp-header": "^1.8.8",
+        "gulp-cssmin": "^0.2.0",
+        "gulp-eslint": "^4.0.0",
+        "gulp-header": "^1.8.9",
         "gulp-if": "^2.0.2",
         "gulp-include": "^2.3.1",
-        "gulp-less": "^3.3.0",
+        "gulp-less": "^3.3.2",
         "gulp-plumber": "^1.1.0",
         "gulp-sequence": "^0.4.6",
         "gulp-string-replace": "^0.4.0",
-        "gulp-stylelint": "^3.9.0",
-        "gulp-uglify": "^2.1.2",
+        "gulp-stylelint": "^5.0.0",
+        "gulp-uglify": "^3.0.0",
         "gulp-util": "^3.0.8",
         "gulp-zip": "^4.0.0",
         "merge-stream": "^1.0.1",
-        "stylelint-order": "^0.4.3",
-        "yargs": "^7.1.0"
+        "stylelint-order": "^0.6.0",
+        "yargs": "^8.0.2"
     },
     "dependencies": {
-        "normalize.css": "^6.0.0"
+        "normalize.css": "^7.0.0"
     }
 }

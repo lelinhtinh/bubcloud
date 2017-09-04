@@ -1,0 +1,27 @@
+UPGRADE
+
+    ✔ Nâng cấp Gulp plugin @done (20:12:42, 4/9/2017)
+    ☐ Chuyển hướng giao diện mobile sang desktop
+    ☐ Không ép người dùng tự đăng nhập chatbox, thay vào đó tạo overlay: Nhấp tham gia thảo luận
+    ☐ Bỏ hình nền avatar, thay bằng màu theme
+    ☐ Hiển thị hình xem trước của link ảnh, ưu tiên thumbnail
+    ☐ Đảo chiều chatbox trở lại kiểu cũ, vì Chrome 56+ đã khắc phục việc cuộn trang bị nhảy
+    ☐ Khi chuyên mục bị ẩn, dùng cookie, tạo style của vùng ẩn trong head
+    ☐ Cập nhật commit hash trong link từ CDN rawgit
+
+FEATURE
+
+    ☐ Đưa lên npm để thay thế CDN
+    ☐ Tạo giao diện blog
+    ☐ Chức năng gửi ảnh, video
+    ☐ Bubcloud thêm thông tin diễn đàn và key OneSignal vào config.json để tạo gim và thông báo
+    ☐ Thêm bộ gõ Tiếng Việt
+
+BUG
+
+    ✔ Lệch icon chuyên mục. @done (20:26:44, 27/4/2017)
+    ✘ Không dùng được emoji trong hòm thư @cancelled (21:44:47, 22/5/2017)
+    ☐ Lỗi dropdown menu ở editor trong hòm thư
+    ☐ Không hiện màu avatar của thành viên online
+    ☐ Mất giao diện mobile
+    ☐ Nhóm các câu thoại tách ngay sau tin đầu tiên của ngày dù là tin liên tiếp
