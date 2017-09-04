@@ -303,4 +303,4 @@
     //]]>
 </script>
 <!-- END switch_image_resize -->
-<script src="//cdn.rawgit.compublic/1.0.6/bubcloud.topic.js" type="text/javascript"></script>
+<script src="//unpkg.com/bubcloud@1.0.6/dist/bubcloud.topic.js" type="text/javascript"></script>

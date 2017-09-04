@@ -26,7 +26,7 @@
         </p>
         <div id="back_to_top"></div>
     </footer>
-    <script src="//cdn.rawgit.compublic/1.0.6/bubcloud.footer.js" type="text/javascript"></script>
+    <script src="//unpkg.com/bubcloud@1.0.6/dist/bubcloud.footer.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         //<![CDATA[

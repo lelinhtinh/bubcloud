@@ -205,7 +205,7 @@
     </form>
 </div>
 <!-- END switch_user_login_form_footer -->
-<script src="//cdn.rawgit.compublic/1.0.6/bubcloud.index.js" type="text/javascript"></script>
+<script src="//unpkg.com/bubcloud@1.0.6/dist/bubcloud.index.js" type="text/javascript"></script>
 {AUTO_DST}
 <!-- BEGIN switch_fb_index_login -->
 <div id="fb-root"></div>

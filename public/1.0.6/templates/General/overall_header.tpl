@@ -17,7 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     {T_HEAD_STYLESHEET}
     {CSS}
-    <link href="//cdn.rawgit.compublic/1.0.6/style.css" rel="stylesheet" type="text/css">
+    <link href="//unpkg.com/bubcloud@1.0.6/dist/style.css" rel="stylesheet" type="text/css">
     <style id="bubcloud"></style>
     <link rel="search" type="application/opensearchdescription+xml" href="/improvedsearch.xml" title="{SITENAME}">
     <link rel="search" type="application/opensearchdescription+xml" href="{URL_BOARD_DIRECTORY}/search/improvedsearch.xml" title="{SEARCH_FORUMS}">
@@ -38,7 +38,7 @@
     <script src="{switch_fb_login.JS_FB_LOGIN}" type="text/javascript"></script>
     <!-- END switch_fb_login -->
     <script src="{JS_DIR}invision.js" type="text/javascript"></script>
-    <script src="//cdn.rawgit.compublic/1.0.6/bubcloud.header.js" type="text/javascript"></script>
+    <script src="//unpkg.com/bubcloud@1.0.6/dist/bubcloud.header.js" type="text/javascript"></script>
     {HOSTING_JS}
     <!-- BEGIN google_analytics_code -->
     <script type="text/javascript">
