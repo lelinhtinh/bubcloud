@@ -8,6 +8,7 @@ UPGRADE
     ✘ Đảo chiều chatbox trở lại kiểu cũ, vì Chrome 56+ đã khắc phục việc cuộn trang bị nhảy @cancelled (23:05:12, 4/9/2017)
     ☐ Khi chuyên mục bị ẩn, dùng cookie, tạo style của vùng ẩn trong head
     ✘ Cập nhật commit hash trong link từ CDN rawgit @cancelled (21:54:02, 4/9/2017)
+    ✔ Xóa bỏ cấu trúc Microdata lạc hậu. @done (2017-9-17 17:51:45)
 
 FEATURE
 

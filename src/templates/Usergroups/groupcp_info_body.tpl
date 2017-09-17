@@ -1,7 +1,7 @@
 <nav class="breadcrumb">
-    <ul id="navstrip" class="clearfix" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-        <li class="begin"><a href="{U_INDEX}" itemprop="url"><span itemprop="title">{L_INDEX}</span></a></li>
-        <li><a href="/groups" class="nav" itemprop="url"><span itemprop="title">Nhóm</span></a></li>
+    <ul id="navstrip" class="clearfix">
+        <li class="begin"><a href="{U_INDEX}"><span>{L_INDEX}</span></a></li>
+        <li><a href="/groups" class="nav"><span>Nhóm</span></a></li>
         <li><strong>{GROUP_NAME}</strong></li>
     </ul>
 </nav>
