@@ -1,4 +1,4 @@
-/* global my_getcookie, my_setcookie, debounce */
+/* global my_getcookie, debounce */
 (function($) {
 
     'use strict';
@@ -222,13 +222,10 @@
             themeCookie = my_getcookie('bubcloud'),
 
             firstLoad = true,
-            autoLogin = true,
 
             lastMessSize = 0,
             currentMessSize = 0,
             recentMessSize = 0;
-
-        if (my_getcookie('autologin') === 'off') autoLogin = false;
 
         $head.append($roboto);
 
@@ -292,12 +289,6 @@
         $body.on('click', '.msg-avatar', function() {
             $mess[0].value += this.dataset.name;
             $mess.focus();
-        }).on('click', '#chatbox_option_disco', function() {
-            my_setcookie('autologin', 'off');
-            autoLogin = false;
-        }).on('click', '#chatbox_option_co', function() {
-            my_setcookie('autologin', 'on');
-            autoLogin = true;
         }).on('click', '.chat-title', function(e) {
             e.preventDefault();
 
@@ -480,7 +471,7 @@
                         if (currentUser === '-10') {
                             if (message.msg.indexOf('<script>') !== -1) {
                                 message.msg = message.msg.replace(/<script>.+<\/script>/, '');
-                                if (autoLogin) _chatbox.connect();
+                                $contents.append('<div id="connectOverlay" onclick="chatbox.connect()"><h4>Bạn hiện chưa kết nối vào Chatbox</h4><p>Nhấp vào đây để tham gia cuộc trò chuyện.</p></div>');
                             }
 
                             if (!firstLoad && i === max) {
