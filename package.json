@@ -1,6 +1,6 @@
 {
     "name": "bubcloud",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A responsive theme for Forumotion",
     "keywords": [
         "forumotion",
@@ -51,6 +51,7 @@
         "yargs": "^8.0.2"
     },
     "dependencies": {
+        "hint.css": "^2.5.0",
         "normalize.css": "^7.0.0"
     }
 }

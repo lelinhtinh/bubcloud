@@ -192,7 +192,7 @@
             },
 
             createAudio = function(id) {
-                var cdn = 'https://unpkg.com/bubcloud@1.0.6/bin/';
+                var cdn = 'https://unpkg.com/bubcloud@1.0.7/bin/';
 
                 return $('<audio>', {
                     id: 'chatbox-' + id + '-audio',
