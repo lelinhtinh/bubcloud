@@ -4,7 +4,7 @@ UPGRADE
     ✔ Chuyển hướng giao diện mobile sang desktop @done (23:04:51, 4/9/2017)
     ✔ Không ép người dùng tự đăng nhập chatbox, thay vào đó tạo overlay: Nhấp tham gia thảo luận @done (2017-9-17 20:36:40)
     ✔ Bỏ hình nền avatar, thay bằng màu theme @done (2017-9-17 22:53:41)
-    ☐ Hiển thị hình xem trước của link ảnh, ưu tiên thumbnail
+    ✘ Hiển thị hình xem trước của link ảnh, ưu tiên thumbnail @cancelled (2017-9-17 22:55:42)
     ✘ Đảo chiều chatbox trở lại kiểu cũ, vì Chrome 56+ đã khắc phục việc cuộn trang bị nhảy @cancelled (23:05:12, 4/9/2017)
     ☐ Khi chuyên mục bị ẩn, dùng cookie, tạo style của vùng ẩn trong head
     ✘ Cập nhật commit hash trong link từ CDN rawgit @cancelled (21:54:02, 4/9/2017)
@@ -18,7 +18,7 @@ FEATURE
     ☐ Bubcloud thêm thông tin diễn đàn và key OneSignal vào config.json để tạo gim và thông báo
     ☐ Thêm bộ gõ Tiếng Việt
     ☐ Thêm HighlightJS + ClipboardJS làm nổi bật khung Code
-    ☐ Xem trước hình ảnh trong Chatbox
+    ✔ Xem trước hình ảnh trong Chatbox @done (2017-9-17 23:41:49)
 
 BUG
 

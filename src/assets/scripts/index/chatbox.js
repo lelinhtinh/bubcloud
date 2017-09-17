@@ -470,7 +470,6 @@
 
                         if (currentUser === '-10') {
                             if (message.msg.indexOf('<script>') !== -1) {
-                                message.msg = message.msg.replace(/<script>.+<\/script>/, '');
                                 $contents.append('<div id="connectOverlay" onclick="chatbox.connect()"><h4>Bạn hiện chưa kết nối vào Chatbox</h4><p>Nhấp vào đây để tham gia cuộc trò chuyện.</p></div>');
                             }
 
@@ -540,6 +539,10 @@
                                     } else if (vimeo) {
                                         message.msg = message.msg.replace(regex, vimeo);
                                     }
+                                },
+
+                                genImageLink = function(regex, match) {
+                                    if (/\.(jpg|png|gif)$/.test(match)) message.msg = message.msg.replace(regex, '<a href="$1" target="_blank" class="cb-bubcloud-image"><img src="$1" alt=""></a>');
                                 };
 
 
@@ -569,6 +572,7 @@
                                     }, 1000);
                                 }
                             } else if (matchLink) {
+                                genImageLink(regexLink, matchLink[1]);
                                 genVideoLink(regexLink, matchLink[1]);
                             } else if (matchMedia) {
                                 genVideoLink(regexMedia, matchMedia[3]);
