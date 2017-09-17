@@ -3,7 +3,7 @@ UPGRADE
     ✔ Nâng cấp Gulp plugin @done (20:12:42, 4/9/2017)
     ✔ Chuyển hướng giao diện mobile sang desktop @done (23:04:51, 4/9/2017)
     ✔ Không ép người dùng tự đăng nhập chatbox, thay vào đó tạo overlay: Nhấp tham gia thảo luận @done (2017-9-17 20:36:40)
-    ☐ Bỏ hình nền avatar, thay bằng màu theme
+    ✔ Bỏ hình nền avatar, thay bằng màu theme @done (2017-9-17 22:53:41)
     ☐ Hiển thị hình xem trước của link ảnh, ưu tiên thumbnail
     ✘ Đảo chiều chatbox trở lại kiểu cũ, vì Chrome 56+ đã khắc phục việc cuộn trang bị nhảy @cancelled (23:05:12, 4/9/2017)
     ☐ Khi chuyên mục bị ẩn, dùng cookie, tạo style của vùng ẩn trong head
