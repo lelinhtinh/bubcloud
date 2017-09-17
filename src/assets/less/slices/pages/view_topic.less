@@ -17,9 +17,11 @@
     img {
         &:extend(.lastpost-avatar img);
         filter:grayscale(100%);
+    }
 
-        .online &,
-        &:hover {
+    &.online,
+    &:hover {
+        img {
             filter:none;
         }
     }
