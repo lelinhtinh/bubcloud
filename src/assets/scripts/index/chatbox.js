@@ -242,7 +242,7 @@
             }));
         }
 
-        // $head.find('link[href$="-ltr.css"]').attr('href', '/chatbox.css');
+        if (location.host === 'localhost:7777') $head.find('link[href$="-ltr.css"]').attr('href', '/chatbox.css');
 
         $body.prepend($media);
         $.each($audio, function(key) {
