@@ -16,6 +16,7 @@ FEATURE
     ☐ Chức năng gửi ảnh, video
     ☐ Bubcloud thêm thông tin diễn đàn và key OneSignal vào config.json để tạo gim và thông báo
     ☐ Thêm bộ gõ Tiếng Việt
+    ☐ Thêm HighlightJS + ClipboardJS làm nổi bật khung Code
 
 BUG
 
