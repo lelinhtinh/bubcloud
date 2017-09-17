@@ -24,7 +24,7 @@ BUG
 
     ✔ Lệch icon chuyên mục. @done (21:52:42, 4/9/2017)
     ✘ Không dùng được emoji trong hòm thư @cancelled (21:44:47, 22/5/2017)
-    ☐ Lỗi dropdown menu ở editor trong hòm thư
+    ✔ Lỗi dropdown menu ở editor trong hòm thư @done (2017-9-17 18:14:58)
     ✔ Không hiện màu avatar của thành viên online @done (2017-9-17 18:00:05)
     ✘ Mất giao diện mobile @cancelled (23:05:29, 4/9/2017)
     ☐ Nhóm các câu thoại tách ngay sau tin đầu tiên của ngày dù là tin liên tiếp
