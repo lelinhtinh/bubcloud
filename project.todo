@@ -19,6 +19,7 @@ FEATURE
     ☐ Thêm bộ gõ Tiếng Việt
     ☐ Thêm HighlightJS + ClipboardJS làm nổi bật khung Code
     ✔ Xem trước hình ảnh trong Chatbox @done (2017-9-17 23:41:49)
+    ✔ Thêm tooltip cho các nút chức năng của Chatbox @done (2017-9-18 00:50:27)
 
 BUG
 

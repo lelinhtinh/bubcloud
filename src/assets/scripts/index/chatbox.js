@@ -112,6 +112,7 @@
             $body = $chatbox.contents().find('body'),
 
             $contents = $body.find('#chatbox'),
+            $chatbox_btn = $body.find('.chat-title'),
             $chatbox_footer = $body.find('#chatbox_footer'),
             $mess = $body.find('#message'),
             $chatbox_messenger_form = $body.find('#chatbox_messenger_form'),
@@ -122,16 +123,21 @@
             $away_users = $body.find('.away-users'),
             $member_title = $body.find('.member-title'),
 
-            createDiv = function(id) {
-                return $('<div>', {
+            createDiv = function(id, dir, tip) {
+                var config = {
                     id: id
-                });
+                };
+
+                if (dir) config.class = dir;
+                if (tip) config['aria-label'] = tip;
+
+                return $('<div>', config);
             },
 
             createBtn = function(id, icon) {
                 var $btn = $('<div>', {
                     id: id + '_wrap',
-                    class: 'cb-bubcloud-options'
+                    class: 'cb-bubcloud-options hint--left'
                 }).append($('<img>', {
                     src: '//twemoji.maxcdn.com/36x36/' + icon + '.png',
                     alt: id,
@@ -202,7 +208,7 @@
                 offline: createAudio('offline')
             },
             mute = false,
-            $soundControl = createDiv('sound_control'),
+            $soundControl = createDiv('sound_control', 'hint--top-right', 'Tắt âm báo'),
             playAudio = function(id) {
                 if (!mute) $audio[id][0].play();
             },
@@ -211,7 +217,7 @@
             buzzDisable = false,
 
             isFullscreen = false,
-            $fullscreen = createDiv('fullscreen'),
+            $fullscreen = createDiv('fullscreen', 'hint--top-right', 'Phóng to'),
 
             $roboto = $('<link>', {
                 href: '//fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=latin-ext,vietnamese',
@@ -256,6 +262,13 @@
             }, 200);
         });
 
+        $chatbox_btn.addClass('hint--top-right').attr('aria-label', 'Danh sách truy cập');
+
+        $chatbox_option_co.addClass('hint--top-left').attr('aria-label', 'Đăng nhập');
+        $chatbox_option_disco.addClass('hint--top-left').attr('aria-label', 'Đăng xuất');
+
+        $body.find('#chatbox_option_with_archives').addClass('hint--top-left').attr('aria-label', 'Xem tin nhắn cũ');
+        $body.find('#chatbox_option_without_archives').addClass('hint--top-left').attr('aria-label', 'Ẩn tin nhắn cũ');
 
         $body.find('.chatbox-title').after($fullscreen).after($soundControl);
 
@@ -264,9 +277,11 @@
 
             if (mute) {
                 $soundControl.addClass('disable');
+                $soundControl.attr('aria-label', 'Bật âm báo');
                 mute = true;
             } else {
                 $soundControl.removeClass('disable');
+                $soundControl.attr('aria-label', 'Tắt âm báo');
                 mute = false;
             }
         });
@@ -277,11 +292,13 @@
             if (isFullscreen) {
                 $fullscreen.addClass('active');
                 $htmlTop.addClass('cb-bubcloud-fullscreen');
-                mute = true;
+                $fullscreen.attr('aria-label', 'Thu nhỏ');
+                isFullscreen = true;
             } else {
                 $fullscreen.removeClass('active');
                 $htmlTop.removeClass('cb-bubcloud-fullscreen');
-                mute = false;
+                $fullscreen.attr('aria-label', 'Phóng to');
+                isFullscreen = false;
             }
         });
 
@@ -298,6 +315,7 @@
             } else {
                 $body.toggleClass('toggleUsersList');
             }
+            $chatbox_btn.attr('aria-label', 'Danh sách truy cập');
         }).on('click', '#chatbox', function() {
             if ($body.hasClass('toggleUsersList')) $body.removeClass('toggleUsersList');
         }).on('click', '.cb-bubcloud-media', function(e) {
@@ -305,6 +323,7 @@
 
             $media.html('<iframe width="560" height="315" src="' + this.dataset.video + '" frameborder="0" allowfullscreen></iframe>');
             if (!$body.hasClass('toggleMediaList')) $body.addClass('toggleMediaList');
+            $chatbox_btn.attr('aria-label', 'Tắt trình phát');
         });
 
 
@@ -337,7 +356,7 @@
 
         }).on('click', function() {
             animateToggle($(this));
-        });
+        }).attr('aria-label', 'Biểu tượng cảm xúc');
 
 
         $buzz.on('click', function(e) {
@@ -351,7 +370,7 @@
 
             $mess.val('/buzz');
             zzChatbox.send();
-        });
+        }).attr('aria-label', 'BUZZ');
 
         $mess.on('input', function() {
             if ($mess.val().trim() === '/buzz') $mess.val('');

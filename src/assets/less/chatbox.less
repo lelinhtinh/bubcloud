@@ -1,5 +1,6 @@
 @import "slices/variables.less";
 @import (reference) "slices/mixins.less";
+@import (less) "node_modules/hint.css/hint.css";
 
 .transition() {
     transition: all 200ms ease-in-out;
@@ -152,7 +153,7 @@ a {
     height: 30px;
     float: left;
     margin: 5px;
-    text-indent: -9999px;
+    font-size: 0;
     background: url("//i68.servimg.com/u/f68/19/38/83/61/chat6110.png") no-repeat center center @wrapperColor;
     cursor: pointer;
 
@@ -330,7 +331,7 @@ a {
     margin-bottom: -1em;
     border-top: 1px dashed @wrapperColor;
     text-align: center;
-    color: @wrapperColor;
+    color: @lightSecondaryColor;
 
     span {
         position: relative;
@@ -372,16 +373,15 @@ a {
         content: attr(data-time);
         position: absolute;
         top: 0;
-        right: -50px;
+        right: -60px;
         z-index: 10;
         visibility: hidden;
         padding: 2px 4px;
         border-radius: 3px;
         white-space: pre;
         font-family: @fontCode;
-        font-size: 9px;
-        color: @textPrimaryColor;
-        background: @lightSecondaryColor;
+        font-size: 11px;
+        color: @lightSecondaryColor;
         opacity: 0;
     }
 
@@ -391,7 +391,7 @@ a {
     }
 
     &.no-text {
-        padding: .8em 0;
+        padding: 0;
         background: none!important;
     }
 
@@ -527,7 +527,7 @@ a {
 
         &:before {
             right: auto;
-            left: -50px;
+            left: -60px;
         }
 
         a {
