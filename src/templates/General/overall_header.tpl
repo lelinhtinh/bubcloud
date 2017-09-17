@@ -9,7 +9,7 @@
     <link rel="canonical" href="{switch_canonical_url.CANONICAL_URL}">
     <!-- END switch_canonical_url -->
     {META_FAVICO}
-    <link rel="icon" type="image/png" href="http://i35.servimg.com/u/f35/19/38/83/61/6410.png">
+    <link rel="icon" type="image/png" href="https://i35.servimg.com/u/f35/19/38/83/61/6410.png">
     {META} {META_FB_LIKE}
     <meta name="title" content="{SITENAME_TITLE}{PAGE_TITLE}">
     <meta name="viewport" content="width=device-width, initial-scale=1">

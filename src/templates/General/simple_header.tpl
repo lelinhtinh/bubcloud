@@ -7,7 +7,7 @@
     <meta http-equiv="content-style-type" content="text/css">
     {META}
     {T_HEAD_STYLESHEET}
-    <link rel="icon" type="image/png" href="http://i35.servimg.com/u/f35/19/38/83/61/6410.png">
+    <link rel="icon" type="image/png" href="https://i35.servimg.com/u/f35/19/38/83/61/6410.png">
     <script src="{JQUERY_PATH}" type="text/javascript"></script>
     <script src="{JS_DIR}{L_LANG}.js" type="text/javascript"></script>
 </head>

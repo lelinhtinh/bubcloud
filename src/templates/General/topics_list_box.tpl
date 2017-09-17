@@ -165,7 +165,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}() {
     $('.topic-desc').each(function() {
         var _this = this,
             textSrc = $(this).text(),
-            dfUrl = 'http://i78.servimg.com/u/f78/17/70/81/78/inet-n10.jpg';
+            dfUrl = 'https://i78.servimg.com/u/f78/17/70/81/78/inet-n10.jpg';
         if (!/^https?:\/\/(?:[\w\-]+\.)+\w{2,6}(?:\/[^\/#?]+)+\.(?:jpg|gif|png|jpeg)$/i.test(textSrc)) {
             topicthumbnail(_this, dfUrl);
             return;

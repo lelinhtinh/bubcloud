@@ -62,7 +62,7 @@
         }
 
         function genYoutubeLink(video_id) {
-            return '<a class="cb-bubcloud-media" data-video="https://www.youtube.com/embed/' + video_id + '?rel=0&autoplay=1" href="http://youtu.be/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(http://img.youtube.com/vi/' + video_id + '/mqdefault.jpg);"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+            return '<a class="cb-bubcloud-media" data-video="https://www.youtube.com/embed/' + video_id + '?rel=0&autoplay=1" href="https://youtu.be/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(//img.youtube.com/vi/' + video_id + '/mqdefault.jpg);"><img src="//i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
         }
 
         function genDailymotionLink(video_id) {
@@ -80,7 +80,7 @@
                 });
             }
 
-            return '<a class="cb-bubcloud-media daily-icon-' + video_id + '" data-video="https://www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&endscreen-enable=0" href="http://dai.ly/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+            return '<a class="cb-bubcloud-media daily-icon-' + video_id + '" data-video="https://www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&endscreen-enable=0" href="https://dai.ly/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="//i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
         }
 
         function genVimeoLink(video_id) {
@@ -96,7 +96,7 @@
                 });
             }
 
-            return '<a class="cb-bubcloud-media vimeo-icon-' + video_id + '" data-video="https://player.vimeo.com/video/' + video_id + '?autoplay=1" href="http://vimeo.com/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="http://i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
+            return '<a class="cb-bubcloud-media vimeo-icon-' + video_id + '" data-video="https://player.vimeo.com/video/' + video_id + '?autoplay=1" href="https://vimeo.com/' + video_id + '" target="_blank" rel="nofollow" style="background-image: url(' + bg + ');"><img src="//i97.servimg.com/u/f97/19/51/54/34/play-i10.png" alt="Play"></a>';
         }
 
 
@@ -167,7 +167,7 @@
                         $item = $('<img>', {
                             class: 'emoji',
                             alt: element,
-                            src: 'http://twemoji.maxcdn.com/16x16/' + element + '.png'
+                            src: 'https://twemoji.maxcdn.com/16x16/' + element + '.png'
                         }),
                         $li = $('<li>');
                     $item.appendTo($li).appendTo($emoji_ul);
@@ -186,7 +186,7 @@
             },
 
             createAudio = function(id) {
-                var cdn = '//baivong.github.io/cdn/bubcloud/';
+                var cdn = 'https://unpkg.com/bubcloud@1.0.6/bin/';
 
                 return $('<audio>', {
                     id: 'chatbox-' + id + '-audio',

@@ -17,6 +17,7 @@ FEATURE
     ☐ Bubcloud thêm thông tin diễn đàn và key OneSignal vào config.json để tạo gim và thông báo
     ☐ Thêm bộ gõ Tiếng Việt
     ☐ Thêm HighlightJS + ClipboardJS làm nổi bật khung Code
+    ☐ Xem trước hình ảnh trong Chatbox
 
 BUG
 
@@ -26,3 +27,4 @@ BUG
     ☐ Không hiện màu avatar của thành viên online
     ✘ Mất giao diện mobile @cancelled (23:05:29, 4/9/2017)
     ☐ Nhóm các câu thoại tách ngay sau tin đầu tiên của ngày dù là tin liên tiếp
+    ✔ Sửa lỗi cảnh báo SSL từ các tài nguyên web. @done (2017-9-17 17:40:20)

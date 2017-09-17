@@ -45,7 +45,7 @@
                 $item = $('<img>', {
                     'class': 'emoji',
                     alt: element,
-                    src: 'http://twemoji.maxcdn.com/' + emoji_size + 'x' + emoji_size + '/' + element + '.png'
+                    src: 'https://twemoji.maxcdn.com/' + emoji_size + 'x' + emoji_size + '/' + element + '.png'
                 });
             $item.appendTo($wrap);
         }
@@ -73,7 +73,7 @@
     }
 
     $('head').append($('<style>', {
-        text: '.sceditor-button-twemoji div{background:url(http://twemoji.maxcdn.com/16x16/1f600.png)!important}.sceditor-twemoji{width:280px;height:250px;overflow-y:auto}.sceditor-twemoji img{cursor:pointer;margin:7px;width:16px;height:16px;overflow:hidden;text-indent:-99px}.sceditor-twemoji img:hover{opacity:.7}'
+        text: '.sceditor-button-twemoji div{background:url(//twemoji.maxcdn.com/16x16/1f600.png)!important}.sceditor-twemoji{width:280px;height:250px;overflow-y:auto}.sceditor-twemoji img{cursor:pointer;margin:7px;width:16px;height:16px;overflow:hidden;text-indent:-99px}.sceditor-twemoji img:hover{opacity:.7}'
     }));
 
     // create sceditor button and drop down

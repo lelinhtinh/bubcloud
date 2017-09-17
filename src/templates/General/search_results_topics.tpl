@@ -24,7 +24,7 @@
                     <!-- BEGIN searchresults -->
                     <tr>
                         <!-- <td class="row2 centered">
-                            <div style="background-image:url(http://i78.servimg.com/u/f78/17/70/81/78/inet-n10.jpg);" class="topicthumbnail"></div>
+                            <div style="background-image:url(https://i78.servimg.com/u/f78/17/70/81/78/inet-n10.jpg);" class="topicthumbnail"></div>
                         </td> -->
                         <td class="row2 topic-title">
                             <img src="{searchresults.TOPIC_FOLDER_IMG}" alt="{searchresults.L_TOPIC_FOLDER_ALT}" title="{searchresults.L_TOPIC_FOLDER_ALT}" />&nbsp;
@@ -49,7 +49,7 @@
                             </p>
                         </td>
                         <td class="row1 lastaction">
-                            <!-- <span class="lastpost-avatar"><img src="http://r38.imgfast.net/users/3815/19/59/01/avatars/gallery/noavat10.jpg" alt="avatar"></span> -->
+                            <!-- <span class="lastpost-avatar"><img src="https://r38.imgfast.net/users/3815/19/59/01/avatars/gallery/noavat10.jpg" alt="avatar"></span> -->
                             <span class="stat4r">
                                 {searchresults.LAST_POST_TIME}
                                 <br />
