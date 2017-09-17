@@ -28,5 +28,5 @@ BUG
     ✔ Lỗi dropdown menu ở editor trong hòm thư @done (2017-9-17 18:14:58)
     ✔ Không hiện màu avatar của thành viên online @done (2017-9-17 18:00:05)
     ✘ Mất giao diện mobile @cancelled (23:05:29, 4/9/2017)
-    ☐ Nhóm các câu thoại tách ngay sau tin đầu tiên của ngày dù là tin liên tiếp
+    ✔ Nhóm các câu thoại tách ngay sau tin đầu tiên của ngày dù là tin liên tiếp @done (2017-9-18 01:05:08)
     ✔ Sửa lỗi cảnh báo SSL từ các tài nguyên web. @done (2017-9-17 17:40:20)

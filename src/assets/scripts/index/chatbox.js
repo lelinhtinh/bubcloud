@@ -460,18 +460,14 @@
                                 return datetime.length === 1 || (datetime.length === 2 && recentDay === datetime[1]);
                             },
                             checkTime = function() {
-                                if (!checkDay()) {
-                                    return false;
-                                } else {
-                                    var time = datetime[0].split(':'),
-                                        delay = 0;
-                                    time = parseInt(time[0], 10) * 60 + parseInt(time[1], 10);
+                                var time = datetime[0].split(':'),
+                                    delay = 0;
+                                time = parseInt(time[0], 10) * 60 + parseInt(time[1], 10);
 
-                                    delay = (recentTime === 0) ? 0 : time - recentTime;
-                                    recentTime = time;
+                                delay = (recentTime === 0) ? 0 : Math.abs(time - recentTime);
+                                recentTime = time;
 
-                                    return (0 <= delay && delay < 5);
-                                }
+                                return (0 <= delay && delay < 5);
                             },
 
                             $item = $('<div>', {
