@@ -39,7 +39,6 @@ var fs = require('fs'),
     ].join('\n'),
 
     pjPath = {
-        public: 'public/' + pkg.version,
         bin: 'bin',
         js: 'src/assets/scripts/',
         less: 'src/assets/less/**/*.less',
@@ -80,7 +79,6 @@ gulp.task('less', function() {
             .pipe(header(banner, {
                 pkg: pkg
             }))
-            .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
             .pipe(gulp.dest('dist'))
             .pipe(browserSync.stream());
     }
@@ -89,13 +87,6 @@ gulp.task('less', function() {
         chatbox = buildLess('src/assets/less/chatbox.less');
 
     return merge(forum, chatbox);
-});
-
-// npm run gulp bbtheme
-gulp.task('bbtheme', function() {
-    return gulp.src('bin/*.bbtheme')
-        .pipe(changed(pjPath.public))
-        .pipe(gulp.dest(pjPath.public));
 });
 
 
@@ -132,7 +123,6 @@ gulp.task('js', function() {
                 .pipe(header(banner, {
                     pkg: pkg
                 }))
-                .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)))
                 .pipe(gulp.dest('dist'));
         });
 
@@ -159,7 +149,6 @@ gulp.task('prezip', function() {
         }
 
         stream.pipe(gulp.dest('dist'));
-        stream.pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)));
 
         return stream;
     }
@@ -185,8 +174,7 @@ gulp.task('prezip', function() {
                 base: './src/'
             })
             .pipe(changed('dist'))
-            .pipe(gulp.dest('dist'))
-            .pipe(gulpif(argv.deploy, gulp.dest(pjPath.public)));
+            .pipe(gulp.dest('dist'));
 
     return merge(headerTpl, footerTpl, indexTpl, topicTpl, postingTpl, otherTpl);
 });
@@ -223,7 +211,7 @@ gulp.task('prebuild', function() {
 // npm run build
 // npm run gulp build
 // gulp build --deploy
-gulp.task('build', gulpSequence('prebuild', 'lint', ['less', 'js', 'bbtheme', 'zip']));
+gulp.task('build', gulpSequence('prebuild', 'lint', ['less', 'js', 'zip']));
 
 
 // npm start
