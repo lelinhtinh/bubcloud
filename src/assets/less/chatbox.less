@@ -461,14 +461,6 @@ a {
         height: 30px;
     }
 
-    &:before {
-        &:extend(.msg-act:before);
-        content: attr(data-name);
-        top: -16px;
-        right: auto;
-        left: 0;
-    }
-
     &:after {
         .border();
         .circle();
@@ -491,10 +483,6 @@ a {
 
     &.offline:after {
         content: none;
-    }
-
-    &:hover:before {
-        &:extend(.msg-act:hover:before);
     }
 
     img {

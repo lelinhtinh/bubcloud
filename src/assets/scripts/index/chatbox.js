@@ -485,7 +485,7 @@
 
                         if (currentUser === '-10') {
                             if (message.msg.indexOf('<script>') !== -1) {
-                                $contents.append('<div id="connectOverlay" onclick="chatbox.connect()"><h4>Bạn hiện chưa kết nối vào Chatbox</h4><p>Nhấp vào đây để tham gia cuộc trò chuyện.</p></div>');
+                                $contents.append('<div id="connectOverlay" onclick="chatbox.connect()"><h4>Bạn chưa kết nối vào Chatbox</h4><p>Nhấp vào đây để tham gia trò chuyện</p></div>');
                             }
 
                             if (!firstLoad && i === max) {
@@ -508,7 +508,7 @@
                                     class: 'msg-avatar',
                                     'data-user': currentUser,
                                     'data-name': message.username,
-                                    html: '<div class="msg-avatar-circle"><img src="' + message.user.avatar + '" /></div>'
+                                    html: '<div class="hint--top-right" aria-label="' + message.username + '"><div class="msg-avatar-circle"><img src="' + message.user.avatar + '" /></div></div>'
                                 }),
                                 $wrap = $('<div>', {
                                     class: 'msg-wrap'
